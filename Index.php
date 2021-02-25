@@ -1,4 +1,4 @@
-<?php include "PHP/header.php"; ?>
+<?php include "View/header.php"; ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,12 +7,12 @@
     <body>
         <p style="text-align:center;">
         <br><br>
-        <a href="registration.php">Register Here</a>
+        <a href="view/registration.php">Register Here</a>
         <br><br>
-        <a href="login.php">Login Here</a>
+        <a href="view/login.php">Login Here</a>
         </p>
     </body>
 </html>
 
 
-<?php include "PHP/footer.php"; ?>
+<?php include "View/footer.php"; ?>

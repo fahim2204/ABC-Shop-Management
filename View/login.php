@@ -1,4 +1,4 @@
-<?php include "PHP/header.php"; ?>
+<?php include "header.php"; ?>
 
 <!DOCTYPE html>
 <html>
@@ -48,4 +48,4 @@
 </html>
 
 
-<?php include "PHP/footer.php"; ?>
+<?php include "footer.php"; ?>

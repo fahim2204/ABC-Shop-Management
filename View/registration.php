@@ -1,5 +1,5 @@
-<?php include "PHP/header.php"; ?>
-<?php include "PHP/control/registrationValidation.php"; ?>
+<?php include "header.php"; ?>
+<?php include "../control/registrationValidation.php"; ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -112,4 +112,4 @@
 
 
 
-<?php include "PHP/footer.php"; ?>
+<?php include "footer.php"; ?>
