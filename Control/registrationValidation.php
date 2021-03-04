@@ -1,8 +1,9 @@
 <?php  
             
-            $name = $email = $userName = $password = $cpassword = "";
+            $name = $email = $userName = $password = $cpassword = $phone = $address = "";
             
             $validateName = $validateUserName = $validateEmail = $validateDob = $validateGender = "";
+            $validatePhn = $validateAddr = "";
             $v1=$v2=$v3= "";
             $validatePassword = $validateCPassword = "";
             $ValidateAllField = "";
@@ -14,14 +15,24 @@
                 $userName = $_REQUEST["username"];
                 $password = $_REQUEST["password"];
                 $cpassword = $_REQUEST["cpassword"];
+                $address = $_REQUEST["address"];
+                $phone = $_REQUEST["phone"];
 
-                if(empty($name) || empty($_REQUEST["gender"]) || empty($password) || empty($cpassword) || empty($userName))
+                if(empty($name) || empty($_REQUEST["gender"]) || empty($password) || empty($cpassword) || empty($userName)|| empty($address) || empty($phone))
                 {
                     $ValidateAllField = "Please Fillup All The Field!!";
                 }
                 if(empty($name) || strlen($name)<4)
                 {
                     $validateName = "You must Enter a valid Name";
+                }
+                if(empty($address))
+                {
+                    $validateAddr = "You must Enter a address";
+                }
+                if(empty($phone))
+                {
+                    $validatePhn = "You must Enter a Phone Number";
                 }
                 if(empty($userName) || strlen($userName)<6 || !preg_match("/^[A-Za-z0-9_~\-!@.#\$%\^&*\(\)]+$/",$userName))
                 {
