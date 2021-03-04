@@ -1,4 +1,5 @@
 <?php include "header.php"; ?>
+<?php include "../control/loginValidation.php"; ?>
 
 <!DOCTYPE html>
 <html>
@@ -7,7 +8,7 @@
     </head>
     <body>
         <br><br><br>
-        <form value="Login"> 
+        <form value="Login" action="<?php echo $_SERVER["PHP_SELF"]?>" method="POST"> 
             <table>
                 <tr>
                     <td>
@@ -27,10 +28,12 @@
                 </tr>
                 <tr>
                     <td>
+                        <br>
                         <input type="checkbox" value="rem">
                         <label for="rem">Remember me<label>
                     </td>
                     <td>
+                        <?php echo $ValidateLogin; ?>
                     </td>
                 </tr>
                 <tr>
