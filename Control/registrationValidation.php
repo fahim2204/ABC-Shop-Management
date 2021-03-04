@@ -8,7 +8,12 @@
             $validatePassword = $validateCPassword = "";
             $ValidateAllField = "";
 
-            if($_SERVER["REQUEST_METHOD"] == "POST")
+            if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['reset']))
+            {
+                unset($_post);
+            }
+            
+            if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit']))
             {
                 $name = $_REQUEST["name"];
                 $email = $_REQUEST["email"];

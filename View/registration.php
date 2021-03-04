@@ -130,8 +130,8 @@
                                     <td> 
                                     </td>
                                     <td align="center"> 
-                                        <input type="reset" value="Reset">
-                                        <input type="submit" value="Submit">
+                                        <input type="submit" name="reset" id="reset" value="Reset">
+                                        <input type="submit" name="submit" id="submit" value="Submit">
                                     </td>
                                     <td>
                                         <?php echo $ValidateAllField; ?>
