@@ -1,6 +1,17 @@
 <?php include "header.php"; ?>
 <?php
     session_start();
+    $ownData = $_SESSION["profileData"];
+
+    $name = $ownData->name;
+    $email = $ownData->email;
+    $userName = $ownData->userName;
+    $password = $ownData->password;
+    $dob = $ownData->dob;
+    $gender = $ownData->gender;
+    $address = $ownData->address;
+    $phone = $ownData->phone;
+    
 
     if(empty($_SESSION["username"])){
         header("location:login.php");
@@ -10,12 +21,46 @@
         header("location:login.php");
     }
 ?>
-<br><br>
-You are on profile Page
-<br>
-want to logout
-<form action="<?php echo $_SERVER["PHP_SELF"]?>" method="POST">
-    <input type="submit" name="logout" value="Logout">    
-</form>
+<html>
+    <head>
+        <title><?php echo $title." Profile"; ?></title>
+    </head>
+    <body>
+        <table style="width:100%">
+            <tr>
+                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </td>
+                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </td>
+                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </td>
+                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </td>
+                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </td>
+                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </td>
+                <td>
+                    <br>
+                    <center><h1>Welcome <?php echo $name; ?></h1></center>
+                    <fieldset>
+                        <legend><b>Your Info</b></legend>
+                        Name: <?php echo $name; ?><br>
+                        Email: <?php echo $email; ?><br>
+                        User Name: <?php echo $userName; ?><br>
+                        Gender: <?php echo $gender; ?><br>
+                        Date of Birth: <?php echo $dob; ?><br>
+                        Phone: <?php echo $phone; ?><br>
+                        Address: <?php echo $address; ?><br><br>
+                        <form action="<?php echo $_SERVER["PHP_SELF"]?>" method="POST">
+                            <input type="submit" name="logout" value="Logout">    
+                        </form>
+                    </fieldset>
+                </td>
+                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</td>
+                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</td>
+                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</td>
+                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</td>
+                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</td>
+                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</td>
+            </tr>
+        </table>
+    </body>
+</html>
+
 
 <?php include "footer.php"; ?>

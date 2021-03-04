@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Fahim Faisal",
+        "email": "fahimfaisal1998@gmail.com",
+        "userName": "fahim",
+        "password": "mniff224",
+        "gender": "male",
+        "dob": "1999-04-22",
+        "phone": "01960839343",
+        "address": "Haluaghat, Mymensingh"
+    },
+    {
+        "name": "Shahriar Faisal",
+        "email": "shahriarfaisalshuvo@gmail.com",
+        "userName": "shuvo",
+        "password": "mniff225",
+        "gender": "male",
+        "dob": "2021-03-16",
+        "phone": "01960845622",
+        "address": "Haluaghat, Dhaka"
+    }
+]

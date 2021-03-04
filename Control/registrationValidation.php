@@ -26,6 +26,10 @@
                 if(empty($name) || empty($_REQUEST["gender"]) || empty($password) || empty($cpassword) || empty($userName)|| empty($address) || empty($phone))
                 {
                     $ValidateAllField = "Please Fillup All The Field!!";
+                }else{
+                    session_start();
+                    $_SESSION["post_data"] = $_POST;
+                    header("location:../control/saveRegistrationData.php");
                 }
                 if(empty($name) || strlen($name)<4)
                 {

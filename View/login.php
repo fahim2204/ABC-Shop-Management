@@ -27,7 +27,7 @@
                                         <label>User Name:</label>
                                     </td>
                                     <td>
-                                        <input type="text" id="username" name="username" placeholder="User Name">
+                                        <input type="text" id="username" name="username" placeholder="User Name" value="<?php echo $userName; ?>">
                                     </td>
                                 </tr>
                                 <tr>
