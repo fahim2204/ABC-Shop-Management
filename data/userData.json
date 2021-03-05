@@ -18,5 +18,35 @@
         "dob": "2021-03-16",
         "phone": "01960845622",
         "address": "Haluaghat, Dhaka"
+    },
+    {
+        "name": "Kuddus Miya",
+        "email": "kuddus@gmail.com",
+        "userName": "kuddus",
+        "password": "mnif224",
+        "gender": "male",
+        "dob": "2021-03-16",
+        "phone": "01885566411",
+        "address": "Mars"
+    },
+    {
+        "name": "Abul Hasan",
+        "email": "abul@ymail.com",
+        "userName": "abul",
+        "password": "mniff22",
+        "gender": "male",
+        "dob": "2021-03-23",
+        "phone": "0198564164",
+        "address": "Pluto"
+    },
+    {
+        "name": "Jhalak Sarker",
+        "email": "jhalak@gmail.com",
+        "userName": "jhalak",
+        "password": "mniff224",
+        "gender": "male",
+        "dob": "2021-04-06",
+        "phone": "0185266644",
+        "address": "Mymensingh"
     }
 ]

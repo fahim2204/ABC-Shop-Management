@@ -1,5 +1,14 @@
 <?php include "header.php"; ?>
 <?php include "../control/loginValidation.php"; ?>
+<?php 
+    if($_SERVER["REQUEST_METHOD"] == "GET")
+        {
+            if(isset($_REQUEST['logout'])){
+                session_destroy();
+                header("Location: ".$_SERVER['PHP_SELF']);
+            }
+        }  
+?>
 
 <!DOCTYPE html>
 <html>

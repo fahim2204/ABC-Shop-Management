@@ -24,7 +24,17 @@
                 </td>
                 <td>|</td>
                 <td style="text-align:center">
-                   <a href="/ABC-Shop-Management/view/login.php">Login</a>
+                    <?php
+                        if(!isset($_SESSION)) 
+                        { 
+                            session_start(); 
+                        } 
+                        if(empty($_SESSION["username"])){
+                            echo '<a href="/ABC-Shop-Management/view/login.php">Login</a>';
+                        }else{
+                            echo '<a href="/ABC-Shop-Management/view/login.php?logout=true">Logout</a>';
+                        }
+                    ?>
                 </td>
                 <td>|</td>
                 <td><a href="/ABC-Shop-Management/view/favourite.php"><img src="https://img.icons8.com/ios-glyphs/30/000000/hearts.png"/></a></td>

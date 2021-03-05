@@ -1,6 +1,9 @@
 <?php include "header.php"; ?>
 <?php
-    session_start();
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
     $ownData = $_SESSION["profileData"];
 
     $name = $ownData->name;
