@@ -34,7 +34,7 @@
                 <td><a href="/ABC-Shop-Management/view/profile.php"><img src="https://img.icons8.com/ios-glyphs/30/000000/user-male-circle.png"/></a></td>
             </tr>
         </table>
-
+        <hr/>
 
     </body>
 

@@ -10,13 +10,9 @@
     <br><br><br>
         <table style="width:100%">
             <tr>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </td>
-                <td>
+                <td width = "35%">&nbsp</td>
+                
+                <td width = "30%">
                     <fieldset>
                         <legend><b>LOGIN</b></legend>
                         <center>
@@ -71,12 +67,7 @@
                         </center> 
                     </fieldset>
                 </td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</td>
+                <td width = "35%">&nbsp</td>
             </tr>
         </table>
     </body>

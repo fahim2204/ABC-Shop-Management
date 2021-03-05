@@ -28,13 +28,9 @@
     <body>
         <table style="width:100%">
             <tr>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </td>
-                <td>
+                <td width="35%">&nbsp</td>
+                
+                <td width="30%">
                     <br>
                     <center><h1>Welcome <?php echo $name; ?></h1></center>
                     <fieldset>
@@ -51,12 +47,7 @@
                         </form>
                     </fieldset>
                 </td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</td>
+                <td width="35%">&nbsp</td>
             </tr>
         </table>
     </body>

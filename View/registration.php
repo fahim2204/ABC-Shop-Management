@@ -9,13 +9,9 @@
         <br><br><br>
         <table style="width:100%">
             <tr>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </td>
-                <td>
+                <td width="35%">&nbsp</td>
+                
+                <td width="30%">
                     <fieldset>
                     <legend><b>REGISTRATION</b></legend>
                     <center>
@@ -143,12 +139,7 @@
                         </form>
                 </fieldset>
                 </td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</td>
-                <td>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</td>
+                <td width="35%">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</td>
             </tr>
         </table>
         
