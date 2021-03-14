@@ -15,7 +15,7 @@
     }
 ?>
 <br><br>
-You are on favourite Page
+You are on Cart Page
 <br>
 want to logout
 <form action="<?php echo $_SERVER["PHP_SELF"]?>" method="POST">

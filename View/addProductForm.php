@@ -22,6 +22,8 @@
                 $ValidateAllField = "Please Fillup All The Field!!";
             }else{                
                 include_once("../control/saveProductData.php");
+                $pname = $category = $brand = $stock = $quantity = $price = $details = "";
+                unset($_post);
             }
         }
 
@@ -35,7 +37,7 @@
             <tr>
                 <td width="10%">&nbsp</td>
                 <td width="50%">
-                    <form value="Add Product" action="<?php echo $_SERVER["PHP_SELF"]?>" method="POST"> 
+                    <form value="Add Product" action="?page=addProduct" method="POST"> 
                         <table>
                             <tr>
                                 <td>

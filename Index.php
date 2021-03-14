@@ -10,9 +10,9 @@
     <table style="width:100%" >
             <tr style="vertical-align:top">
                 <td width = "20%" rowspan="2"> 
-                    <?php $menu1 = new MenuBar("Our Own Product", "view/pos.php", "https://img.icons8.com/pastel-glyph/20/000000/shop--v2.png");?> 
-                    <?php $menu2 = new MenuBar("Fashion/ Life Style", "fish.php", "https://img.icons8.com/carbon-copy/25/000000/womens-suit.png");?> 
-                    <?php $menu3 = new MenuBar("Personal Care", "fish.php", "https://img.icons8.com/ios-filled/20/000000/cleansing.png");?> 
+                    <?php $menu1 = new MenuBar("Sales Man", "view/pos.php", "https://img.icons8.com/pastel-glyph/20/000000/shop--v2.png");?> 
+                    <?php $menu2 = new MenuBar("Admin", "view/admin.php", "https://img.icons8.com/carbon-copy/25/000000/womens-suit.png");?> 
+                    <?php $menu3 = new MenuBar("Manager", "view/manager.php", "https://img.icons8.com/ios-filled/20/000000/cleansing.png");?> 
                     <?php $menu4 = new MenuBar("Kithchen Application", "fish.php", "https://img.icons8.com/dotty/20/000000/kitchenwares.png");?> 
                     <?php $menu5 = new MenuBar("Home Accessories", "fish.php", "https://img.icons8.com/dotty/20/000000/mobile-home.png");?> 
                     <?php $menu6 = new MenuBar("Tea & Coffe", "fish.php", "https://img.icons8.com/ios-filled/20/000000/coffee.png");?> 

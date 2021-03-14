@@ -1,4 +1,8 @@
-<?php include "header.php"; ?>
+<?php 
+    if(empty($_GET['page'])){
+        include "header.php"; 
+    }
+?>
 <?php include "../control/registrationValidation.php"; ?>
 <!DOCTYPE html>
 <html>
@@ -148,5 +152,8 @@
 
 
 
-
-<?php include "footer.php"; ?>
+<?php 
+    if(empty($_GET['page'])){
+        include "footer.php"; 
+    }
+?>

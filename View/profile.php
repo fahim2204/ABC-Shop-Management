@@ -1,4 +1,8 @@
-<?php include "header.php"; ?>
+<?php 
+    if(empty($_GET['page'])){
+        include "header.php"; 
+    }
+?>
 <?php
     if(!isset($_SESSION)) 
     { 
@@ -57,4 +61,8 @@
 </html>
 
 
-<?php include "footer.php"; ?>
+<?php 
+    if(empty($_GET['page'])){
+        include "footer.php"; 
+    }
+?>
