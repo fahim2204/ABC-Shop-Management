@@ -78,7 +78,7 @@
                                     <label>Quantity:</label>
                                 </td>
                                 <td>
-                                    <input type="text" id="quantity" name="quantity" placeholder="Quantity" value="<?php echo $stock;?>">
+                                    <input type="text" id="quantity" name="quantity" placeholder="Quantity" value="<?php echo $quantity;?>">
                                 </td>
                             </tr>
                             <tr></tr><tr></tr><tr></tr>
