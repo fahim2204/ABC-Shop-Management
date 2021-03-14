@@ -48,5 +48,35 @@
         "dob": "2021-04-06",
         "phone": "0185266644",
         "address": "Mymensingh"
+    },
+    {
+        "name": "MD. AHASANUL ISLAM",
+        "email": "ahasanul@gmail.com",
+        "userName": "ahasanul",
+        "password": "abc12345",
+        "gender": "male",
+        "dob": "2021-03-24",
+        "phone": "0195526265",
+        "address": "Sylhet"
+    },
+    {
+        "name": "TANVIR HASSAN",
+        "email": "tanvir@gmail.com",
+        "userName": "tanvir",
+        "password": "abc12345",
+        "gender": "male",
+        "dob": "2018-01-30",
+        "phone": "01955262654",
+        "address": "Dhaka"
+    },
+    {
+        "name": "MD. IFTEKHAR JAHAN",
+        "email": "iftekhar@gmail.com",
+        "userName": "iftekhar",
+        "password": "abc12345",
+        "gender": "male",
+        "dob": "2021-03-25",
+        "phone": "01545654542",
+        "address": "Dhaka"
     }
 ]
