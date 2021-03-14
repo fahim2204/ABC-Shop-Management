@@ -58,9 +58,11 @@
                             }
                             if($_GET['page'] == "addCustomer"){
                                 include "registration.php"; 
+                                echo "We fix it later";
                             }
                             if($_GET['page'] == "changePassword"){
                                 include "changePassword.php"; 
+                                echo "We fix it later";
                             }
                             if($_GET['page'] == "manageProduct"){
                                 include "manageProduct.php"; 

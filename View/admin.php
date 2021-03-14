@@ -33,14 +33,12 @@
                     <?php $menu1 = new MenuBar("Dashboard", "?page=home", "https://img.icons8.com/material/20/000000/dashboard-layout.png");?> 
                     <?php $menu2 = new MenuBar("Add Manager", "?page=addManager", "https://img.icons8.com/carbon-copy/20/000000/womens-suit.png");?> 
                     <?php $menu3 = new MenuBar("Manage Employee", "?page=manageProduct", "https://img.icons8.com/ios-filled/20/000000/cleansing.png");?> 
-                    <?php $menu4 = new MenuBar("Add Customer", "fish.php", "https://img.icons8.com/dotty/20/000000/kitchenwares.png");?> 
                     <?php $menu5 = new MenuBar("Manage Customer", "fish.php", "https://img.icons8.com/dotty/20/000000/mobile-home.png");?> 
                     <?php $menu6 = new MenuBar("Add User", "?page=addUser", "https://img.icons8.com/material/20/000000/user-male.png");?> 
                     <?php $menu7 = new MenuBar("Supliers", "fish.php", "https://img.icons8.com/ios-filled/20/000000/orange-juice.png");?> 
                     <?php $menu8 = new MenuBar("Purchase", "fish.php","https://img.icons8.com/ios-glyphs/20/000000/sweet-halloween-candy.png");?> 
-                    <?php $menu9 = new MenuBar("Sales", "fish.php", "https://img.icons8.com/pastel-glyph/20/000000/citrus.png");?> 
-                    <?php $menu10 = new MenuBar("Setting", "fish.php", "https://img.icons8.com/pastel-glyph/20/000000/beetroot-and-greenery.png");?> 
-                    <?php $menu11 = new MenuBar("Change Password", "fish.php", "https://img.icons8.com/ios-filled/20/000000/pet-commands-train.png");?> 
+                    <?php $menu10 = new MenuBar("Setting", "?page=settings", "https://img.icons8.com/pastel-glyph/20/000000/beetroot-and-greenery.png");?> 
+                    <?php $menu11 = new MenuBar("Change Password", "?page=changePassword", "https://img.icons8.com/ios-filled/20/000000/pet-commands-train.png");?> 
                 </td>
                 <td width = "82%">
                     <?php 
@@ -52,13 +50,18 @@
                                 include "salesPerson.php"; 
                             }
                             if($_GET['page'] == "addManager"){
-                                include "addManager.php"; 
+                                //include "addManager.php"; 
+                                echo "We fix it later";
                             }
                             if($_GET['page'] == "profile"){
                                 include "profile.php"; 
                             }
                             if($_GET['page'] == "addUser"){
                                 include "addUser.php"; 
+                            }
+                            if($_GET['page'] == "changePassword"){
+                                echo "We fix it later";
+                                include "changePassword.php"; 
                             }
                         }
                         
