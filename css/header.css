@@ -1,0 +1,91 @@
+head, title{
+  display: none;
+}
+  *{
+    margin: 0;
+    padding: 0;
+  } 
+  
+  input:focus,
+  select:focus,
+  textarea:focus,
+  button:focus {
+    outline: none;
+  }
+  
+  .header-container{
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    background-color:  #ffffff;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    z-index: 1;
+  }
+  
+  .header-container .header-1{
+    flex-basis: 15%;
+    padding-left: 40px;
+  }
+  .header-container .header-2{
+    flex-basis: 60%;
+  }
+  .header-container .header-3{
+    flex-basis: 3%;
+  }
+  .header-container .header-4{
+    flex-basis: 3%;
+    padding-left: 15px;
+  }
+  .header-container .header-5{
+    flex-basis: 3%;
+    padding-left: 15px;
+  }
+  .header-container .header-6{
+    flex-basis: 3%;
+    padding-left: 2px;
+    padding-Right: 20px;
+  }
+  .header-container .header-space{
+    flex-basis: 3%;
+  }
+  .header-container #searchtxt{
+    width: 90%;
+    height: 40px;
+    border-radius: 30px;
+    border-color:darkgray;
+    font-size: 20px;
+    background-color: white;
+    background-image: url("https://img.icons8.com/color/30/000000/search--v1.png");
+    background-repeat: no-repeat;
+    background-position: 98% 50%;
+    padding-left: 30px;
+  }
+  .header-container #searchtxt:focus{
+    border-color:rgb(218, 107, 107);
+    transform: scale(1.05);
+  }
+  .header-container a{
+    text-decoration: solid;
+    color: black;
+  }
+  .header-container a.header{
+    text-decoration: solid;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.2em;
+  }
+  .header-container a.header:hover{
+    text-decoration: underline;
+    transform: scale(1.08);
+  }
+  .header-container a.image:hover{
+    transform: scale(1.12);
+  }
+ 
+
+  
+ 
+  

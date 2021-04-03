@@ -1,0 +1,90 @@
+.form-container{
+    position: relative;
+    display: flex;
+    left: 25%;
+    transform: translateX(-50%);
+    background-color:aliceblue;
+    margin-top: 150px;
+    margin-bottom: 100px;
+    border-radius: 40px;
+    height: 320px;
+    width: 350px;
+  }
+.form-container .center{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.form-container .center h1{
+    position:absolute;
+    left: 50%;
+    top: -35%;
+    transform: translateX(-50%);
+    padding: 10px;
+    font-size: 30px;
+    font-family:Arial, Helvetica, sans-serif;
+    border-bottom: 1px solid silver;
+}
+.form-container label{
+    font-size: 15px;
+    font-family:Arial, Helvetica, sans-serif;
+    padding: 20px 0px;
+    margin-bottom: 8px;
+}
+.form-container input[type="text"],input[type="password"]{
+    font-size: 15px;
+    border-radius: 30px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border: 2px solid DodgerBlue;
+    box-sizing: border-box;
+}
+.form-container input[type="text"]:focus,input[type="password"]:focus{
+    border-color: rgb(10, 92, 175);
+    transform: scale(1.02);
+}
+.form-container .center .remember{
+    font-size: 15px;
+    margin-bottom: 10px;
+    display: block;
+}
+.form-container .center .forget-pass{
+    position:absolute;
+    left: 20%;
+    top: 110%;
+    width: fit-content;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: blue;
+}
+.form-container a:hover{
+    color: red;
+}
+.form-container .center input[type="submit"]{
+    height: 50px;
+    width: 100px;
+    font-size: 1.2em;
+    border-radius: 30px;
+    border: 0;
+    background-color: green;
+    color: white;
+    margin-top: 15px;
+    padding: 5px;
+}
+.form-container .center input[type="submit"]:hover{
+    background-color: rgb(9, 185, 9);
+    transform: scale(1.02);
+}
+.form-container .center input[type="submit"]:focus{
+    background-color: rgb(9, 185, 9);
+    border: 2px solid rgb(10, 92, 175);
+    transform: scale(1.02);
+}
+.form-container .register{
+    float: left;
+    margin-left: 200px;
+    margin-top: -90px;
+}
+
+

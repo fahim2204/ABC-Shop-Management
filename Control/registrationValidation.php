@@ -22,7 +22,7 @@
         $address = $_REQUEST["address"];
         $phone = $_REQUEST["phone"];
 
-        if(empty($name) || empty($_REQUEST["gender"]) || empty($password) || empty($cpassword) || empty($userName) || !empty($validateUserName) || empty($address) || empty($phone))
+        if(empty($name) || empty($_REQUEST["gender"]) || empty($password) || empty($cpassword) || empty($userName) || !empty($validateUserName) || !empty($validatePassword) || empty($address) || empty($phone))
         {
             $ValidateAllField = "Please Fillup All The Field!!";
         }else{

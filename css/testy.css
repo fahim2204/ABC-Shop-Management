@@ -1,0 +1,29 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.form-container{
+    display: flex;
+    background-color: aliceblue;
+    flex-wrap: nowrap;
+    width: 450px;
+    height: 600px;
+    flex-direction: column;
+    align-items: center;
+}
+.items{
+    background-color: red;
+    padding: 40px;
+    margin: 5px;
+    margin-bottom: 10px;
+    width: 200px;
+}
+#item-2{
+    align-content: flex-end;
+}
+#item-1 .center{
+
+}
+#item-2{
+
+}

@@ -78,5 +78,25 @@
         "dob": "2021-03-25",
         "phone": "01545654542",
         "address": "Dhaka"
+    },
+    {
+        "name": "Kazi Mridha",
+        "email": "kazi@gmail.com",
+        "userName": "kazi",
+        "password": "abc12345",
+        "gender": "male",
+        "dob": "2021-03-17",
+        "phone": "0196083943",
+        "address": "Uttarkhairakuri, Haluaghat"
+    },
+    {
+        "name": "Fahim Faisal",
+        "email": "fahimfaisal1998@gmail.com",
+        "userName": "fahimfaisal",
+        "password": "abc12345",
+        "gender": "male",
+        "dob": "2021-03-11",
+        "phone": "+8801960839343",
+        "address": "Haluaghat,"
     }
 ]

@@ -14,71 +14,40 @@
 <html>
     <head>
         <title><?php echo $title." Login"; ?></title>
+        <link rel="stylesheet" type="text/css" href="/ABC-Shop-Management/css/loginForm.css">
     </head>
     <body>
-    <br><br><br>
-        <table style="width:100%">
-            <tr>
-                <td width = "35%">&nbsp</td>
+          <div class="form-container">
+              <div class="center">
+                  <h1>Login</h1>
+                <form value="Login" action="<?php echo $_SERVER["PHP_SELF"]?>" method="POST"> 
+                    
+                    <label>Email or Phone Number:</label>
                 
-                <td width = "30%">
-                    <fieldset>
-                        <legend><b>LOGIN</b></legend>
-                        <center>
-                        <form value="Login" action="<?php echo $_SERVER["PHP_SELF"]?>" method="POST"> 
-                            <table>
-                                <tr>
-                                    <td>
-                                        <label>User Name:</label>
-                                    </td>
-                                    <td>
-                                        <input type="text" id="username" name="username" placeholder="User Name" value="<?php echo $userName; ?>">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label>Password:</label>
-                                    </td>
-                                    <td>
-                                        <input type="password" id="password" name="password" autocomplete="new-password" placeholder="Password">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" value="rem">
-                                        <label for="rem">Remember me<label>
-                                    </td>
-                                    <td>
-                                        &nbsp  &nbsp  <?php echo $ValidateLogin; ?>
-                                    </td>
-                                </tr>
-                                <tr>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="submit" value="Login">
-                                    </td>
-                                    <td>
-                                        <a href="forgetpass.php">Forget Password?</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                </tr>
-                                <tr>
-                                    <td>
-                                    <a href="registration.php">Register Here</a>
-                                    </td>
-                                    <td>
-                                    </td>
-                                </tr>
-                            </table>
-                        </form>
-                        </center> 
-                    </fieldset>
-                </td>
-                <td width = "35%">&nbsp</td>
-            </tr>
-        </table>
+                    <input type="text" id="username" name="username" placeholder="User Name" value="<?php echo $userName; ?>">
+            
+                    <label>Password:</label>
+            
+                    <input type="password" id="password" name="password" autocomplete="new-password" placeholder="Password">
+                    <div class="remember">
+                        <input type="checkbox" value="rem">
+                        <label for="rem">Remember me<label>
+                    </div>
+                            
+                            <?php echo $ValidateLogin; ?>
+                            
+                    <input type="submit" value="Login">
+                    <div class="forget-pass">
+                    <a href="forgetpass.php">Forget Password?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="register">
+        <p style="color:red">New Member?</p>
+        <a href="registration.php">Register Here</a>
+    </div>
+     
     </body>
 </html>
 
