@@ -56,32 +56,33 @@
                 </form>
             </div>
         </div> -->
-        <div class="form-container">
-                <h1>Registration</h1>      
-            <form action="" class="registration">
-                <div class="items" id="item1">
-                    <label>Name:</label>
-                    <input type="text" id="name" name="name" placeholder="Name">
-                </div>
-                <div class="items" id="item2">
-                    <label>Email or Phone No:</label>    
-                    <input type="email" id="email" name="email" placeholder="Email" value="<?php echo $email;?>">
-                </div>
-                <div class="items" id="item3">
-                    <label>Password:</label>
-                    <input type="password" id="password" name="password" placeholder="Password">
-                </div>
-                <div class="items" id="item4">
-                    <label>Cofirm Password:</label>
-                    <input type="password" id="cpassword" name="cpassword" placeholder="Confirm Password">
-                </div>
-                <div class="items" id="item5">
-                    <input type="reset" name="reset" id="reset" value="Reset">
-                    <input type="submit" name="submit" id="submit" value="Submit">
-                </div>
-            </form>
+        <div class="window-container">
+            <div class="form-container">
+                    <h1>Registration</h1>      
+                <form action="" class="registration">
+                    <div class="items" id="item1">
+                        <label>Name:</label>
+                        <input type="text" id="name" name="name" placeholder="Name">
+                    </div>
+                    <div class="items" id="item2">
+                        <label>Email or Phone No:</label>    
+                        <input type="email" id="email" name="email" placeholder="Email" value="<?php echo $email;?>">
+                    </div>
+                    <div class="items" id="item3">
+                        <label>Password:</label>
+                        <input type="password" id="password" name="password" placeholder="Password">
+                    </div>
+                    <div class="items" id="item4">
+                        <label>Cofirm Password:</label>
+                        <input type="password" id="cpassword" name="cpassword" placeholder="Confirm Password">
+                    </div>
+                    <div class="items" id="item5">
+                        <input type="reset" name="reset" id="reset" value="Reset">
+                        <input type="submit" name="submit" id="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
         </div>
-
 
     </body>
 </html>

@@ -6,7 +6,7 @@
     <body>
         <div class="body-container">
             <div class="image-slider">
-                <h1>Here will image slider</h1>
+                <?php @require_once "View/imageSlider.html"; ?>
             </div>
             <div class="hot-category">
                 <h1>here will our hot category</h1>

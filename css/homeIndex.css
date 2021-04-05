@@ -2,19 +2,18 @@
 
 .home-container{
     display: flex;
+    width: 1200px;
     margin-top: 100px;
-    margin-right: 5px;
-    margin-left: 5px;
     border: 2px solid aqua;
-    padding: 10px;
+    padding: 2px;
 }
 .menu-bar{
-    flex-basis: 20%;
+    flex: 2 1 20%;
     margin: 5px;
-    background-color: blanchedalmond;
+    background-color: rgb(228, 146, 23);
 }
 .main-body{
-    flex-basis: 80%;
+    flex: 1 5 80%;
     margin: 5px;
     background-color: palegreen;
 }
@@ -24,6 +23,7 @@
 
 .menu-container{
     display: flex;
+    max-width: 240px;
     flex-direction: column;
     margin-top: 5px;
     margin-right: 5px;
@@ -59,13 +59,14 @@ a {
 .body-container{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-top: 5px;
     margin-right: 5px;
     margin-left: 5px;
 }
 .image-slider{
-    margin: 10px;
-    background-color: blanchedalmond;
+    margin: 2px;
 }
 .hot-category{
     margin: 10px;

@@ -12,16 +12,20 @@ head, title{
   button:focus {
     outline: none;
   }
-  
+  .window-container{
+    display: flex;
+    justify-content: center;
+  }
   .header-container{
     position: fixed;
     top: 0;
-    right: 0;
     display: flex;
     background-color:  #ffffff;
     align-items: center;
+    justify-content: center;
+    align-content: center;
     height: 100px;
-    width: 100%;
+    max-width: 1200px;
     z-index: 1;
   }
   
