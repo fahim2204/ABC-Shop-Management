@@ -1,78 +1,44 @@
-/* Home Section */
-
-.home-container{
-    display: flex;
+#home-container {
+    display: grid;
     width: 1200px;
-    margin-top: 100px;
-    border: 2px solid aqua;
-    padding: 2px;
-}
-.menu-bar{
-    flex: 2 1 20%;
-    margin: 5px;
-    background-color: rgb(228, 146, 23);
-}
-.main-body{
-    flex: 1 5 80%;
-    margin: 5px;
-    background-color: palegreen;
+    grid-template-columns: 2fr 8fr;
+    grid-template-rows: 100px auto auto auto auto;
+    grid-template-areas: "header header" "menubar image-slider" "menubar hot-category" "menubar body" "footer footer";
+    grid-gap: 0.5rem;
+    border-radius: 10px;
 }
 
-
-/* Menu part */
-
-.menu-container{
-    display: flex;
-    max-width: 240px;
-    flex-direction: column;
-    margin-top: 5px;
-    margin-right: 5px;
-    margin-left: 5px;
-    background: #222;
-    padding: 0 15px;
-}
-a {
-    color: white;
-    text-decoration: none;
-}
-.menu,
-.submenu {   
-    list-style-type: none;
-}
-.logo {
-    font-size: 20px;
-    padding: 7.5px 10px 7.5px 0;
-}
-.item {
-    padding: 10px;
-}
-.item.button {
-    padding: 9px 5px;
-}
-.item:not(.button) a:hover,
-.item a:hover::after {
-    color: #ccc;
+header {
+    grid-area: header;
 }
 
-/* Main Body part */
+nav {
+    background-color: #6fa45a;
+    grid-area: menubar;
+}
 
-.body-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 5px;
-    margin-right: 5px;
-    margin-left: 5px;
+#image-slider-container {
+    grid-area: image-slider;
 }
-.image-slider{
-    margin: 2px;
+
+#hot-category-container {
+    background-color: #dfec5a;
+    grid-area: hot-category;
 }
-.hot-category{
-    margin: 10px;
-    background-color: rgb(155, 16, 81);
+
+main {
+    background-color: #dfe;
+    grid-area: body;
 }
-.random-product{
-    margin: 10px;
-    background-color: rgb(37, 137, 144);
+
+footer {
+    grid-area: footer;
+}
+
+@media only screen and (max-width: 700px) {
+    #home-container {
+        grid-template-columns: 100%;
+        grid-template-rows: 100px 2fr 2fr 1.5fr auto auto;
+        grid-template-areas: "header" "menubar" "image-slider" "hot-category" "body" "footer";
+    }
 }

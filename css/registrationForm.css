@@ -1,92 +1,228 @@
-input:focus,select:focus,textarea:focus,button:focus {
-      outline: none;
-  }
-.form-container{
-    margin-top: 150px;
+/* //////________For Making the page grid view________///// */
+
+#registration-container {
+    display: grid;
+    width: 1200px;
+    grid-template-columns: 1fr 0.1fr 1fr;
+    grid-template-rows: 100px auto auto;
+    grid-template-areas: "header header header" 
+    "registration-section or auto-registration" 
+     "footer footer footer";
+    grid-gap: 0.5rem;
+    border-radius: 10px;
+}
+header {
+    grid-area: header;
+}
+#registration-section {
+    grid-area: registration-section;
+
+}
+#auto-registration {
+    grid-area: auto-registration;
+}
+footer {
+    grid-area: footer;
+}
+
+
+/* //////________Manual Registration Section_______///// */
+
+#manual-form-container{
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    background-color:aliceblue;
-    margin-bottom: 100px;
+    flex-direction: column;
+    background-color: aliceblue;
+    box-shadow: 10px 10px 15px rgb(134, 187, 233);
     border-radius: 40px;
-    height: 450px;
-    width: 500px;
+    margin: 50px;
 }
-.form-container h1{
-    transform: translateY(-30%);
-    display: block;
-    font-family:Arial, Helvetica, sans-serif;
-    border-bottom: 2px solid rgb(10, 92, 175);
+#form-title{
+    color: rgb(5 190 214);
+    padding: 20px 5px 5px 5px;
+    text-decoration: bold;
+    text-shadow: 5px 5px 10px rgb(79 208 196);
+    font-family: Ubuntu;
 }
 
-.form-container .items{
-    padding: 20px;
-    margin-bottom: 10px;
+#form-body #form-body-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    /* background-color:forestgreen; */
+    padding: 25px 15px;
+}
+#item1{
+    flex-basis: 1;
+    padding: 10px;
+}
+#item2{
+    flex-basis: 1;
+    padding: 10px;
+}
+#item3{
+    flex-basis: 1;
+    padding: 10px;
+}
+#item4{
+    flex-basis: 1;
+    padding: 10px;
+}
+#item5{
+    flex-basis: 1;
+    padding: 10px;
 }
 
-.form-container label{
+/* /////////Label and Input///////////// */
+
+#form-body-main label {
     float: left;
     font-size: 15px;
-    font-family:Arial, Helvetica, sans-serif;
-    padding: 8px 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 8px 1px;
     margin-left: 8px;
-    width:160px;
+    width: 160px;
 }
-.form-container input[type="text"],input[type="email"],input[type="password"]{
+#form-body-main .required::after{
+    content: '*';
+    color: red;
+    
+}
+.tooltip{
+    position: relative;
+}
+.tooltip > span{
+    visibility: hidden;
+    width: 200px;
+    color: rgb(243, 10, 10);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.7em;
+    text-align: right;
+    text-decoration: underline;
+    position: absolute;
+    z-index: 10;
+    bottom: 2px;
+}
+.tooltip:hover > span{
+    visibility: visible;
+}
+
+#form-body-main input[type="text"], input[type="email"], input[type="password"] {
     float: right;
     font-size: 15px;
     border-radius: 30px;
     padding: 8px 10px;
     border: 2px solid DodgerBlue;
-    /* border-color:  transparent transparent blue transparent; */
 }
-.form-container input[type="text"]:focus,input[type="email"]:focus,input[type="password"]:focus{
+#form-body-main input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
     border-color: rgb(10, 92, 175);
     transform: scale(1.02);
-    /* border-color:  transparent transparent blue transparent; */
 }
-#item5{
-    transform: translate(15%, 0);
-    padding: 15px;
-}
-.form-container input[type="submit"],input[type="reset"]{
+
+
+/* ////////_______Reset and Submit Button_____///// */
+
+#form-body-main input[type="submit"], input[type="reset"] {
     height: 50px;
     width: 100px;
     font-size: 1.2em;
     border-radius: 30px;
     border: 0;
-    margin: 20px;
-    margin-top: 60px;
+    margin: 10px;
     padding: auto;
     color: white;
 }
-.form-container input[type="submit"]{
+#form-body-main input[type="submit"] {
     background-color: green;
 }
-.form-container input[type="reset"]{
+#form-body-main  input[type="reset"] {
     background-color: skyblue;
 }
-.form-container input[type="submit"]:hover{
+#form-body-main input[type="submit"]:hover {
     background-color: rgb(9, 185, 9);
     transform: scale(1.02);
 }
-.form-container input[type="reset"]:hover{
+#form-body-main input[type="reset"]:hover {
     background-color: rgb(101, 198, 236);
     transform: scale(1.02);
 }
-  
-.form-container input[type="submit"]:focus{
+#form-body-main input[type="submit"]:focus {
     background-color: rgb(9, 185, 9);
     border: 2px solid rgb(10, 92, 175);
     transform: scale(1.02);
+}
+#form-body-main input[type="reset"]:focus {
+    background-color: rgb(101, 198, 236);
+    border: 2px solid rgb(10, 92, 175);
+    transform: scale(1.02);
+}
+
+#or{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50%;
+}
+#or .or-ex{
+    height: 20%;
+    border: 1px solid silver;
+    margin: 10px;
 
 }
-.form-container input[type="reset"]:focus{
-    background-color: rgb(101, 198, 236);
-    border: 2px solid rgb(10, 92, 175);
+
+#item5 a{
+    display: block;
+    float: left;
+    margin-top: 13%;
+    color: #8c94ff;
+}
+#item5 a:hover{
+    color: #af4f80;
     transform: scale(1.02);
 }
-  
+
+
+/* ///////////_____Google or Facebook login Button___________//////// */
+
+#auto-registration{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#auto-registration button{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 60px;
+    width: 50%;
+    font-size: 1.3em;
+    border-radius: 20px;   
+    color: rgb(243, 237, 237);
+    border: none;
+}
+#auto-registration #btn-google{
+    background-color:  #db4939;
+    margin-bottom: 7%;
+    box-shadow: 10px 10px 15px rgb(134, 187, 233);
+}
+#auto-registration #btn-fb{
+    background-color: #3b5998;
+    margin-top: 7%;
+    box-shadow: 10px 10px 15px rgb(134, 187, 233);
+}
+#auto-registration #btn-google:hover{
+    transform: scale(1.02);
+    background-color:  #c2392a;
+    color: white;
+}
+#auto-registration #btn-fb:hover{
+    transform: scale(1.02);
+}
+#auto-registration button img{
+    padding: 2px 8px 2px 12px;
+    height: 70%;
+}

@@ -2,38 +2,43 @@ ixed layout example:
 
 <!Doctype HTML>
 <html lang="en">
-     <head>
-          <meta charset="UTF-8">
-          <title>fixed layout</title>
-          <style>
+
+<head>
+     <meta charset="UTF-8">
+     <title>fixed layout</title>
+     <style>
           /* This is a comment it is not read by any browser
           This is where the css styling goes */
 
-          body{
-                   color:#000;
-                   background-color:#fff;
+          body {
+               color: #000;
+               background-color: #fff;
           }
 
-           #container{
-                  /*Styling for any element with the id="container" */
-                          width:1000px; /* The width is fixed by pixels */
-                           color:#fff;
-                           display: flex;
-                           
-                            background-color:red;
-            }
-            #container p{
-                text-align: center;
-            }
-            
-          </style>
-     </head>
-     <body>
-          <div id="container">
-             
+          #container {
+               /*Styling for any element with the id="container" */
+               width: 1000px;
+               /* The width is fixed by pixels */
+               color: #fff;
+               display: flex;
 
-                  <p id="content"> I have a fixed width so you can only see me and the body if your monitor has enough pixels. Otherwise you will just see me, the container</p>
-              
-          </div>
-     </body>
+               background-color: red;
+          }
+
+          #container p {
+               text-align: center;
+          }
+     </style>
+</head>
+
+<body>
+     <div id="container">
+
+
+          <p id="content"> I have a fixed width so you can only see me and the body if your monitor has enough pixels.
+               Otherwise you will just see me, the container</p>
+
+     </div>
+</body>
+
 </html>

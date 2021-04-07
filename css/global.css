@@ -1,0 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.window-container {
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(to right, #E2E2E2, #C9D6FF);
+    /* height: 100vh; */
+}
