@@ -16,13 +16,15 @@ header {
 }
 #registration-section {
     grid-area: registration-section;
-
 }
 #auto-registration {
     grid-area: auto-registration;
 }
 footer {
     grid-area: footer;
+}
+#or {
+    grid-area: or;
 }
 
 

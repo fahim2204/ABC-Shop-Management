@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="/ABC-Shop-Management/css/homeIndex.css" >        
+        <link rel="stylesheet" type="text/css" href="/css/homeIndex.css" >        
     </head>
     <body>
         <div class="body-container">

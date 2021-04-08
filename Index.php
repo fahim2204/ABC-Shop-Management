@@ -6,21 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ABC Shop - Home</title>   
-    <link rel="stylesheet" type="text/css" href="/ABC-Shop-Management/css/global.css">
-    <link rel="stylesheet" type="text/css" href="/ABC-Shop-Management/css/homeIndex.css">
+    <link rel="icon" href="/images/icon/shoplogo.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/css/global.css">
+    <link rel="stylesheet" type="text/css" href="/css/homeIndex.css">
 </head>
 
 <body>
     <div class="window-container">
         <div id="home-container">
             <header>
-                <?php include "View/header.php"; ?>
+                <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/header.php'); ?>
             </header>
             <nav>
-                <?php include "View/menuBar.php"; ?>
+                <?php include "view/menuBar.html"; ?>
             </nav>
             <div id="image-slider-container">
-                <?php include "View/imageSlider.html"; ?>
+                <?php include "view/imageSlider.html"; ?>
             </div>
             <div id="hot-category-container">
                 Hot category
@@ -29,7 +30,7 @@
                 Main body
             </main>
             <footer>
-                <?php include "View/footer.php"; ?>
+                <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/footer.php'); ?>
             </footer>
         </div>
     </div>

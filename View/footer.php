@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="/ABC-Shop-Management/css/footer.css" >  
+        <link rel="stylesheet" type="text/css" href="/css/footer.css" >  
     </head>
     <body>
         <div class="window-container">
@@ -32,7 +32,7 @@
                             About Us 
                         </td>
                         <td>
-                            <a href="/ABC-Shop-Management/view/profile.php">Your Info</a>
+                            <a href="/view/profile.php">Your Info</a>
                         </td>
                     </tr>
                     <tr>
@@ -63,7 +63,7 @@
                             Term & Condition 
                         </td>
                         <td>
-                            <a href="/ABC-Shop-Management/view/cart.php">Shopping Cart</a>
+                            <a href="/view/cart.php">Shopping Cart</a>
                         </td>
                     </tr>
                     <tr>
@@ -84,7 +84,7 @@
                             Privacy Policy
                         </td>
                         <td>
-                            <a href="/ABC-Shop-Management/view/favourite.php">Wishlist</a>
+                            <a href="/view/favourite.php">Wishlist</a>
                         </td>
                     </tr>
                 </table>

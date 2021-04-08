@@ -6,15 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ABC Shop - Registration</title>
-    <link rel="stylesheet" type="text/css" href="/ABC-Shop-Management/css/global.css">
-    <link rel="stylesheet" type="text/css" href="/ABC-Shop-Management/css/registrationForm.css">
+    <link rel="icon" href="/images/icon/shoplogo.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/css/global.css">
+    <link rel="stylesheet" type="text/css" href="/css/registrationForm.css">
 </head>
 
 <body>
     <div class="window-container">
         <div id="registration-container">
             <header>
-                <?php include($_SERVER['DOCUMENT_ROOT'] . '/ABC-Shop-Management/view/header.php'); ?>
+                <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/header.php'); ?>
             </header>
             <div id="registration-section">
                 <div id="manual-form-container">
@@ -73,12 +74,11 @@
                 <div class="or-ex"></div>
             </div>
             <div id="auto-registration">
-
                 <button id="btn-google"><img src="https://img.icons8.com/fluent/48/000000/google-logo.png" />Login With Google</button>
                 <button id="btn-fb"><img src="https://img.icons8.com/fluent/48/000000/facebook-new.png" />Login With Facebook</button>
             </div>
             <footer>
-                <?php include($_SERVER['DOCUMENT_ROOT'] . '/ABC-Shop-Management/view/footer.php'); ?>
+                <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/footer.php'); ?>
             </footer>
         </div>
     </div>
