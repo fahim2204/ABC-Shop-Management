@@ -18,10 +18,10 @@
                 <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/header.php'); ?>
             </header>
             <nav>
-                <?php include "view/menuBar.html"; ?>
+                <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/menuBar.html'); ?>
             </nav>
             <div id="image-slider-container">
-                <?php include "view/imageSlider.html"; ?>
+                <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/imageSlider.html'); ?>
             </div>
             <div id="hot-category-container">
                 Hot category

@@ -1,18 +1,20 @@
 <?php
 
-class db{
+class database{
 
     function OpenConn(){
         $serverName = "localhost";
         $userName = "root";
         $password = "";
-        $dbName = "abc_shop_management";
+        $dbName = "shop";
 
         $conn = new mysqli($serverName,$userName,$password,$dbName);
             if ($conn->connect_error) {
+
                 die("Connection failed: " . $conn->connect_error);
             }else{
-                echo "Connection ready";
+                // echo "Connection ready";
+                echo "<script>console.log('Connection ready');</script>";
             }
         return $conn;
     }
@@ -30,6 +32,11 @@ class db{
     function CloseConn($connObj){
         $connObj->close();
     }
+    function CheckUser($connObj, $uname, $password){
+        $result = $connObj->query("SELECT * FROM `user` WHERE `username`='$uname' AND `pass`='$password'");
+        return $result;
+    }
+    
 }
 
 ?>

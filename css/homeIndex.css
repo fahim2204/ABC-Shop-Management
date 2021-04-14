@@ -2,7 +2,7 @@
     display: grid;
     width: 1200px;
     grid-template-columns: 2.5fr 8fr;
-    grid-template-rows: 100px auto auto auto auto;
+    grid-template-rows: 100px 250px auto auto auto;
     grid-template-areas: "header header" "menubar image-slider" "menubar hot-category" "menubar body" "footer footer";
     grid-gap: 0.5rem;
     border-radius: 10px;
@@ -37,7 +37,7 @@ footer {
 @media only screen and (max-width: 700px) {
     #home-container {
         grid-template-columns: 100%;
-        grid-template-rows: 100px 2fr 2fr 1.5fr auto auto;
+        grid-template-rows: 100px 2fr 0.6fr 1.5fr auto auto;
         grid-template-areas: "header" "menubar" "image-slider" "hot-category" "body" "footer";
     }
 }

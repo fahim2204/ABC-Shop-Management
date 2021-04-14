@@ -10,6 +10,8 @@
     <link rel="stylesheet" type="text/css" href="/css/global.css">
     <link rel="stylesheet" type="text/css" href="/css/registrationForm.css">
 </head>
+<script src="/js/registrationValidation.js"></script>
+
 
 <body>
     <div class="window-container">
@@ -23,33 +25,33 @@
                         <h1>Registration</h1>
                     </div>
                     <div id="form-body">
-                        <form action="" class="registration">
+                        <form id="registration" method="POST" action="<?php echo $_SERVER["PHP_SELF"] ?>" onsubmit="return RegistrationFieldValidation()" class="registration">
                             <div id="form-body-main">
                                 <div class="items" id="item1">
                                     <label class="required">Name:</label>
                                     <span class="tooltip">
                                         <input type="text" id="name" name="name" placeholder="Name">
-                                        <span id="lb-name">Write Name on Here!!</span>
+                                        <span id="lb-name">Enter a Valid Name!!</span>
                                     </span>
                                 </div>
                                 <div class="items" id="item2">
                                     <label class="required">Email or Phone No:</label>
                                     <span class="tooltip">
-                                        <span id="lb-email">Write Name on Here!!</span>
+                                        <span id="lb-email">Enter a Valid E-mail or Phone No!!</span>
                                         <input type="email" id="email" name="email" placeholder="Email">
                                     </span>
                                 </div>
                                 <div class="items" id="item3">
                                     <label class="required">Password:</label>
                                     <span class="tooltip">
-                                        <span id="lb-pass">Write Name on Here!!</span>
+                                        <span id="lb-pass">Enter a Valid Password!!</span>
                                         <input type="password" id="password" name="password" placeholder="Password">
                                     </span>
                                 </div>
                                 <div class="items" id="item4">
                                     <label class="required">Cofirm Password:</label>
                                     <span class="tooltip">
-                                        <span id="lb-cpass">Write Name on Here!!</span>
+                                        <span id="lb-cpass">Password Not Matched!!</span>
                                         <input type="password" id="cpassword" name="cpassword" placeholder="Confirm Password">
                                     </span>
                                 </div>

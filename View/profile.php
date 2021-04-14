@@ -8,25 +8,7 @@
     { 
         session_start(); 
     } 
-    $ownData = $_SESSION["profileData"];
-
-    $name = $ownData->name;
-    $email = $ownData->email;
-    $userName = $ownData->userName;
-    $password = $ownData->password;
-    $dob = $ownData->dob;
-    $gender = $ownData->gender;
-    $address = $ownData->address;
-    $phone = $ownData->phone;
     
-
-    if(empty($_SESSION["username"])){
-        header("location:login.php");
-    }
-    if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['logout'])){
-        session_destroy();
-        header("location:login.php");
-    }
 ?>
 <html>
     <head>

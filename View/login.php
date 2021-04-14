@@ -1,3 +1,13 @@
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/control/loginValidation.php'); ?>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    if (isset($_REQUEST['logout'])) {
+        session_destroy();
+        header("Location: " . $_SERVER['PHP_SELF']);
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +19,7 @@
     <link rel="icon" href="/images/icon/shoplogo.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="/css/global.css">
     <link rel="stylesheet" type="text/css" href="/css/loginForm.css">
+    <script src="/js/loginValidation.js"></script>
 </head>
 
 <body>
@@ -23,24 +34,25 @@
                         <h1>Login</h1>
                     </div>
                     <div id="form-body">
-                        <form action="" class="registration">
+                        <form id="login" method="POST" action="<?php echo $_SERVER["PHP_SELF"] ?>" onsubmit="return LoginFieldValidation()" class="login">
                             <div id="form-body-main">
                                 <div class="items" id="item1">
-                                    <label class="required">Email or Phone No:</label>
+                                    <label for="userName" class="required">Email or Phone No:</label>
                                     <span class="tooltip">
-                                        <span id="lb-email">Write Name on Here!!</span>
-                                        <input type="email" id="email" name="email" placeholder="Email">
+                                        <span id="lb-email">Please Enter a Valid Username</span>
+                                        <input type="text" id="userName" name="userName" placeholder="User Name">
                                     </span>
                                 </div>
                                 <div class="items" id="item2">
-                                    <label class="required">Password:</label>
+                                    <label for="password" class="required">Password:</label>
                                     <span class="tooltip">
-                                        <span id="lb-pass">Write Name on Here!!</span>
+                                        <span id="lb-pass">Please Enter a Valid Password</span>
                                         <input type="password" id="password" name="password" placeholder="Password">
                                     </span>
                                 </div>
 
                                 <div class="items" id="item3">
+                                    <h4><?php echo $ValidateLogin; ?></h4>
                                     <input type="reset" name="reset" id="reset" value="Reset">
                                     <input type="submit" name="submit" id="submit" value="Login">
                                     <span class="goto-registration-link">

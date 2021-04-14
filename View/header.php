@@ -24,7 +24,7 @@
                     <a href="/view/favourite.php"><img class="header-link" src="https://img.icons8.com/ios-glyphs/40/000000/hearts.png" alt="favourite" /></a>
                 </div>
                 <div class="child-item-3">
-                    <a href="/view/cart.php"><img class="header-link" src="https://img.icons8.com/ios-glyphs/40/000000/shopping-cart.png" alt="cart" /></a>
+                    <a href="/view/salesPerson.php"><img class="header-link" src="https://img.icons8.com/ios-glyphs/40/000000/shopping-cart.png" alt="cart" /></a>
                 </div>
                 <div id="profile-link">
                     <a href="/view/profile.php"><img class="header-link" src="https://img.icons8.com/ios-glyphs/40/000000/user-male-circle.png" alt="profile" /></a>

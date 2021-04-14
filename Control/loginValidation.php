@@ -1,38 +1,42 @@
-<?php  
-        if(!isset($_SESSION)) 
-        { 
-            session_start(); 
-        } 
-        $userName = $password = "";
-        $ValidateLogin = "";
+<?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+$userName = $password = "";
+$ValidateLogin = "";
 
-        if($_SERVER["REQUEST_METHOD"] == "POST")
-        {
-            $userName = $_REQUEST["username"];
-            $password = $_REQUEST["password"];
-            $tmpUserName = $tmpPass = "";
 
-            if(empty($userName) || empty($password) )
-            {
-                $ValidateLogin = "Please Fillup All The Field!!";
-            }else{
-                $data = file_get_contents('../data/userData.json');
-                $mydata = json_decode($data);
-                foreach($mydata as $myobject)
-                 {
-                    foreach($myobject as $key=>$value)
-                    {
-                        if($myobject->userName == $userName && $myobject->password == $password){                           
-                                $_SESSION["username"] = $userName;
-                                $_SESSION["profileData"] = $myobject;
-                                header("location: profile.php");
-                        }else{
-                            $ValidateLogin = "Username or Password is incorrect!!";
-                        }
-                    } 
-                 }
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $userName = $_REQUEST["userName"];
+    $password = $_REQUEST["password"];
+
+    if (empty($userName) || empty($password)) {
+        $ValidateLogin = "Please Fillup All The Field!!";
+    } else {
+        include($_SERVER['DOCUMENT_ROOT'] . '/model/dbConnect.php');
+        $dbObj = new database();
+        $conObj = $dbObj->OpenConn();
+
+        $result = $dbObj->CheckUser($conObj, $userName, $password);
+
+
+        if ($result->num_rows> 0) {
+            $row = $result->fetch_assoc();
+            $_SESSION["username"] = $userName;
+            if($row["type"] == "salesperson"){
+                header('location:salesPerson.php');
             }
-            
+            if($row["type"] == "admin"){
+                header('location:admin.php');
+            }
+            if($row["type"] == "manager"){
+                header('location:manager.php');
+            }
+            if($row["type"] == "customer"){
+                header('location:customer.php');
+            }
+        } else {
+            $ValidateLogin = "Username or Password is invalid";
         }
-
-?>
+    }
+}
