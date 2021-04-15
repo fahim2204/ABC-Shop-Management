@@ -1,3 +1,5 @@
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/control/registrationValidation.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,7 +40,7 @@
                                     <label class="required">Email or Phone No:</label>
                                     <span class="tooltip">
                                         <span id="lb-email">Enter a Valid E-mail or Phone No!!</span>
-                                        <input type="email" id="email" name="email" placeholder="Email">
+                                        <input type="text" id="username" name="username" placeholder="Username">
                                     </span>
                                 </div>
                                 <div class="items" id="item3">

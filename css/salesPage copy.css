@@ -31,7 +31,7 @@ footer {
     grid-area: footer;
 }
 
-/* ////////____Menu Bar____////// */
+/* ////////____Munu Bar____////// */
 
 .user-profile {
     display: flex;
@@ -97,6 +97,13 @@ footer {
     background-color: #26abd6;
 }
 
+/* #menu-container ul li:hover > ul{
+    opacity: 1;
+    position:relative;
+    visibility: visible;
+    z-index: 3;
+} */
+
 .sub-menu-expand {
     opacity: 1;
     position: relative;
@@ -122,56 +129,78 @@ footer {
     transform: rotate(90deg);
 }
 
+@media only screen and (max-width: 700px) {
+    #home-container {
+        grid-template-columns: 100%;
+        grid-template-rows: 100px 2fr 0.6fr 1.5fr auto auto;
+        grid-template-areas: "header" "menubar" "image-slider" "hot-category" "body" "footer";
+    }
+}
+
+/* /////////////////____________/////////// */
 
 /* ///////____Add Product Form____////// */
 
 #manual-form-container {
-    display: flex;
+    display: grid;
+    width: 905px;
+    grid-template-columns: 1.5fr 1fr;
+    grid-template-rows: 30px auto;
+    grid-template-areas: "title title" "form image";
+    grid-gap: 0.5rem;
+    border-radius: 10px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    background-color: white;
-    box-shadow: 2px 2px 10px rgb(134, 187, 233);
-    border-radius: 20px;
+    background-color: aliceblue;
+    box-shadow: 10px 10px 15px rgb(134, 187, 233);
+    border-radius: 40px;
+    margin: 0px; */
 }
 
 #form-title {
+    grid-area: title;
     color: rgb(5 190 214);
     padding: 20px 5px 5px 5px;
     text-decoration: bold;
     text-shadow: 5px 5px 10px rgb(79 208 196);
     font-family: Ubuntu;
-    align-self: center;
+}
+.image-n-button{
+    grid-area: image;
 }
 
-#form-body {
-    border-radius: 2px;
+#p-image div {
+    padding: 5px;
 }
 
-#form-body-main {
-    display: grid;
-    width: 905px;
-    grid-template-columns: 1.2fr 1fr;
-    grid-template-rows: auto;
-    grid-template-areas: "form imagenbutton";
-    grid-gap: 0.5rem;
+#fileToUpload {
+    visibility: hidden;
+}
+
+#fileToUpload::before {
+    content: 'Select Product Image';
+    visibility: visible;
+    display: inline-block;
+    background-color: rgb(151, 179, 190);
+    border: 1px solid #999;
     border-radius: 10px;
+    padding: 5px 8px;
+    cursor: pointer;
+    font-size: 12pt;
 }
 
-.form-label-n-text {
-    grid-area:form;
+#form-body #form-body-main {
+    grid-area: form;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
+    justify-content: center;
     align-items: center;
     /* background-color:forestgreen; */
     padding: 25px 15px;
     float: left;
 }
-
-.image-n-button {
-    grid-area:imagenbutton;
-}
-
-/* ////////______Inside Form Label and Input____/////// */
 
 #item1 {
     flex-basis: 1;
@@ -212,7 +241,15 @@ footer {
     flex-basis: 1;
     padding: 10px;
 }
-.form-label-n-text label,.image-n-button label {
+
+#itemButton {
+    flex-basis: 1;
+    padding: 10px;
+}
+
+/* /////////Label and Input///////////// */
+
+#form-body-main label {
     float: left;
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
@@ -221,13 +258,15 @@ footer {
     width: 160px;
 }
 
-.form-label-n-text .required::after,.image-n-button .required::after {
+#form-body-main .required::after {
     content: '*';
     color: red;
 }
+
 .tooltip {
     position: relative;
 }
+
 .tooltip>span {
     visibility: hidden;
     width: 200px;
@@ -240,113 +279,60 @@ footer {
     z-index: 10;
     bottom: 2px;
 }
-.form-label-n-text input[type="text"], input[type="email"], input[type="password"], select {
+
+#form-body-main input[type="text"], input[type="email"], input[type="password"], select {
     float: right;
     font-size: 15px;
-    border-radius: 15px;
-    padding: 7px 20px;
+    border-radius: 30px;
+    padding: 8px 10px;
     border: 2px solid DodgerBlue;
     width: 250px;
-    box-shadow: 2px 2px 10px rgb(134, 187, 233);
 }
-.form-label-n-text input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, select:focus {
+
+#form-body-main input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, select:focus {
     border-color: rgb(10, 92, 175);
     transform: scale(1.02);
 }
 
-
-
 /* ////////_______Reset and Submit Button_____///// */
 
-input[type="submit"], input[type="reset"] {
-    height: 40px;
+#form-body-main input[type="submit"], input[type="reset"] {
+    height: 50px;
     width: 100px;
     font-size: 1.2em;
     border-radius: 30px;
-    border: none;
-    margin: 5px;
-    padding: 5px;
+    border: 0;
+    margin: 10px;
+    padding: auto;
     color: white;
 }
 
-input[type="submit"] {
+#form-body-main input[type="submit"] {
     background-color: green;
 }
 
-input[type="reset"] {
+#form-body-main input[type="reset"] {
     background-color: skyblue;
 }
 
-input[type="submit"]:hover {
+#form-body-main input[type="submit"]:hover {
     background-color: rgb(9, 185, 9);
     transform: scale(1.02);
-    cursor: pointer;
 }
 
-input[type="reset"]:hover {
+#form-body-main input[type="reset"]:hover {
     background-color: rgb(101, 198, 236);
     transform: scale(1.02);
-    cursor: pointer;
 }
 
-input[type="submit"]:focus {
+#form-body-main input[type="submit"]:focus {
     background-color: rgb(9, 185, 9);
     border: 2px solid rgb(10, 92, 175);
     transform: scale(1.02);
 }
 
-input[type="reset"]:focus {
+#form-body-main input[type="reset"]:focus {
     background-color: rgb(101, 198, 236);
     border: 2px solid rgb(10, 92, 175);
     transform: scale(1.02);
-}
-
-
-
-/* ///////________Image Upload And Button______////// */
-
-#fileToUpload {
-    visibility: hidden;
-}
-
-#fileToUpload::before {
-    content: 'Select Product Image';
-    visibility: visible;
-    display: flex;
-    justify-content: center;
-    background-color: rgb(54, 159, 200);
-    border: 1px solid #999;
-    border-radius: 10px;
-    padding: 5px 2px;
-    cursor: pointer;
-    font-size: 12pt;
-    color: #fff;
-}
-#fileToUpload:hover {
-    transform: scale(1.02);
-    background-color: rgb(255, 255, 255);
-  
-}
-.image-n-button {
-    display: flex;
-    margin-top: 25px;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-}
-.image-n-button label {
-    align-self: start;
-}
-.image-n-button .image {
-    padding: 0px;
-    margin: 5px;
-    margin-bottom: 10px;
-    height: 200px;
-    width: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid rgba(0, 0, 0, 0.363);
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgb(134, 187, 233);
 }

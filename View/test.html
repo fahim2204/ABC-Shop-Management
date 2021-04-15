@@ -1,44 +1,29 @@
-ixed layout example:
-
-<!Doctype HTML>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
      <meta charset="UTF-8">
-     <title>fixed layout</title>
-     <style>
-          /* This is a comment it is not read by any browser
-          This is where the css styling goes */
-
-          body {
-               color: #000;
-               background-color: #fff;
-          }
-
-          #container {
-               /*Styling for any element with the id="container" */
-               width: 1000px;
-               /* The width is fixed by pixels */
-               color: #fff;
-               display: flex;
-
-               background-color: red;
-          }
-
-          #container p {
-               text-align: center;
-          }
-     </style>
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
 </head>
-
 <body>
-     <div id="container">
-
-
-          <p id="content"> I have a fixed width so you can only see me and the body if your monitor has enough pixels.
-               Otherwise you will just see me, the container</p>
-
-     </div>
+     <input type="file">
+     <script>
+     $("input").change(function(e) {
+     
+     for (var i = 0; i < e.originalEvent.srcElement.files.length; i++) {
+         
+         var file = e.originalEvent.srcElement.files[i];
+         
+         var img = document.createElement("img");
+         var reader = new FileReader();
+         reader.onloadend = function() {
+              img.src = reader.result;
+         }
+         reader.readAsDataURL(file);
+         $("input").after(img);
+     }
+     });
+     </script>
 </body>
-
 </html>

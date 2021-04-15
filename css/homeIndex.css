@@ -2,7 +2,7 @@
     display: grid;
     width: 1200px;
     grid-template-columns: 2.5fr 8fr;
-    grid-template-rows: 100px 250px auto auto auto;
+    grid-template-rows: 100px 250px 180px auto auto;
     grid-template-areas: "header header" "menubar image-slider" "menubar hot-category" "menubar body" "footer footer";
     grid-gap: 0.5rem;
     border-radius: 10px;

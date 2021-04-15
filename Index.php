@@ -27,7 +27,7 @@
                 Hot category
             </div>
             <main>
-                Main body
+            <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/mainBody.php'); ?>
             </main>
             <footer>
                 <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/footer.php'); ?>

@@ -1,0 +1,214 @@
+/* /////////_______Make Grid View______////// */
+
+#home-container {
+    display: grid;
+    width: 1200px;
+    grid-template-columns: 2.5fr 8fr;
+    grid-template-rows: 100px auto auto;
+    grid-template-areas: "header header" "menubar body" "footer footer";
+    grid-gap: 0.5rem;
+    border-radius: 10px;
+}
+
+header {
+    grid-area: header;
+}
+
+nav {
+    grid-area: menubar;
+}
+
+main {
+    grid-area: body;
+}
+
+footer {
+    grid-area: footer;
+}
+
+/* ////////______Designing Main Bod_____/////// */
+
+.product-page-container {
+    display: flex;
+    justify-content: center;
+    /* align-content: center; */
+    /* align-items: center; */
+}
+
+.empty-product {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+}
+.empty-product>div {
+    align-content: center;
+}
+.empty-product>div>img{
+    height: 250px;
+    width: 250px;
+}
+
+.empty-product>div>h6 {
+    text-align: center;
+    font-size: 30px;
+    font-family: monospace;
+}
+.product-container{
+    display: grid;
+    width: 905px;
+    padding:10px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: "pimage pinfo" "pdetails pdetails" ;
+    grid-gap: 1rem;
+    background-color:white;
+}
+.product-image-container{
+    grid-area: pimage;
+        /* background-color:blueviolet; */
+}
+.product-image-container img{
+    border-radius: 35px;
+    height:100%;
+    width:100%;
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    box-shadow: 2px 2px 10px rgb(156, 195, 230);
+    border-radius: 15%;
+}
+.product-info{
+    grid-area: pinfo;
+    margin-top: 30px;
+    margin-left: 20px;
+    /* background-color: aquamarine; */
+}
+.product-details{
+    grid-area: pdetails;
+}
+.product-name{
+    text-align: left;
+    font-size: 50px;
+    font-weight: 650;
+    font-family: 'Ubuntu';
+    text-shadow: 1px 1px 5px rgb(218, 224, 224);
+    padding: 5px;
+}
+.product-brand{
+    text-align: left;
+    font-size: 18px;
+    font-weight: 650;
+    font-family: 'Ubuntu';
+    padding: 5px;
+}
+.product-category{
+    text-align: left;
+    font-size: 18px;
+    font-weight: 650;
+    font-family: 'Ubuntu';
+    padding: 5px;
+}
+.product-quantity{
+    text-align: left;
+    font-size: 18px;
+    font-weight: 650;
+    font-family: 'Ubuntu';
+    padding: 5px;
+}
+.product-price{
+    text-align: left;
+    font-size: 40px;
+    font-weight: 650;
+    font-family: 'Ubuntu';
+    padding: 5px;
+}
+.product-price>span{
+    padding-right: 15px;
+}
+.product-buttons{
+    margin-top: 10px;
+    display: flex;
+}
+.product-buttons>button{
+    padding: 10px;
+    background-color: rgb(9, 169, 197);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    box-shadow: 2px 2px 10px rgb(156, 195, 230);
+}
+.product-buttons>button>a{
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+.product-buttons>button:hover{
+    background-color: rgb(10, 136, 158);
+    transform: scale(1.1);
+    color: gray;
+}
+.product-buttons>img{
+    height: 50px;
+    width: 50px;
+    margin-left: 30px;
+}
+.product-buttons>img:hover{
+    filter: drop-shadow(2px 2px 5px rgba(8, 123, 168, 0.842));
+    transform: scale(1.1);
+}
+.product-ratings{
+    padding: 5px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+}
+.product-ratings img{
+    margin-left: 25px;
+    height: 30px;
+    width: 30px;
+}
+.product-ratings i{
+    transform: scale(1.5);
+    padding: 5px;
+
+}
+.product-ratings i:hover{
+    transform: scale(1.6);
+     filter: drop-shadow(2px 2px 5px rgba(8, 123, 168, 0.842));
+}
+.product-ratings img:hover{
+    transform: scale(1.1);
+     filter: drop-shadow(2px 2px 5px rgba(8, 123, 168, 0.842));
+}
+.product-details{
+    background-color: rgba(238, 231, 231, 0.3);
+    border-radius: 5px;
+    padding: 5px;
+}
+.product-details>div.title{
+    background-color: rgba(228, 218, 218, 0.4);
+    padding: 5px;
+    font-size: 24px;
+    font-family: verdana;
+    font-weight: bold;
+}
+.product-details>div.description{
+    padding: 10px;
+    font-size: 15px;
+    font-family: verdana;
+}
+
+
+
+
+
+
+
+/* @media only screen and (max-width: 700px) {
+    #home-container {
+        grid-template-columns: 100%;
+        grid-template-rows: 100px 2fr 0.6fr 1.5fr auto auto;
+        grid-template-areas: "header" "menubar" "image-slider" "hot-category" "body" "footer";
+    }
+} */
