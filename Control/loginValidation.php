@@ -24,16 +24,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $row = $result->fetch_assoc();
             $_SESSION["username"] = $userName;
             if($row["type"] == "salesperson"){
-                header('location:salesPerson.php');
+                $_SESSION["usertype"] = "salesperson";
+                header('location:salesPerson');
             }
             if($row["type"] == "admin"){
-                header('location:admin.php');
+                $_SESSION["usertype"] = "admin";
+                header('location:admin');
             }
             if($row["type"] == "manager"){
-                header('location:manager.php');
+                $_SESSION["usertype"] = "manager";
+                header('location:manager');
             }
             if($row["type"] == "customer"){
-                header('location:customer.php');
+                $_SESSION["usertype"] = "customer";
+                header('location:customer');
             }
         } else {
             $ValidateLogin = "Username or Password is invalid";

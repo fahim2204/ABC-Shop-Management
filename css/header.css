@@ -100,6 +100,14 @@ background: linear-gradient(to right, #3a7bd5, #00d2ff); /* W3C, IE 10+/ Edge, F
     justify-content: start;
     align-items: flex-start;
   }
+  #child-item-b {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #child-item-b:hover {
+    transform: scale(1.12);
+  }
 
   #child-item-a a.header {
     color: black;

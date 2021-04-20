@@ -14,7 +14,7 @@ class database{
                 die("Connection failed: " . $conn->connect_error);
             }else{
                 // echo "Connection ready";
-                echo "<script>console.log('Connection ready');</script>";
+                //echo "<script>console.log('Connection ready');</script>";
             }
         return $conn;
     }
@@ -48,6 +48,78 @@ class database{
         $result = $connObj->query("INSERT INTO `product` (`pid`, `pname`, `pcategory`, `pbrand`, `pquantity`, `uprice`, `ucost`, `pstock`, `pimage`, `prate`, `pdetails`) VALUES (NULL, '$pName', '$pCategory', '$pBrand', '$pQuantity', '$pPrice', '$pCost', '$pstock', '$pimage', '', '$pDetails')");
         if($result==TRUE){
             return "Data Inserted Sucessfully.";
+        }else{
+            return "Error: <br>" . $connObj->error;
+        }
+    }
+    function RetrieveCategories($connObj){
+        $result = $connObj->query("SELECT * FROM `category` ORDER BY `cname` ASC");
+        return $result;
+    }
+    function InsertCategory($connObj,$cname){
+        $result = $connObj->query("INSERT INTO `category` (`cname`) VALUES ('$cname')");
+        if($result==TRUE){
+            return "Data Inserted Sucessfully.";
+        }else{
+            return "Error: <br>" . $connObj->error;
+        }
+    }
+    function UpdateCategory($connObj,$cid,$cname){
+        $result = $connObj->query("UPDATE `category` SET `cname` = '$cname' WHERE `category`.`cid` = '$cid'");
+        if($result==TRUE){
+            return "Data Updated Sucessfully.";
+        }else{
+            return "Error: <br>" . $connObj->error;
+        }
+    }
+    function DeleteCategory($connObj,$cid){
+        $result = $connObj->query("DELETE FROM `category` WHERE `category`.`cid` ='$cid'");
+        if($result==TRUE){
+            return "Data Deleted Sucessfully.";
+        }else{
+            return "Error: <br>" . $connObj->error;
+        }
+    }
+    function RetrieveBrands($connObj){
+        $result = $connObj->query("SELECT * FROM `brand` ORDER BY `bname` ASC");
+        return $result;
+    }
+    function InsertBrand($connObj,$bname){
+        $result = $connObj->query("INSERT INTO `brand` (`bname`) VALUES ('$bname')");
+        if($result==TRUE){
+            return "Data Inserted Sucessfully.";
+        }else{
+            return "Error: <br>" . $connObj->error;
+        }
+    }
+    function UpdateBrand($connObj,$bid,$bname){
+        $result = $connObj->query("UPDATE `brand` SET `bname` = '$bname' WHERE `brand`.`bid` = '$bid'");
+        if($result==TRUE){
+            return "Data Updated Sucessfully.";
+        }else{
+            return "Error: <br>" . $connObj->error;
+        }
+    }
+    function DeleteBrand($connObj,$bid){
+        $result = $connObj->query("DELETE FROM `brand` WHERE `brand`.`bid` ='$bid'");
+        if($result==TRUE){
+            return "Data Deleted Sucessfully.";
+        }else{
+            return "Error: <br>" . $connObj->error;
+        }
+    }
+    function TotalBrand($connObj){
+        $result = $connObj->query("SELECT COUNT(*) FROM brand");
+        if($result==TRUE){
+            return $result;
+        }else{
+            return "Error: <br>" . $connObj->error;
+        }
+    }
+    function Totalcategory($connObj){
+        $result = $connObj->query("SELECT COUNT(*) FROM category");
+        if($result==TRUE){
+            return $result;
         }else{
             return "Error: <br>" . $connObj->error;
         }

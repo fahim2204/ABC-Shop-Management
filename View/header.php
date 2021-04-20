@@ -27,15 +27,50 @@
                     <a href="/view/salesPerson.php"><img class="header-link" src="https://img.icons8.com/ios-glyphs/40/000000/shopping-cart.png" alt="cart" /></a>
                 </div>
                 <div id="profile-link">
-                    <a href="/view/profile.php"><img class="header-link" src="https://img.icons8.com/ios-glyphs/40/000000/user-male-circle.png" alt="profile" /></a>
-                    <div id="child-item-a">
-                        <a class="header" href="/view/login.php">Login</a>
-                        <a class="header" href="/view/registration.php">Register</a>
-                    </div>
+                    <?php
+                    if (!isset($_SESSION)) {
+                        session_start();
+                    }
+                    //////////_________Redirect User to their Own Page_________///////
+                    if (isset($_SESSION['username'])) {
+                        if ($_SESSION['usertype'] == "manager") {
+                            echo '<a href="/view/manager"><img class="header-link" src="https://img.icons8.com/ios-glyphs/40/000000/user-male-circle.png" alt="profile" /></a>';
+                        } elseif ($_SESSION['usertype'] == "salesperson") {
+                            echo '<a href="/view/salesperson"><img class="header-link" src="https://img.icons8.com/ios-glyphs/40/000000/user-male-circle.png" alt="profile" /></a>';
+                        } elseif ($_SESSION['usertype'] == "admin") {
+                            echo '<a href="/view/admin"><img class="header-link" src="https://img.icons8.com/ios-glyphs/40/000000/user-male-circle.png" alt="profile" /></a>';
+                        } elseif ($_SESSION['usertype'] == "customer") {
+                            echo '<a href="/view/customer"><img class="header-link" src="https://img.icons8.com/ios-glyphs/40/000000/user-male-circle.png" alt="profile" /></a>';
+                        }
+                    } else {
+                        echo '<a href="/view/login.php"><img class="header-link" src="https://img.icons8.com/ios-glyphs/40/000000/user-male-circle.png" alt="profile" /></a>';
+                    }
+                    ?>
+                    <?php
+                    if (!isset($_SESSION)) {
+                        session_start();
+                    }
+                    if (empty($_SESSION["username"])) {
+                    ?>
+                        <div id="child-item-a">
+                            <a class="header" href="/view/login.php">Login</a>
+                            <a class="header" href="/view/registration.php">Register</a>
+                        </div>
+                    <?php
+                    } else {
+                    ?>
+                        <div id="child-item-b">
+                            <a class="header" href="/view/login.php?logout=true"><img src="https://img.icons8.com/material-outlined/30/000000/export.png" /></a>
+                        </div>
+
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
     </div>
+
 </body>
 
 </html>
