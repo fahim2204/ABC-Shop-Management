@@ -24,7 +24,7 @@ if (!empty($_SESSION["usertype"])) {
     <link rel="icon" href="/images/icon/shoplogo.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="/css/global.css">
     <!-- ____same css is used for all type of user.____ -->
-    <link rel="stylesheet" type="text/css" href="/css/SalesPage.css">
+    <link rel="stylesheet" type="text/css" href="/css/sales-page.css">
     <!-- same css is used for all type of user. -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -38,7 +38,7 @@ if (!empty($_SESSION["usertype"])) {
                 <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/header.php'); ?>
             </header>
             <nav>
-                <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/manager/MenuBar.php'); ?>
+                <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/manager/menu-bar.php'); ?>
             </nav>
             <main>
                 <div class="dash-container">
@@ -70,7 +70,7 @@ if (!empty($_SESSION["usertype"])) {
         $(document).ready(function() {
             var DashData = "DashData"
             $.ajax({
-                url: "/control/ManagerPageValidator.php",
+                url: "/control/manager-page-validator.php",
                 type: 'POST',
                 data: {
                     DashData: DashData

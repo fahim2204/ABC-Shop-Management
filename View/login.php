@@ -1,4 +1,4 @@
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/control/loginValidation.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/control/login-validation.php'); ?>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     if (isset($_REQUEST['logout'])) {
@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     <link rel="icon" href="/images/icon/shoplogo.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="/css/global.css">
     <link rel="stylesheet" type="text/css" href="/css/loginForm.css">
-    <script src="/js/loginValidation.js"></script>
+    <script src="/js/login-validation.js"></script>
 </head>
 
 <body>
@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                                     <input type="reset" name="reset" id="reset" value="Reset">
                                     <input type="submit" name="submit" id="submit" value="Login">
                                     <span class="goto-registration-link">
-                                        <a href="/view/forgetPass.php">Forget Password?</a>
+                                        <a href="/view/forget-Pass.php">Forget Password?</a>
                                     </span>
                                     <!-- Future implement for validation -->
                                     <!-- <button type="button" onclick="document.getElementById('lb-pass').style.visibility = 'visible'">

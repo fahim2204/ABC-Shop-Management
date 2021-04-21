@@ -1,0 +1,120 @@
+.customer-profile-container {
+    display: grid;
+    width: 905px;
+    grid-template-columns: 2.5fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "pinfo pimage";
+    grid-gap: 0.5rem;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgb(134, 187, 233);
+    
+}
+
+.personal-info {
+    grid-area: pinfo;
+    padding: 10px;
+    box-shadow: 2px 2px 10px rgb(134, 187, 233);
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.personal-image {
+    grid-area: pimage;
+    padding: 10px;
+    box-shadow: 2px 2px 10px rgb(134, 187, 233);
+
+}
+
+
+/* ///////________Image Upload And Button______////// */
+
+#fileToUpload {
+    visibility: hidden;
+}
+
+#fileToUpload::before {
+    content: 'Select Image';
+    visibility: visible;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(54, 159, 200);
+    border: 1px solid #999;
+    border-radius: 10px;
+    padding: 5px 2px;
+    cursor: pointer;
+    font-size: 12pt;
+    color: #fff;
+}
+#fileToUpload:hover {
+    transform: scale(1.02);
+    background-color: rgb(255, 255, 255);
+}
+.personal-image  {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.personal-image label {
+    align-self: start;
+}
+.personal-image .image {
+    padding: 0px;
+    margin: 5px;
+    margin-bottom: 10px;
+    height: 200px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.363);
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgb(134, 187, 233);
+}
+
+
+
+/* /////////Label and Input///////////// */
+
+.customer-profile-container>.personal-info>label {
+    float: left;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 8px 1px;
+    margin-left: 8px;
+    width: 160px;
+}
+.personal-info .required::after,.personal-image .required::after{
+    content: '*';
+    color: red;
+    
+}
+.tooltip{
+    position: relative;
+}
+.tooltip > span{
+    visibility: visible;
+    width: 200px;
+    color: rgb(243, 10, 10);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.7em;
+    text-align: right;
+    text-decoration: underline;
+    position: absolute;
+    z-index: 10;
+    left: 0;
+}
+
+.customer-profile-container input[type="text"],input[type="tel"], input[type="email"], input[type="password"] {
+    float: right;
+    font-size: 15px;
+    border-radius: 30px;
+    padding: 8px 10px;
+    border: 2px solid DodgerBlue;
+}
+.customer-profile-container textarea,input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+    border-color: rgb(10, 92, 175);
+    transform: scale(1.02);
+}

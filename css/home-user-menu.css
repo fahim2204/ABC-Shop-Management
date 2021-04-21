@@ -1,0 +1,94 @@
+
+/* ////////____Menu Bar____////// */
+
+.user-profile {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.user-profile #user-image {
+    flex-basis: 25%;
+    background-color: rgba(128, 128, 128, 0.787);
+    margin: 5px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgb(20, 132, 230);
+}
+
+.user-profile #user-name {
+    align-self: flex-start;
+    flex-basis: 75%;
+    background-color: ash;
+    padding: 5px;
+    margin-top: 10px;
+    font-family: 'Ubuntu';
+    color: white;
+}
+
+#menu-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#menu-container ul {
+    margin: 0;
+    list-style: none;
+}
+
+#menu-container ul li {
+    position: relative;
+    background-color: #26abd6;
+    padding: 5px;
+    border-top: 1px solid white;
+    width: 100%;
+    border-radius: 5px;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#menu-container ul li:hover, li:focus {
+    background-color: #000000;
+    font-size: 20px;
+}
+
+#menu-container ul ul {
+    transition: all 0.3s;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 10px;
+    /* background-color: burlywood; */
+}
+
+#menu-container ul ul li {
+    background-color: #26abd6;
+}
+
+.sub-menu-expand {
+    opacity: 1;
+    position: relative;
+    visibility: visible;
+    z-index: 3;
+}
+
+#menu-container ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#menu-container span {
+    margin: 2px 10px 2px 10px;
+}
+
+#menu-container>ul>Li.sub-menu span.fa-caret-right {
+    float: right;
+}
+
+#menu-container>ul>Li.sub-menu:hover span.fa-caret-right {
+    float: right;
+    transform: rotate(90deg);
+}
+
+

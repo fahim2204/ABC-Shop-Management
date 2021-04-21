@@ -8,10 +8,7 @@
     <title>ABC Shop - Product</title>
     <link rel="icon" href="/images/icon/shoplogo.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="/css/global.css">
-    <link rel="stylesheet" type="text/css" href="/css/productPage.css">
-    <link rel="stylesheet" type="text/css" href="/css/font-awesome-all.css">
-    <link rel="stylesheet" type="text/css" href="/css/font-awesome-regular.css">
-
+    <link rel="stylesheet" type="text/css" href="/css/product-page.css">
 </head>
 
 <body>
@@ -21,12 +18,12 @@
                 <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/header.php'); ?>
             </header>
             <nav>
-                <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/menuBar.html'); ?>
+                <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/menu-bar.html'); ?>
             </nav>
             <main>
                 <div class="product-page-container">
                     <?php
-                    include($_SERVER['DOCUMENT_ROOT'] . '/model/dbConnect.php');
+                    include($_SERVER['DOCUMENT_ROOT'] . '/model/db-connect.php');
                     // $pid = $_REQUEST['product-id'];
                     if (empty($_REQUEST['product-id'])) {
                         echo '
@@ -54,7 +51,7 @@
                     ?>
                         <div class="product-container">
                             <div class="product-image-container">
-                                <img src="/images/ProductImage/<?php echo $row['pimage'] ?>" alt="">
+                                <img src="/images/product-image/<?php echo $row['pimage'] ?>" alt="">
                             </div>
                             <div class="product-info">
                                 <div class="product-name">

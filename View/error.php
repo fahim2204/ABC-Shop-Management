@@ -8,7 +8,7 @@
     <title>ABC Shop - Error</title>
     <link rel="icon" href="/images/icon/shoplogo.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="/css/global.css">
-    <link rel="stylesheet" type="text/css" href="/css/productPage.css">
+    <link rel="stylesheet" type="text/css" href="/css/product-page.css">
 </head>
 
 <body>
@@ -18,7 +18,7 @@
                 <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/header.php'); ?>
             </header>
             <nav>
-                <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/menuBar.html'); ?>
+                <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/menu-bar.html'); ?>
             </nav>
             <main>
                 <div class="product-page-container">

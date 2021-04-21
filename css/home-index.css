@@ -1,0 +1,43 @@
+#home-container {
+    display: grid;
+    width: 1200px;
+    grid-template-columns: 2.5fr 8fr;
+    grid-template-rows: 100px 250px auto auto auto;
+    grid-template-areas: "header header" "menubar image-slider" "menubar hot-category" "menubar body" "footer footer";
+    grid-gap: 0.5rem;
+    border-radius: 10px;
+}
+
+header {
+    grid-area: header;
+}
+
+nav {
+    grid-area: menubar;
+}
+
+#image-slider-container {
+    grid-area: image-slider;
+}
+
+#hot-category-container {
+    /* background-color: #dfec5a; */
+    grid-area: hot-category;
+}
+
+main {
+    /* background-color: #dfe; */
+    grid-area: body;
+}
+
+footer {
+    grid-area: footer;
+}
+
+@media only screen and (max-width: 700px) {
+    #home-container {
+        grid-template-columns: 100%;
+        grid-template-rows: 100px 2fr 0.6fr auto auto auto;
+        grid-template-areas: "header" "menubar" "image-slider" "hot-category" "body" "footer";
+    }
+}

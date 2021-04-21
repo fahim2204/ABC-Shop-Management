@@ -1,0 +1,203 @@
+.add-category-parent {
+    display: grid;
+    width: 905px;
+    grid-template-columns: 1.4fr 1fr;
+    grid-template-rows: 50px auto;
+    grid-template-areas: "title title" "manage add";
+    grid-gap: 0.5rem;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 2px 2px 10px rgb(134, 187, 233);
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.category-title {
+    grid-area: title;
+    margin: 10px;
+    margin-bottom: 25px;
+    padding: 10px;
+    color: rgb(5 190 214);
+    padding: 20px 5px 5px 5px;
+    text-decoration: bold;
+    text-shadow: 5px 5px 10px rgb(79 208 196);
+    font-family: Ubuntu;
+    align-self: center;
+    text-align: center;
+}
+
+.category-manage {
+    grid-area: manage;
+    padding: 10px;
+}
+
+.category-add {
+    grid-area: add;
+    padding: 10px;
+}
+
+.category-add .required::after {
+    content: '*';
+    color: red;
+}
+
+.tooltip {
+    position: relative;
+}
+
+.tooltip>span {
+    visibility: hidden;
+    width: 200px;
+    color: rgb(243, 10, 10);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.7em;
+    text-align: right;
+    position: absolute;
+    z-index: 10;
+    bottom: 34px;
+    right: 2px;
+}
+
+.category-add input[type="text"] {
+    /* float: right; */
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 15px;
+    padding: 7px 20px;
+    border: 2px solid DodgerBlue;
+    width: 250px;
+    max-width: 420px;
+    max-height: 500px;
+    margin-top: 10px;
+    box-shadow: 2px 2px 10px rgb(134, 187, 233);
+}
+
+.category-add input[type="text"]:focus {
+    border-color: rgb(10, 92, 175);
+    transform: scale(1.02);
+}
+
+button {
+    height: 40px;
+    width: 100px;
+    font-size: 1.2em;
+    border-radius: 30px;
+    border: none;
+    margin: 5px;
+    padding: 5px;
+    color: white;
+}
+button#add-data {
+    background-color: green;
+}
+button#update-data {
+    background-color: rgb(28, 110, 216);
+}
+/* input[type="submit"]#update {
+    background-color: rgb(5, 137, 214);
+} */
+
+button:hover {
+    box-shadow: 2px 2px 10px rgb(134, 187, 233);
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+#category-manage .categories-table {
+    width: 350px;
+    margin-left: 60px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 10px rgb(134, 187, 233);
+}
+
+#category-manage th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+#category-manage #t1 {
+    background-color:aquamarine;
+    border-radius: 20px 2px 2px 2px;
+
+}
+#category-manage #t2 {
+    background-color:aquamarine;
+    border-radius: 2px 20px 2px 2px;
+
+}
+#category-manage tr:hover {
+    background-color: #f5f5f5;
+}
+tbody a{
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Ubuntu';
+    font-size: 12px;
+}
+tbody a.edit{
+    background-color:rgba(0, 204, 255, 0.685);
+}
+tbody a.delete{
+    background-color:rgba(245, 53, 53, 0.685);
+}
+tbody a.edit:hover{
+    background-color:rgb(0, 204, 255);
+    cursor:pointer;
+}
+tbody a.delete:hover{
+    background-color:rgb(245, 53, 53);
+    cursor:pointer;
+}
+
+
+/* ///////________Image Upload And Button______////// */
+
+#fileToUpload {
+    visibility: hidden;
+}
+
+#fileToUpload::before {
+    content: 'Select Product Image';
+    visibility: visible;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(54, 159, 200);
+    border: 1px solid #999;
+    border-radius: 10px;
+    padding: 5px 2px;
+    cursor: pointer;
+    font-size: 12pt;
+    color: #fff;
+}
+#fileToUpload:hover {
+    transform: scale(1.02);
+    background-color: rgb(255, 255, 255);
+  
+}
+.image-n-button {
+    display: flex;
+    margin-top: 25px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.image-n-button label {
+    align-self: start;
+}
+.image-n-button .image {
+    padding: 0px;
+    margin: 5px;
+    margin-bottom: 10px;
+    height: 200px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.363);
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgb(134, 187, 233);
+}

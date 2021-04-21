@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/css/image-slider.css">
+</head>
+<body>
+    <div class="slider">
+        <div class="slides">
+            <input type="radio" name="radio-btn" id="radio1">
+            <input type="radio" name="radio-btn" id="radio2">
+            <input type="radio" name="radio-btn" id="radio3">
+            <input type="radio" name="radio-btn" id="radio4">
+            <input type="radio" name="radio-btn" id="radio5">
+            <input type="radio" name="radio-btn" id="radio6">
+
+            <div class="slide first">
+                <img src="/images/product-image/c1.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img src="/images/product-image/c2.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img src="/images/product-image/c3.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img src="/images/product-image/c4.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img src="/images/product-image/c5.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img src="/images/product-image/c6.jpg" alt="">
+            </div>
+            <div class="navigation-auto">
+                <div class="auto-btn1"></div>
+                <div class="auto-btn2"></div>
+                <div class="auto-btn3"></div>
+                <div class="auto-btn4"></div>
+                <div class="auto-btn5"></div>
+                <div class="auto-btn6"></div>
+            </div>
+        </div>
+        <div class="navigation-manual">
+            <label for="radio1" class="manual-btn"></label>
+            <label for="radio2" class="manual-btn"></label>
+            <label for="radio3" class="manual-btn"></label>
+            <label for="radio4" class="manual-btn"></label>
+            <label for="radio5" class="manual-btn"></label>
+            <label for="radio6" class="manual-btn"></label>
+        </div>
+    </div>
+
+    <script>
+        var counter  = 1;
+        setInterval(function(){
+            document.getElementById('radio'+counter).checked = true;
+            counter++;
+            if(counter>6){
+                counter = 1;
+            }
+        },5000);
+    </script>
+</body>
+</html>

@@ -1,3 +1,4 @@
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/model/db-connect.php');?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +9,7 @@
     <title>ABC Shop - Home</title>   
     <link rel="icon" href="/images/icon/shoplogo.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="/css/global.css">
-    <link rel="stylesheet" type="text/css" href="/css/homeIndex.css">
+    <link rel="stylesheet" type="text/css" href="/css/home-index.css">
 </head>
 
 <body>
@@ -18,16 +19,16 @@
                 <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/header.php'); ?>
             </header>
             <nav>
-                <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/menuBar.html'); ?>
+                <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/menu-bar.html'); ?>
             </nav>
             <div id="image-slider-container">
-                <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/imageSlider.html'); ?>
+                <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/image-slider.html'); ?>
             </div>
             <div id="hot-category-container">
-                Hot category
+                <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/hot-category.php'); ?>
             </div>
             <main>
-            <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/mainBody.php'); ?>
+            <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/main-body.php'); ?>
             </main>
             <footer>
                 <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/footer.php'); ?>

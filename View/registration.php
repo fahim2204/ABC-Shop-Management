@@ -1,4 +1,4 @@
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/control/registrationValidation.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/control/registration-validation.php'); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,7 @@
     <title>ABC Shop - Registration</title>
     <link rel="icon" href="/images/icon/shoplogo.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="/css/global.css">
-    <link rel="stylesheet" type="text/css" href="/css/registrationForm.css">
+    <link rel="stylesheet" type="text/css" href="/css/registration-form.css">
 </head>
 <script src="/js/registrationValidation.js"></script>
 

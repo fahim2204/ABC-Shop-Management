@@ -4,7 +4,6 @@
         <link rel="stylesheet" type="text/css" href="/css/footer.css" >  
     </head>
     <body>
-        <div class="window-container">
             <div class="footer-container">
                 <table style="width:100%">
                     <tr>
@@ -75,7 +74,9 @@
                             <img src="https://img.icons8.com/ios-glyphs/30/000000/youtube-play.png"/>
                             &nbsp 
                             <img src="https://img.icons8.com/ios-glyphs/30/000000/linkedin-circled--v2.png"/>
-
+                            <br>
+                            © 2010 - <?php echo date("Y");?> ABCSHOP.CF | All Rights Reserved
+                            
                         </td>
                         <td>
                             Help Center
@@ -89,8 +90,6 @@
                     </tr>
                 </table>
                 
-                © 2010 - <?php echo date("Y");?> ABCSHOP.CF | All Rights Reserved
             </div>
-        </div>
     </body>
 </html>

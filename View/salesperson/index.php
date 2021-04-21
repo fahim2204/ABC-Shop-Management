@@ -17,7 +17,7 @@ if (!empty($_SESSION["usertype"])) {
 //     header("location:login.php");
 // }
 ?>
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/control/productAddValidator.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/control/product-add-validator.php'); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +31,7 @@ if (!empty($_SESSION["usertype"])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" type="text/css" href="/css/global.css">
-    <link rel="stylesheet" type="text/css" href="/css/SalesPage.css">
+    <link rel="stylesheet" type="text/css" href="/css/sales-page.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 
@@ -44,7 +44,7 @@ if (!empty($_SESSION["usertype"])) {
                 <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/header.php'); ?>
             </header>
             <nav>
-            <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/salesperson/MenuBar.php'); ?>
+            <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/salesperson/menu-bar.php'); ?>
             </nav>
             <main>
                 Dashboard .......
