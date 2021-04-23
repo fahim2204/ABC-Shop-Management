@@ -57,11 +57,11 @@ background: linear-gradient(to right, #3a7bd5, #00d2ff); /* W3C, IE 10+/ Edge, F
   #header-item-2 #searchtxt {
     width: 70%;
     height: 40px;
-    border-radius: 30px;
+    border-radius: 20px;
     border-color: darkgray;
     font-family: 'Ubuntu', sans-serif;
     font-size: 20px;
-    background-image: url("https://img.icons8.com/color/30/000000/search--v1.png");
+    background-image: url("https://img.icons8.com/ios-filled/30/000000/search--v4.png");
     background-repeat: no-repeat;
     background-position: 98% 50%;
     padding-left: 30px;

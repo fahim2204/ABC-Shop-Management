@@ -11,11 +11,6 @@ if (!empty($_SESSION["usertype"])) {
         header("location:/view/error.php");
     }
 }
-
-// if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['logout'])){
-//     session_destroy();
-//     header("location:login.php");
-// }
 ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/control/product-add-validator.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/model/db-connect.php');
@@ -34,7 +29,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/model/db-connect.php');
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/css/global.css">
     <link rel="stylesheet" type="text/css" href="/css/sales-page.css">
-    <script src="/js/salesPersonPageValidation.js"></script>
+    <script src="/js/sales-person-page-validation.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/add-product-form.css">
     <script src="/js/jquery.min.js"></script>
 

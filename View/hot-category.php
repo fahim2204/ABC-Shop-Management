@@ -10,26 +10,26 @@
 
 <body>
     <div class="title">
-    <img src="https://img.icons8.com/ios-glyphs/35/138f13/first-place-ribbon.png"/>
-    <h6>Hot-Categories</h6> 
+        <img src="https://img.icons8.com/ios-glyphs/35/138f13/first-place-ribbon.png" />
+        <h6>Hot-Categories</h6>
     </div>
     <div class="h-category-container">
-    <?php
+        <?php
         $dbTry = new database();
         $conObj = $dbTry->OpenConn();
         $Categories = $dbTry->RetrieveCategoriesSix($conObj);
         while ($row = $Categories->fetch_assoc()) {
         ?>
-        <a href="/view/category.php?category-id=<?php echo $row['cid'] ?>">
-            <div class="single-container">
-                <div class="img-container">
-                <img src="/images/category-image/<?php echo $row['cimage'] ?>" alt="">
+            <a href="/view/category.php?category-id=<?php echo $row['cid'] ?>">
+                <div class="single-container">
+                    <div class="img-container">
+                        <img src="/images/category-image/<?php echo $row['cimage'] ?>" alt="">
+                    </div>
+                    <div class="c-name-container">
+                        <?php echo $row['cname'] ?>
+                    </div>
                 </div>
-                <div class="c-name-container">
-                <?php echo $row['cname'] ?>
-                </div>
-            </div>
-        </a>
+            </a>
         <?php } ?>
     </div>
 

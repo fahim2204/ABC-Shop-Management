@@ -2,7 +2,7 @@
 include($_SERVER['DOCUMENT_ROOT'] . '/model/db-connect.php');
 extract($_POST);
 
-//////////_______For catagory CRUD_______//////////
+//////////_______For Products CRUD_______//////////
 
 if (isset($_POST['record'])) {
     $tableData = '<table class="product-table">
@@ -12,9 +12,9 @@ if (isset($_POST['record'])) {
                             <th>Category</th>
                             <th>Brand</th>
                             <th>Quantity</th>
+                            <th>Stock</th>
                             <th>Unit Price</th>
                             <th>Cost Price</th>
-                            <th>Stock</th>
                             <th>Details</th>
                             <th colspan="2">Action</th>
                         </tr>
@@ -29,9 +29,9 @@ if (isset($_POST['record'])) {
         $pCat = $row["pcategory"];
         $pBrand = $row["pbrand"];
         $pQuantity = $row["pquantity"];
+        $pstock = $row["pstock"];
         $uprice = $row["uprice"];
         $ucost = $row["ucost"];
-        $pstock = $row["pstock"];
         $pdetails = $row["pdetails"];
 
         
@@ -41,11 +41,11 @@ if (isset($_POST['record'])) {
                     <td>' . $pCat . '</td>
                     <td>' . $pBrand . '</td>
                     <td>' . $pQuantity . '</td>
+                    <td>' . $pstock . '</td>
                     <td>' . $uprice . '</td>
                     <td>' . $ucost . '</td>
-                    <td>' . $pstock . '</td>
                     <td id="detail">' . $pdetails . '</td>
-                    <td><a class="edit" onclick="SetData(' . $pId . ',`' . $pName . '`)">Edit</a></td>
+                    <td><a class="edit" onclick="ShowPopUp(' . $pId . ',`' . $pName . '`,`' . $pCat . '`,`' . $pBrand . '`,`' . $pQuantity . '`,`' . $uprice . '`,`' . $ucost . '`,`' . $pstock . '`,`' . $pdetails . '`)">Edit</a></td>
                     <td><a class="delete" onclick="DeleteData(' . $pId . ')">Delete</a></td>
                 </tr>';
     }
@@ -54,38 +54,31 @@ if (isset($_POST['record'])) {
     echo $tableData;
 }
 
-if (isset($_POST['addData'])) {
-    $cname = $_REQUEST['addData'];
-    if (empty($cname)) {
-        echo "Please Insert Valid data";
-    } else {
+if (isset($_POST['update'])) {
+    $pId = $_REQUEST['pId'];
+    $pName = $_REQUEST['pName'];
+    $pCat = $_REQUEST['pCat'];
+    $pBrand = $_REQUEST['pBrand'];
+    $pstock = $_REQUEST['pstock'];
+    $pQuantity = $_REQUEST['pQuantity'];
+    $uprice = $_REQUEST['uprice'];
+    $ucost = $_REQUEST['ucost'];
+    $pdetails = $_REQUEST['pdetails'];
         $dbObj = new database();
         $conObj = $dbObj->OpenConn();
-        $result = $dbObj->InsertCategory($conObj, $cname);
+        $result = $dbObj->UpdateProduct($conObj,$pId,$pName,$pCat,$pBrand,$pstock,$pQuantity,$uprice,$ucost,$pdetails);
         echo $result;
         $dbObj->CloseConn($conObj);
-    }
+    
 }
+
 if (isset($_POST['deleteData'])) {
     $cid = $_REQUEST['deleteData'];
 
     $dbObj = new database();
     $conObj = $dbObj->OpenConn();
-    $result = $dbObj->DeleteCategory($conObj, $cid);
+    $result = $dbObj->DeleteProduct($conObj, $cid);
     $dbObj->CloseConn($conObj);
-}
-if (isset($_POST['updateData'])) {
-    $cid = $_REQUEST['updateData'];
-    $cname = $_REQUEST['upCname'];
-    if (empty($cname)) {
-        echo "Please Insert Valid data";
-    } else {
-        $dbObj = new database();
-        $conObj = $dbObj->OpenConn();
-        $result = $dbObj->UpdateCategory($conObj, $cid, $cname);
-        echo $result;
-        $dbObj->CloseConn($conObj);
-    }
 }
 //////////_______For Brand CRUD_______//////////
 

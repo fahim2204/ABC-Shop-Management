@@ -1,4 +1,5 @@
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/control/login-validation.php'); ?>
+<!-- /////_____ For Logout_____///// -->
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     if (isset($_REQUEST['logout'])) {
@@ -18,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     <title>ABC Shop - Registration</title>
     <link rel="icon" href="/images/icon/shoplogo.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="/css/global.css">
-    <link rel="stylesheet" type="text/css" href="/css/loginForm.css">
+    <link rel="stylesheet" type="text/css" href="/css/login-form.css">
     <script src="/js/login-validation.js"></script>
 </head>
 

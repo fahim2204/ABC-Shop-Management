@@ -61,7 +61,23 @@ class database{
             return "Error: <br>" . $connObj->error;
         }
     }
-
+    function UpdateProduct($connObj,$pId,$pName,$pCategory,$pBrand,$pstock,$pQuantity,$pPrice,$pCost,$pDetails){
+        $result = $connObj->query("UPDATE `product` SET `pname` = '$pName', `pcategory` = '$pCategory', `pbrand` = '$pBrand', `pquantity` = '$pQuantity', `uprice` = '$pPrice', `ucost` = '$pCost', `pstock` = '$pstock', `pdetails` = '$pDetails' WHERE `product`.`pid` = $pId");
+        if($result==TRUE){
+            return "Data Updated Sucessfully.";
+        }else{
+            return "Error: <br>" . $connObj->error;
+        }
+    }
+    function DeleteProduct($connObj,$pid){
+        $result = $connObj->query("DELETE FROM `product` WHERE `product`.`pid` ='$pid'");
+        if($result==TRUE){
+            return "Data Deleted Sucessfully.";
+        }else{
+            return "Error: <br>" . $connObj->error;
+        }
+    }
+    
 //////////_____Category Section_______///////
 
     function RetrieveCategories($connObj){

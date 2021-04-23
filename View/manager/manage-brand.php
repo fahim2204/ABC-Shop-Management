@@ -45,14 +45,14 @@ if (!empty($_SESSION["usertype"])) {
                     <div class="category-title">
                         <h1>Manage Brand</h1>
                     </div>
-                    <!-- This DIV is filled from manager-page-validator.php By AJAX -->
+                    <!-- This DIV is filled from manager-page-data-connector.php By AJAX -->
                     <div id="category-manage"></div>
                     <div class="category-add">
                         <form id="add-category" method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>">
                             <div id="item1">
                                 <label for="cName" class="required">Brand Name:</label>
                                 <span class="tooltip">
-                                    <input type="text" id="cName" name="cName" placeholder="Category Name" ?>
+                                    <input type="text" id="cName" name="cName" placeholder="Brand Name" ?>
                                     <input type="hidden" id="cid" ?>
                                     <span id="lb-pName">Can't Leave Empty!!</span>
                                 </span>
@@ -81,7 +81,7 @@ if (!empty($_SESSION["usertype"])) {
         function ReadRecords() {
             var record = "record";
             $.ajax({
-                url: "/control/manager-page-validator.php",
+                url: "/control/manager-page-data-connector.php",
                 type: 'POST',
                 data: {
                     brandRecord: record
@@ -103,7 +103,7 @@ if (!empty($_SESSION["usertype"])) {
             }else{
                 $('#lb-pName').css("visibility","hidden");
                 $.ajax({
-                    url: "/control/manager-page-validator.php",
+                    url: "/control/manager-page-data-connector.php",
                     type: 'POST',
                     data: {
                         brandAddData: catname
@@ -121,7 +121,7 @@ if (!empty($_SESSION["usertype"])) {
             var confimDel = confirm("Are you Sure Want To Delete?");
             if (confimDel == true) {
                 $.ajax({
-                    url: "/control/manager-page-validator.php",
+                    url: "/control/manager-page-data-connector.php",
                     type: 'POST',
                     data: {
                         brandDeleteData: cid
@@ -144,7 +144,7 @@ if (!empty($_SESSION["usertype"])) {
             var catname = $('#cName').val();
             var cid = $('#cid').val();
             $.ajax({
-                url: "/control/manager-page-validator.php",
+                url: "/control/manager-page-data-connector.php",
                 type: 'POST',
                 data: {
                     brandUpdateData: cid,

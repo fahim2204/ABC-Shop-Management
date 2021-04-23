@@ -32,7 +32,7 @@ if (!empty($_SESSION["usertype"])) {
 
     <link rel="stylesheet" type="text/css" href="/css/global.css">
     <link rel="stylesheet" type="text/css" href="/css/sales-page.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
 
 
 </head>

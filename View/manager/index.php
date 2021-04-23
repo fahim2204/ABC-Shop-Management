@@ -26,7 +26,7 @@ if (!empty($_SESSION["usertype"])) {
     <!-- ____same css is used for all type of user.____ -->
     <link rel="stylesheet" type="text/css" href="/css/sales-page.css">
     <!-- same css is used for all type of user. -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
 
 
 </head>
@@ -70,14 +70,14 @@ if (!empty($_SESSION["usertype"])) {
         $(document).ready(function() {
             var DashData = "DashData"
             $.ajax({
-                url: "/control/manager-page-validator.php",
+                url: "/control/manager-page-data-connector.php",
                 type: 'POST',
                 data: {
                     DashData: DashData
                 },
                 success: function(data, status) {
                     var json = $.parseJSON(data);
-                    console.log(json);
+                    //console.log(json);
                     $('.brand-ammount').html(json.brand);
                     $('.category-ammount').html(json.category);
                 }

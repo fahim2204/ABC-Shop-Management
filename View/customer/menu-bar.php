@@ -23,7 +23,7 @@
                 }
                 if (!empty($_SESSION["username"])) {
                     echo '<h2>' . $_SESSION["name"] . '</h2>';
-                    echo '<h5>' . $_SESSION["username"] . '</h5>';
+                    echo '<h5>' . $_SESSION["usertype"] . '</h5>';
                 }
                 ?>
             </span>

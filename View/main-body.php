@@ -15,8 +15,6 @@
     <h6>All - Products</h6> 
     </div>
     <div class="all-product-container">
-
-
         <?php
         $dbTry = new database();
         $conObj = $dbTry->OpenConn();

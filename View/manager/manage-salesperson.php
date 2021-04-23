@@ -6,7 +6,7 @@ if (empty($_SESSION["username"])) {
     header("location:login.php");
 }
 if (!empty($_SESSION["usertype"])) {
-    if ($_SESSION["usertype"] != "manager") {
+    if ($_SESSION["usertype"] != "salesperson") {
         header("location:/view/error.php");
     }
 }
@@ -19,14 +19,15 @@ if (!empty($_SESSION["usertype"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABC Shop - Manage Category</title>
+    <title>ABC Shop - Manage Products</title>
     <link rel="icon" href="/images/icon/shoplogo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/css/global.css">
-    <!-- ____same css is used for all type of user.____ -->
     <link rel="stylesheet" type="text/css" href="/css/sales-page.css">
-    <!-- same css is used for all type of user. -->
+    <link rel="stylesheet" type="text/css" href="/css/manage-product.css">
+    <link rel="stylesheet" type="text/css" href="/css/pop-up-editor-window.css">
     <script src="/js/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="/css/add-category-n-brand.css">
+
 
 
 </head>
@@ -38,47 +39,61 @@ if (!empty($_SESSION["usertype"])) {
                 <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/header.php'); ?>
             </header>
             <nav>
-                <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/manager/menu-bar.php'); ?>
+                <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/salesperson/menu-bar.php'); ?>
             </nav>
             <main>
-                <div class="add-category-parent">
-                    <div class="category-title">
-                        <h1>Manage Category</h1>
-                    </div>
-                    <!-- This DIV is filled from manager-page-data-connector.php By AJAX -->
-                    <div id="category-manage"></div>
-                    <div class="category-add">
-                        <form id="add-category" method="POST" action="">
-                            <!-- <div class="image-n-button">
-                                <label for="fileToUpload" class="required">Category Image:</label>
-                                <div class="image">
-                                    <span class="tooltip">
-                                        <img id="productImage" src="/images/icon/no-image.png" height="180px" width="180px" alt="product-Image" />
-                                        <span id="lb-pimage">Select an Image!!</span>
-                                    </span>
-                                </div>
-                                <div class="upload-btn">
-                                    <input type="file" onchange="readURL(this);" name="fileToUpload" id="fileToUpload"> -->
-                                    <!-- Hidden container is used for changing with JS and recognized by PHP -->
-                                    <!-- <input type="hidden" id="hiddencontainer" name="hiddencontainer" value="10" />
-                                </div>
-                            </div> -->
-                            <div id="item1">
-                                <label for="cName" class="required">Category Name:</label>
-                                <span class="tooltip">
-                                    <input type="text" id="cName" name="cName" placeholder="Category Name" ?>
-                                    <input type="hidden" id="cid" ?>
-                                    <span id="lb-pName">Can't Leave Empty!!</span>
-                                </span>
-                            </div>
-                            <div id="itemButton">
-                                <button id="add-data" onclick="return AddData()">Add</button>
-                                <button style="display:none" id="update-data" onclick="return UpdateData()">Update</button>
-                            </div>
+                <div id="manual-form-container">
+                    <div class="pop-up-update">
+                        <div class="single-item">
+                            <label for="pName">Product Name:</label>
+                            <input type="text" id="pName" placeholder="Product Name">
+                        </div>
+                        <div class="single-item">
+                            <label for="pCategory">Category:</label>
+                            <select name="pCategory" id="pCategory">
+                                <?php
+                                $dbTry = new database();
+                                $conObj = $dbTry->OpenConn();
+                                $categories = $dbTry->RetrieveCategories($conObj);
+                                while ($row = $categories->fetch_assoc()) {
+                                    echo '<option value="' . $row["cname"] . '">' . $row["cname"] . '</option>';
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="single-item">
+                            <label for="pBrand">Brand:</label>
+                            <select name="pBrand" id="pBrand">
+                                <?php
+                                $dbTry = new database();
+                                $conObj = $dbTry->OpenConn();
+                                $categories = $dbTry->RetrieveBrands($conObj);
+                                while ($row = $categories->fetch_assoc()) {
+                                    echo '<option value="' . $row["bname"] . '">' . $row["bname"] . '</option>';
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="single-item">
+                            <label for="pQuantity">Quantity:</label>
+                            <input type="text" id="pQuantity" name="pQuantity" placeholder="Quantity">
+                        </div>
+                        <div class="single-item">
+                            <label for="pstock" class="required">Opening Stock:</label>
+                            <input type="text" id="pstock" name="pstock" placeholder="Opening Stock">
+                        </div>
+                        <div class="single-item">
 
+                        </div>
+                        <div class="single-item">
 
-                        </form>
+                        </div>
+
                     </div>
+                    <div id="form-title">
+                        <h1>Manage Product</h1>
+                    </div>
+                    <div id="product-manage"></div>
                 </div>
             </main>
             <footer>
@@ -87,48 +102,29 @@ if (!empty($_SESSION["usertype"])) {
         </div>
     </div>
 
+
+
+
+
     <script>
         $(document).ready(function() {
+            // $('.pop-up-update').css("display","none");
             ReadRecords();
         });
 
         function ReadRecords() {
             var record = "record";
             $.ajax({
-                url: "/control/manager-page-data-connector.php",
+                url: "/control/salesperson-page-data-connector.php",
                 type: 'POST',
                 data: {
                     record: record
                 },
                 success: function(data, status) {
-                    $('#category-manage').html(data);
-                    $('#cName').val("");
-                    $('#add-data').css("display", "block");
-                    $('#update-data').css("display", "none");
+                    $('#product-manage').html(data);
                 }
             });
         }
-
-//////////_________For Image Upload_______////////////
-
-        function readURL(input) {
-            var myhidden = document.getElementById("hiddencontainer");
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function(e) {
-                    $('#productImage')
-                        .attr('src', e.target.result)
-                        .width(180)
-                        .height(180);
-                    myhidden.value = 20;
-                };
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-
 
         function AddData() {
             var catname = $('#cName').val();
@@ -198,7 +194,7 @@ if (!empty($_SESSION["usertype"])) {
             return false;
         }
     </script>
-
 </body>
+
 
 </html>

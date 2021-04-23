@@ -2,7 +2,6 @@
 if (!isset($_SESSION)) {
     session_start();
 }
-
 if (empty($_SESSION["username"])) {
     header("location:login.php");
 }
@@ -11,11 +10,7 @@ if (!empty($_SESSION["usertype"])) {
         header("location:/view/error.php");
     }
 }
-
-// if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['logout'])){
-//     session_destroy();
-//     header("location:login.php");
-// }
+include($_SERVER['DOCUMENT_ROOT'] . '/model/db-connect.php');
 ?>
 
 <!DOCTYPE html>
@@ -31,14 +26,73 @@ if (!empty($_SESSION["usertype"])) {
     <link rel="stylesheet" type="text/css" href="/css/global.css">
     <link rel="stylesheet" type="text/css" href="/css/sales-page.css">
     <link rel="stylesheet" type="text/css" href="/css/manage-product.css">
+    <link rel="stylesheet" type="text/css" href="/css/pop-up-editor-window.css">
     <script src="/js/jquery.min.js"></script>
-
-
 
 </head>
 
 <body>
     <div class="window-container">
+        <div class="pop-up-update">
+            <div class="update-form">
+                <div class="single-item">
+                    <label for="pName">Product Name:</label>
+                    <input type="text" id="pName" placeholder="Product Name">
+                    <input type="hidden" id="pId">
+                </div>
+                <div class="single-item">
+                    <label for="pCategory">Category:</label>
+                    <select name="pCategory" id="pCategory">
+                        <?php
+                        $dbTry = new database();
+                        $conObj = $dbTry->OpenConn();
+                        $categories = $dbTry->RetrieveCategories($conObj);
+                        while ($row = $categories->fetch_assoc()) {
+                            echo '<option value="' . $row["cname"] . '">' . $row["cname"] . '</option>';
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div class="single-item">
+                    <label for="pBrand">Brand:</label>
+                    <select name="pBrand" id="pBrand">
+                        <?php
+                        $dbTry = new database();
+                        $conObj = $dbTry->OpenConn();
+                        $categories = $dbTry->RetrieveBrands($conObj);
+                        while ($row = $categories->fetch_assoc()) {
+                            echo '<option value="' . $row["bname"] . '">' . $row["bname"] . '</option>';
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div class="single-item">
+                    <label for="pQuantity">Quantity:</label>
+                    <input type="text" id="pQuantity" name="pQuantity" placeholder="Quantity">
+                </div>
+                <div class="single-item">
+                    <label for="pStock">Opening Stock:</label>
+                    <input type="text" id="pStock" name="pStock" placeholder="Opening Stock">
+                </div>
+                <div class="single-item">
+                    <label for="pPrice">Unit Price:</label>
+                    <input type="text" id="pPrice" name="pPrice" placeholder="Unit Price">
+                </div>
+                <div class="single-item">
+                    <label for="pCost">Unit Cost:</label>
+                    <input type="text" id="pCost" name="pCost" placeholder="Unit Cost">
+                </div>
+                <div class="single-item">
+                    <label for="pDetails">Product Details:</label>
+                    <textarea name="pDetails" id="pDetails" placeholder="Product Details" cols="30" rows="10"></textarea>
+                </div>
+                <div class="single-item button-item">
+                    <button id="cancel-pop" onclick="return CancelPopUp()">Cancel</button>
+                    <button id="update-product" onclick="return UpdateProduct()">Update</button>
+                </div>
+            </div>
+
+        </div>
         <div id="sale-container">
             <header>
                 <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/header.php'); ?>
@@ -48,13 +102,10 @@ if (!empty($_SESSION["usertype"])) {
             </nav>
             <main>
                 <div id="manual-form-container">
-                    <div class="pop-up-update">
-                        hello
-                    </div>
-                <div id="form-title">
+                    <div id="form-title">
                         <h1>Manage Product</h1>
                     </div>
-                <div id="product-manage"></div>
+                    <div id="product-manage"></div>
                 </div>
             </main>
             <footer>
@@ -69,6 +120,7 @@ if (!empty($_SESSION["usertype"])) {
 
     <script>
         $(document).ready(function() {
+            // $('.pop-up-update').css("display","none");
             ReadRecords();
         });
 
@@ -86,73 +138,110 @@ if (!empty($_SESSION["usertype"])) {
             });
         }
 
-        function AddData() {
-            var catname = $('#cName').val();
-            if (catname == "" || catname.length < 3) {
-                $('#lb-pName').css("visibility", "visible");
-                return false;
-            } else {
-                $('#lb-pName').css("visibility", "hidden");
-                $.ajax({
-                    url: "/control/manager-page-validator.php",
-                    type: 'POST',
-                    data: {
-                        addData: catname
-                    },
-                    success: function(data, status) {
-                        alert(data);
-                        ReadRecords();
-                    }
-                });
-                return false;
-            }
+        function ShowPopUp(pId, pName, pCat, pBrand, pQuantity, uprice, ucost, pstock, pdetails) {
+            $('.pop-up-update').css("display", "block");
+            $('#pName').val(pName);
+            $('#pId').val(pId);
+            $('#pCategory').val(pCat);
+            $('#pBrand').val(pBrand);
+            $('#pQuantity').val(pQuantity);
+            $('#pPrice').val(uprice);
+            $('#pCost').val(ucost);
+            $('#pStock').val(pstock);
+            $('#pDetails').val(pdetails);
         }
 
-        function DeleteData(cid) {
-            var confimDel = confirm("Are you Sure Want To Delete?");
-            if (confimDel == true) {
-                $.ajax({
-                    url: "/control/manager-page-validator.php",
-                    type: 'POST',
-                    data: {
-                        deleteData: cid
-                    },
-                    success: function(data, status) {
-                        ReadRecords();
-                    }
-                });
-            }
+        function CancelPopUp() {
+            $('.pop-up-update').css("display", "none");
         }
 
-        function SetData(cid, cname) {
-            $('#cName').val(cname);
-            $('#cid').val(cid);
-            // $('#productImage')
-            //             .attr('src', '/images/icon/shoplogo.ico')
-            //             .width(180)
-            //             .height(180);
-            //         myhidden.value = 20;
-            $('#add-data').css("display", "none");
-            $('#update-data').css("display", "block");
-        }
-
-        function UpdateData() {
-            var catname = $('#cName').val();
-            var cid = $('#cid').val();
+        function UpdateProduct() {
+            var request = "update";
+            var pName = $('#pName').val();
+            var pId = $('#pId').val();
+            var pCat = $('#pCategory').val();
+            var pBrand = $('#pBrand').val();
+            var pQuantity = $('#pQuantity').val();
+            var uprice = $('#pPrice').val();
+            var ucost = $('#pCost').val();
+            var pstock = $('#pStock').val();
+            var pdetails = $('#pDetails').val();
             $.ajax({
-                url: "/control/manager-page-validator.php",
+                url: "/control/salesperson-page-data-connector.php",
                 type: 'POST',
                 data: {
-                    updateData: cid,
-                    upCname: catname
+                    update: request,
+                    pName: pName,
+                    pId: pId,
+                    pCat: pCat,
+                    pBrand: pBrand,
+                    pQuantity: pQuantity,
+                    uprice: uprice,
+                    ucost: ucost,
+                    pstock: pstock,
+                    pdetails: pdetails
                 },
                 success: function(data, status) {
+                    $('.pop-up-update').css("display", "none");
                     alert(data);
                     ReadRecords();
                 }
             });
             return false;
         }
+
+        function DeleteData(pid) {
+            var confimDel = confirm("Are you Sure Want To Delete?");
+            if (confimDel == true) {
+                $.ajax({
+                    url: "/control/salesperson-page-data-connector.php",
+                    type: 'POST',
+                    data: {
+                        deleteData: pid
+                    },
+                    success: function(data, status) {
+                        ReadRecords();
+                    }
+                });
+            }
+        }
+
+
+
+        // $('.pop-up-update').click(function(){
+        //     $('.pop-up-update').css("display", "none");
+        // });
+        // $(window).click(function(event) {
+        //          $('.pop-up-update').css("display", "none");
+        // });
+        // var modal = document.getElementsByClassName("pop-up-update");
+        // window.onclick = function(event) {
+        //     if (event.target == modal) {
+        //         alert("hello");
+        //         $('.pop-up-update').css("display", "none");
+        //     }
+        // }
+        // function AddData() {
+        //     var catname = $('#cName').val();
+        //     if (catname == "" || catname.length < 3) {
+        //         $('#lb-pName').css("visibility", "visible");
+        //         return false;
+        //     } else {
+        //         $('#lb-pName').css("visibility", "hidden");
+        //         $.ajax({
+        //             url: "/control/manager-page-validator.php",
+        //             type: 'POST',
+        //             data: {
+        //                 addData: catname
+        //             },
+        //             success: function(data, status) {
+        //                 alert(data);
+        //                 ReadRecords();
+        //             }
+        //         });
+        //         return false;
+        //     }
+        // }
     </script>
 </body>
 
