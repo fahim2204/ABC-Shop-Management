@@ -49,6 +49,14 @@ class database{
             return "Error: <br>" . $connObj->error;
         }
     }
+    function UpdateUserPass($connObj, $username,$password){
+        $result = $connObj->query(" UPDATE `user` SET `pass`='$password' WHERE `username`='$username'");
+        if($result==TRUE){
+            return "Password Changed Sucessfully.";
+        }else{
+            return "Error: <br>" . $connObj->error;
+        }
+    }
     function DeleteUser($connObj, $uid){
         $result = $connObj->query("DELETE FROM `user` WHERE `uid`=$uid");
         if($result==TRUE){
@@ -229,8 +237,16 @@ class database{
     
 
 
+///////////////////////////________________CART Section______////////////
 
-
+function InsertToCart($connObj, $pid,$uid,$ammount){
+    $result = $connObj->query("INSERT INTO `cart`(`productid`, `userid`, `ammount`) VALUES ('$pid','$uid','$ammount')");
+    if($result==TRUE){
+        return "Data Inserted Sucessfully.";
+    }else{
+        return "Error: <br>" . $connObj->error;
+    }
+}
 
 
 

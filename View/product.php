@@ -1,3 +1,13 @@
+<?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+if (empty($_SESSION["username"])) {
+    //header("location:login.php");
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +19,7 @@
     <link rel="icon" href="/images/icon/shoplogo.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="/css/global.css">
     <link rel="stylesheet" type="text/css" href="/css/product-page.css">
+    <script src="/js/cart-add.js"></script>
 </head>
 
 <body>
@@ -74,7 +85,7 @@
                                     <span>৳</span><?php echo $row['uprice'] ?>
                                 </div>
                                 <div class="product-buttons">
-                                    <button><a href="/view/product.php?product-id=<?php echo $row['pid'] ?>">Add to Cart</a></button>
+                                    <button onclick="AddToCart(<?php echo $row['pid'].','.$_se ?>)">Add to Cart</button>
                                     <img src="https://img.icons8.com/carbon-copy/100/000000/filled-like.png" />
                                     <!-- <img src="https://img.icons8.com/plasticine/100/000000/filled-like.png"/> -->
 

@@ -138,7 +138,7 @@ footer {
     color: white;
     box-shadow: 2px 2px 10px rgb(156, 195, 230);
 }
-.product-buttons>button>a{
+.product-buttons>button{
     text-decoration: none;
     color: white;
     font-size: 18px;
@@ -146,7 +146,6 @@ footer {
 .product-buttons>button:hover{
     background-color: rgb(10, 136, 158);
     transform: scale(1.1);
-    color: gray;
 }
 .product-buttons>img{
     height: 50px;

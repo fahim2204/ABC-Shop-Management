@@ -12,10 +12,6 @@ if (!empty($_SESSION["usertype"])) {
     }
 }
 
-// if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['logout'])){
-//     session_destroy();
-//     header("location:login.php");
-// }
 ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/control/product-add-validator.php'); ?>
 

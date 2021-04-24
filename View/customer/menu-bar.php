@@ -29,13 +29,13 @@
             </span>
         </div>
         <ul>
-            <li><a href='index.php'><span class="fa fa-home"></span>My Profile</a></li>
+            <li><a href='/view/customer/index.php'><span class="fa fa-home"></span>My Profile</a></li>
             <li><a href='#message'><span class="fa fa-gear"></span>My Order</a></li>
             <li><a href='#message'><span class="fas fa-diagnoses"></span>My Cart</a></li>
             <li><a href='#message'><span class="fas fa-angry"></span>My Wishlist</a></li>
             <li><a href='#message'><span class="far fa-copyright"></span>My Reviews</a></li>
             <li><a href='#message'><span class="fas fa-print"></span>Raise Complaint</a></li>
-            <li><a href='#message'><span class="fas fa-user-cog"></span>Change Password</a></li>
+            <li><a href='/view/change-password.php'><span class="fas fa-user-cog"></span>Change Password</a></li>
             <li><a href='/view/login.php?logout=true'><span class="fas fa-sign-out-alt"></span>Logout</a></li>
         </ul>
     </div>

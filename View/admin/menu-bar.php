@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/home-user-menu.css">
     <script src="/js/menu-expander.js"></script>
+    <script src="https://kit.fontawesome.com/0b6de5c2ec.js" crossorigin="anonymous"></script>
+
 
 </head>
 
@@ -29,14 +31,13 @@
             </span>
         </div>
         <ul>
-            <li><a href='index.php'><span class="fa fa-home"></span>Dashboard</a></li>
-            <li><a href='#message'><span class="fa fa-gear"></span>Manage Salesperson</a></li>
+            <li><a href='/view/admin/index.php'><span class="fa fa-home"></span>Dashboard</a></li>
+            <li><a href='/view/admin/manage-manager.php'><span class="fa fa-gear"></span>Manage Manager</a></li>
+            <li><a href='/view/admin/manage-salesperson.php'><span class="fa fa-gear"></span>Manage Salesperson</a></li>
             <li><a href='#message'><span class="fas fa-diagnoses"></span>Manage Customer</a></li>
             <li><a href='#message'><span class="fas fa-angry"></span>Manage Complaint</a></li>
-            <li><a href='manage-category.php'><span class="fas fa-bahai"></span>Manage Categories</a></li>
-            <li><a href='#message'><span class="far fa-copyright"></span>Manage Brands</a></li>
             <li><a href='#message'><span class="fas fa-print"></span>Report</a></li>
-            <li><a href='#message'><span class="fas fa-user-cog"></span>Change Password</a></li>
+            <li><a href='/view/change-password.php'><span class="fas fa-user-cog"></span>Change Password</a></li>
             <li><a href='/view/login.php?logout=true'><span class="fas fa-sign-out-alt"></span>Logout</a></li>
         </ul>
     </div>

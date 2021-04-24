@@ -1,0 +1,66 @@
+.pass-change-container{
+    display: flex;
+    flex-direction: column;
+    /* max-width: 50%; */
+    width: 380px;
+    justify-content: center;
+    align-content: center;
+    background-color: tomato;
+    padding: 5px;
+    margin: 10px auto;
+    background-color: aliceblue;
+    box-shadow: 10px 10px 15px rgb(134, 187, 233);
+    border-radius: 20px;
+
+    
+}
+.pass-change-container label{
+    float: left;
+    padding: 5px;
+    margin: 5px;
+}
+.pass-change-container input{
+    float: right;
+    font-size: 15px;
+    border-radius: 30px;
+    padding: 8px 10px;
+    margin: 5px;
+    border: 2px solid DodgerBlue;
+    height: 30px;
+    width: 200px;
+}
+.pass-change-container input:focus {
+    border-color: rgb(10, 92, 175);
+    transform: scale(1.02);
+}
+.pass-change-container div.title{
+    align-self: center;
+    color: rgb(5 190 214);
+    padding: 5px 5px 5px 5px;
+    text-decoration: bold;
+    text-shadow: 5px 5px 10px rgb(79 208 196);
+    font-family: Ubuntu;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+.pass-change-container div.btn{
+    align-self: center;
+    padding: 5px 5px 5px 5px;
+    margin: 10px;
+}
+.pass-change-container button{
+    height: 40px;
+    width: 200px;
+    font-size: 1.2em;
+    border-radius: 30px;
+    border: 0;
+    margin: 10px;
+    padding: auto;
+    color: white;
+    background-color: green;
+
+}
+.pass-change-container button:hover {
+    background-color: rgb(9, 185, 9);
+    transform: scale(1.02);
+}

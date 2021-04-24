@@ -32,12 +32,12 @@
             </span>
         </div>
         <ul>
-            <li><a href='index.php'><span class="fa fa-home"></span>Dashboard</a></li>
-            <li><a href='pos.php'><span class="fa fa-gear"></span>POS</a></li>
+            <li><a href='/view/salesperson/index.php'><span class="fa fa-home"></span>Dashboard</a></li>
+            <li><a href='/view/salesperson/pos.php'><span class="fa fa-gear"></span>POS</a></li>
             <li class='sub-menu' id="Product" onclick="ExpandSubMenu(this)"><a href='javascript:void(0)'><span class="fa fa-car"></span>Products<span class='fa fa-caret-right'></span></a>
                 <ul>
-                    <li><a href='add-product.php' id="addProduct"><span class="fa fa-user"></span>Add Product</a></li>
-                    <li><a href='manage-product.php'><span class="fa fa-key"></span>Manage Products</a></li>
+                    <li><a href='/view/salesperson/add-product.php' id="addProduct"><span class="fa fa-user"></span>Add Product</a></li>
+                    <li><a href='/view/salesperson/manage-product.php'><span class="fa fa-key"></span>Manage Products</a></li>
 
                 </ul>
             </li>
@@ -48,7 +48,7 @@
                 </ul>
             </li>
             <li><a href='#message'><span class="fa fa-print"></span>Report</a></li>
-            <li><a href='#message'><span class="fas fa-user-cog"></span>Change Password</a></li>
+            <li><a href='/view/change-password.php'><span class="fas fa-user-cog"></span>Change Password</a></li>
             <li><a href='/view/login.php?logout=true'><span class="fas fa-sign-out-alt"></span>Logout</a></li>
         </ul>
     </div>

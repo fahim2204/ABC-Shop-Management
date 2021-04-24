@@ -22,7 +22,6 @@ if (!empty($_SESSION["usertype"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ABC Shop - Manager</title>
     <link rel="icon" href="/images/icon/shoplogo.ico" type="image/x-icon">
-    <script src="https://kit.fontawesome.com/0b6de5c2ec.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="/css/global.css">
     <!-- ____same css is used for all type of user.____ -->
     <link rel="stylesheet" type="text/css" href="/css/sales-page.css">
@@ -39,7 +38,7 @@ if (!empty($_SESSION["usertype"])) {
                 <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/header.php'); ?>
             </header>
             <nav>
-                <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/manager/menu-bar.php'); ?>
+                <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/admin/menu-bar.php'); ?>
             </nav>
             <main>
                 Dashboard
