@@ -34,7 +34,7 @@ if (isset($_POST['record'])) {
         $ucost = $row["ucost"];
         $pdetails = $row["pdetails"];
 
-        
+
         $tableData .= '<tbody>
                 <tr>
                     <td>' . $pName . '</td>
@@ -54,6 +54,42 @@ if (isset($_POST['record'])) {
     echo $tableData;
 }
 
+
+// for salesman POS Page
+
+if (isset($_POST['salespos'])) {
+    $dbTry = new database();
+    $conObj = $dbTry->OpenConn();
+    $categories = $dbTry->RetrieveProductsAsc($conObj);
+
+    while ($row = $categories->fetch_assoc()) {
+
+?>
+        <div class="product-container" onclick="AddSelected(<?php echo $row['pid'] . ',`' . $row['pname'] . '`,`' . $row['uprice'] . '`' ?>)">
+            <div class="product-image-container">
+                <img src="<?php
+                            $imagePath = $_SERVER['DOCUMENT_ROOT'] . "/images/product-image/" . $row['pimage'];
+                            if (file_exists($imagePath)) {
+                                echo '/images/product-image/' . $row['pimage'] . '';
+                            } else {
+                                echo '/images/icon/no-image.png';
+                            } ?>" alt="">
+            </div>
+            <div class="product-name">
+                <?php echo $row['pname'] ?>
+            </div>
+            <div class="product-quantity">
+                <?php echo $row['pquantity'] ?>
+                <span class="divider">|</span>
+                <span>৳</span><?php echo $row['uprice'] ?>
+            </div>
+        </div>
+
+<?php }
+}
+
+
+
 if (isset($_POST['update'])) {
     $pId = $_REQUEST['pId'];
     $pName = $_REQUEST['pName'];
@@ -64,12 +100,11 @@ if (isset($_POST['update'])) {
     $uprice = $_REQUEST['uprice'];
     $ucost = $_REQUEST['ucost'];
     $pdetails = $_REQUEST['pdetails'];
-        $dbObj = new database();
-        $conObj = $dbObj->OpenConn();
-        $result = $dbObj->UpdateProduct($conObj,$pId,$pName,$pCat,$pBrand,$pstock,$pQuantity,$uprice,$ucost,$pdetails);
-        echo $result;
-        $dbObj->CloseConn($conObj);
-    
+    $dbObj = new database();
+    $conObj = $dbObj->OpenConn();
+    $result = $dbObj->UpdateProduct($conObj, $pId, $pName, $pCat, $pBrand, $pstock, $pQuantity, $uprice, $ucost, $pdetails);
+    echo $result;
+    $dbObj->CloseConn($conObj);
 }
 
 if (isset($_POST['deleteData'])) {
@@ -80,75 +115,53 @@ if (isset($_POST['deleteData'])) {
     $result = $dbObj->DeleteProduct($conObj, $cid);
     $dbObj->CloseConn($conObj);
 }
-//////////_______For Brand CRUD_______//////////
 
-if (isset($_POST['brandRecord'])) {
-    $tableData = '<table class="categories-table">
-                    <thead>
-                        <tr>
-                            <th id="t1">Brand</th>
-                            <th id="t2" colspan="2">Action</th>
-                        </tr>
-                    </thead>';
-    $dbTry = new database();
-    $conObj = $dbTry->OpenConn();
-    $categories = $dbTry->RetrieveBrands($conObj);
 
-    while ($row = $categories->fetch_assoc()) {
-        $bName = $row["bname"];
-        $bId = $row["bid"];
-        $tableData .= '<tbody>
-                <tr>
-                    <td>' . $bName . '</td>
-                    <td><a class="edit" onclick="SetData(' . $bId . ',`' . $bName . '`)">Edit</a></td>
-                    <td><a class="delete" onclick="DeleteData(' . $bId . ')">Delete</a></td>
-                </tr>';
+
+// For Sales POS Temporary cart
+
+if (isset($_POST['tempCart'])) {
+
+    $pId = $_REQUEST['pid'];
+    $pName = $_REQUEST['pname'];
+    $uprice = $_REQUEST['uprice'];
+    $found = false; //For check whether product is added
+    $foundID = null;
+
+    $data = file_get_contents('../data/temp-pos-cart.json');
+    $mydata = json_decode($data);
+    foreach ($mydata as $myobject) {
+        foreach ($myobject as $key => $value) {
+            $foundID=$myobject;
+            if ($myobject->pid == $pId) {
+                $found = true;
+                //json_encode($myobject->quantity=10);
+                $myobject->quantity += 1;
+                $jsonData = json_encode($mydata, JSON_PRETTY_PRINT);
+                file_put_contents('../data/temp-pos-cart.json', $jsonData);
+                break;
+            }
+        }
     }
-    $tableData .= '</tbody>
-                </table>';
-    echo $tableData;
-}
+    if (!$found) {
+        $formData = array(
+            'pid' => $pId,
+            'pname' => $pName,
+            'quantity' => 1,
+            'uprice' => $uprice,
+            'Total' => $uprice
+        );
+        $existingdata = file_get_contents('../data/temp-pos-cart.json');
+        $tempJsonData = json_decode($existingdata);
+        $tempJsonData[] = $formData;
+        $jsonData = json_encode($tempJsonData, JSON_PRETTY_PRINT);
 
-if (isset($_POST['brandAddData'])) {
-    $bname = $_REQUEST['brandAddData'];
-    if (empty($bname)) {
-        echo "Please Insert Valid data";
-    } else {
-        $dbObj = new database();
-        $conObj = $dbObj->OpenConn();
-        $result = $dbObj->InsertBrand($conObj, $bname);
-        echo $result;
-        $dbObj->CloseConn($conObj);
+        if (file_put_contents('../data/temp-pos-cart.json', $jsonData)) {
+            
+        } else {
+            echo "Opps!! No data saved.";
+        }
     }
-}
-if (isset($_POST['brandDeleteData'])) {
-    $bid = $_REQUEST['brandDeleteData'];
-
-    $dbObj = new database();
-    $conObj = $dbObj->OpenConn();
-    $result = $dbObj->DeleteBrand($conObj, $bid);
-    $dbObj->CloseConn($conObj);
-}
-if (isset($_POST['brandUpdateData'])) {
-    $bid = $_REQUEST['brandUpdateData'];
-    $bname = $_REQUEST['brandUpCname'];
-    if (empty($bname)) {
-        echo "Please Insert Valid data";
-    } else {
-        $dbObj = new database();
-        $conObj = $dbObj->OpenConn();
-        $result = $dbObj->UpdateBrand($conObj, $bid, $bname);
-        echo $result;
-        $dbObj->CloseConn($conObj);
-    }
-}
-if (isset($_POST['DashData'])) {
-
-    $dbObj = new database();
-    $conObj = $dbObj->OpenConn();
-    $result = array();
-    $result['brand'] = $dbObj->TotalBrand($conObj)->fetch_assoc()['COUNT(*)'];
-    $result['category'] = $dbObj->TotalCategory($conObj)->fetch_assoc()['COUNT(*)'];
-    echo json_encode($result);
-    $dbObj->CloseConn($conObj);
+   
+   echo $mydata;
 }

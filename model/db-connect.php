@@ -49,6 +49,10 @@ class database{
         $result = $connObj->query("SELECT * FROM `product` ORDER BY RAND()");
         return $result;
     }
+    function RetrieveProductsByCat($connObj,$cid){
+        $result = $connObj->query("SELECT * FROM `product` whereff ORDER BY RAND()");
+        return $result;
+    }
     function RetrieveSingleProduct($connObj,$pid){
         $result = $connObj->query("SELECT * FROM `product` WHERE `pid`='$pid'");
         return $result;
@@ -78,8 +82,8 @@ class database{
         }
     }
     
-//////////_____Category Section_______///////
-
+    //////////_____Category Section_______///////
+    
     function RetrieveCategories($connObj){
         $result = $connObj->query("SELECT * FROM `category` ORDER BY `cname` ASC");
         return $result;
@@ -121,9 +125,9 @@ class database{
             return "Error: <br>" . $connObj->error;
         }
     }
-
-//////////_____Brand Section_______///////
-
+    
+    //////////_____Brand Section_______///////
+    
     function RetrieveBrands($connObj){
         $result = $connObj->query("SELECT * FROM `brand` ORDER BY `bname` ASC");
         return $result;
@@ -161,6 +165,30 @@ class database{
         }
     }
     
-}
+    // ?////////////////////__________Employeee Section________________/////////////////
+    
+    
+    function InsertEmployee($conObj,$username,$empemail,$empcontact,$empdob,$empgender,$empjoin,$empsalary,$empaddress){
+        $result = $conObj->query("INSERT INTO `employee` (`email`, `contact`, `dob`, `gender`, `joindate`, `salary`, `address`, `f_uid`) VALUES ('$empemail', '$empcontact', '$empdob', '$empgender', '$empjoin', '$empsalary', '$empaddress', (SELECT `uid` FROM `user` WHERE `username` = '$username'))");
+        if($result==TRUE){
+            return "Data Inserted Sucessfully.";
+        }else{
+            return "Error: <br>" . $conObj->error;
+        }
+    }
+    function RetrieveEmployees($connObj,$type){
+        $result = $connObj->query("SELECT * FROM `employee` JOIN `user` ON employee.f_uid = user.uid WHERE user.type ='$type'");
+        return $result;
+    }
+    
 
+
+
+
+
+
+
+
+
+}
 ?>

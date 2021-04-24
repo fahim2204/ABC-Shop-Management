@@ -34,13 +34,6 @@
         <ul>
             <li><a href='index.php'><span class="fa fa-home"></span>Dashboard</a></li>
             <li><a href='pos.php'><span class="fa fa-gear"></span>POS</a></li>
-            <li class='sub-menu' id="Purchase" onclick="ExpandSubMenu(this)"><a href='javascript:void(0)'><span class="fas fa-seedling"></span>Purchase<span class='fa fa-caret-right'></span></a>
-                <ul>
-                    <li><a href='#settings'><span class="fas fa-apple-alt"></span>Add Purchase</a></li>
-                    <li><a href='#settings'><span class="fas fa-carrot"></span>Mange Purchase</a></li>
-                </ul>
-            </li>
-            <li><a href='#message'><span class="fa fa-home"></span>Stock</a></li>
             <li class='sub-menu' id="Product" onclick="ExpandSubMenu(this)"><a href='javascript:void(0)'><span class="fa fa-car"></span>Products<span class='fa fa-caret-right'></span></a>
                 <ul>
                     <li><a href='add-product.php' id="addProduct"><span class="fa fa-user"></span>Add Product</a></li>

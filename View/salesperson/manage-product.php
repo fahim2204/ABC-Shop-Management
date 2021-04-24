@@ -91,7 +91,6 @@ include($_SERVER['DOCUMENT_ROOT'] . '/model/db-connect.php');
                     <button id="update-product" onclick="return UpdateProduct()">Update</button>
                 </div>
             </div>
-
         </div>
         <div id="sale-container">
             <header>
@@ -113,10 +112,6 @@ include($_SERVER['DOCUMENT_ROOT'] . '/model/db-connect.php');
             </footer>
         </div>
     </div>
-
-
-
-
 
     <script>
         $(document).ready(function() {
@@ -205,43 +200,6 @@ include($_SERVER['DOCUMENT_ROOT'] . '/model/db-connect.php');
                 });
             }
         }
-
-
-
-        // $('.pop-up-update').click(function(){
-        //     $('.pop-up-update').css("display", "none");
-        // });
-        // $(window).click(function(event) {
-        //          $('.pop-up-update').css("display", "none");
-        // });
-        // var modal = document.getElementsByClassName("pop-up-update");
-        // window.onclick = function(event) {
-        //     if (event.target == modal) {
-        //         alert("hello");
-        //         $('.pop-up-update').css("display", "none");
-        //     }
-        // }
-        // function AddData() {
-        //     var catname = $('#cName').val();
-        //     if (catname == "" || catname.length < 3) {
-        //         $('#lb-pName').css("visibility", "visible");
-        //         return false;
-        //     } else {
-        //         $('#lb-pName').css("visibility", "hidden");
-        //         $.ajax({
-        //             url: "/control/manager-page-validator.php",
-        //             type: 'POST',
-        //             data: {
-        //                 addData: catname
-        //             },
-        //             success: function(data, status) {
-        //                 alert(data);
-        //                 ReadRecords();
-        //             }
-        //         });
-        //         return false;
-        //     }
-        // }
     </script>
 </body>
 

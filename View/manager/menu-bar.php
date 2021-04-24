@@ -32,8 +32,8 @@
         </div>
         <ul>
             <li><a href='index.php'><span class="fa fa-home"></span>Dashboard</a></li>
-            <li><a href='#message'><span class="fa fa-gear"></span>Manage Salesperson</a></li>
-            <li><a href='#message'><span class="fas fa-diagnoses"></span>Manage Customer</a></li>
+            <li><a href='manage-salesperson.php'><span class="fa fa-gear"></span>Manage Salesperson</a></li>
+            <li><a href='manage-salesperson.php'><span class="fas fa-diagnoses"></span>Manage Customer</a></li>
             <li><a href='#message'><span class="fas fa-angry"></span>Manage Complaint</a></li>
             <li><a href='manage-category.php'><span class="fas fa-bahai"></span>Manage Categories</a></li>
             <li><a href='manage-brand.php'><span class="far fa-copyright"></span>Manage Brands</a></li>

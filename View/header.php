@@ -21,7 +21,7 @@
             </div>
             <div id="header-item-3">
                 <div class="child-item-3">
-                    <a href="/view/customer/favourite.php"><img class="header-link" src="https://img.icons8.com/ios-glyphs/40/000000/hearts.png" alt="favourite" /></a>
+                    <!-- <a href="/view/customer/favourite.php"><img class="header-link" src="https://img.icons8.com/ios-glyphs/40/000000/hearts.png" alt="favourite" /></a> -->
                 </div>
                 <div class="child-item-3">
                     <a href="/view/customer/cart.php"><img class="header-link" src="https://img.icons8.com/ios-glyphs/40/000000/shopping-cart.png" alt="cart" /></a>

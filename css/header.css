@@ -42,8 +42,8 @@ background: linear-gradient(to right, #3a7bd5, #00d2ff); /* W3C, IE 10+/ Edge, F
 
   #header-item-3 {
     display: flex;
-    justify-content: space-around;
-    flex-basis: 25%;
+    justify-content: space-evenly;
+    flex-basis: 15%;
     flex-shrink: 1;
     text-align: center;
   }
