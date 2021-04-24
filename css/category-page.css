@@ -1,0 +1,50 @@
+/* /////////_______Make Grid View______////// */
+
+#home-container {
+    display: grid;
+    width: 1200px;
+    grid-template-columns: 2.5fr 8fr;
+    grid-template-rows: 100px auto auto;
+    grid-template-areas: "header header" "menubar body" "footer footer";
+    grid-gap: 0.5rem;
+    border-radius: 10px;
+}
+
+header {
+    grid-area: header;
+}
+
+nav {
+    grid-area: menubar;
+}
+
+main {
+    grid-area: body;
+}
+
+footer {
+    grid-area: footer;
+}
+/* //////////____________In CAse Error_____________ */
+.empty-product {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+}
+.empty-product>div {
+    align-content: center;
+}
+.empty-product>div>img{
+    height: 250px;
+    width: 250px;
+}
+
+.empty-product>div>h6 {
+    text-align: center;
+    font-size: 30px;
+    font-family: monospace;
+}
+

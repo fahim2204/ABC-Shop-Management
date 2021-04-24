@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/global.css">
     <link rel="stylesheet" type="text/css" href="/css/header.css">
+    <script src="/js/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -17,7 +19,7 @@
                 <a id="shopLogoLink" href="/index.php"><img id="shopLogo" src="/images/ShopLogo.png" alt="Shop-Logo"></a>
             </div>
             <div id="header-item-2">
-                <input type="text" id="searchtxt" name="searchtxt" placeholder="Search">
+                <input type="text" id="searchtxt" placeholder="Search">
             </div>
             <div id="header-item-3">
                 <div class="child-item-3">
@@ -70,6 +72,16 @@
             </div>
         </div>
     </div>
+    <script>
+        $('#searchtxt').keypress(function(e) {
+            var qu = $('#searchtxt').val();
+            var key = e.which;
+            if (key == 13) // the enter key code
+            {
+                location.replace("/view/search.php?query="+qu);
+            }
+        });
+    </script>
 
 </body>
 

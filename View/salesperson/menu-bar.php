@@ -49,7 +49,7 @@
             </li>
             <li><a href='#message'><span class="fa fa-print"></span>Report</a></li>
             <li><a href='#message'><span class="fas fa-user-cog"></span>Change Password</a></li>
-            <li><a href='#message'><span class="fas fa-sign-out-alt"></span>Logout</a></li>
+            <li><a href='/view/login.php?logout=true'><span class="fas fa-sign-out-alt"></span>Logout</a></li>
         </ul>
     </div>
 

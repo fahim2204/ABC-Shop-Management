@@ -33,12 +33,12 @@
         <ul>
             <li><a href='index.php'><span class="fa fa-home"></span>Dashboard</a></li>
             <li><a href='manage-salesperson.php'><span class="fa fa-gear"></span>Manage Salesperson</a></li>
-            <li><a href='manage-salesperson.php'><span class="fas fa-diagnoses"></span>Manage Customer</a></li>
-            <li><a href='#message'><span class="fas fa-angry"></span>Manage Complaint</a></li>
+            <li><a href='manage-customer.php'><span class="fas fa-diagnoses"></span>Manage Customer</a></li>
+            <li><a href='manage-complaint.php'><span class="fas fa-angry"></span>Manage Complaint</a></li>
             <li><a href='manage-category.php'><span class="fas fa-bahai"></span>Manage Categories</a></li>
             <li><a href='manage-brand.php'><span class="far fa-copyright"></span>Manage Brands</a></li>
             <li><a href='#message'><span class="fas fa-print"></span>Report</a></li>
-            <li><a href='#message'><span class="fas fa-user-cog"></span>Change Password</a></li>
+            <li><a href='change-password.php'><span class="fas fa-user-cog"></span>Change Password</a></li>
             <li><a href='/view/login.php?logout=true'><span class="fas fa-sign-out-alt"></span>Logout</a></li>
         </ul>
     </div>

@@ -58,9 +58,10 @@ if (isset($_POST['record'])) {
 // for salesman POS Page
 
 if (isset($_POST['salespos'])) {
+    $Query = $_REQUEST['query'];
     $dbTry = new database();
     $conObj = $dbTry->OpenConn();
-    $categories = $dbTry->RetrieveProductsAsc($conObj);
+    $categories = $dbTry->RetrieveProductsBySrcName($conObj,$Query);
 
     while ($row = $categories->fetch_assoc()) {
 

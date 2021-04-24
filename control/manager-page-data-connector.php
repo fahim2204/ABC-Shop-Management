@@ -139,31 +139,72 @@ if (isset($_POST['DashData'])) {
 
 
 
-// __________For Manage SalesPerson________________
+// __________For Manage SalesPerson__________//////______
 
 if (isset($_POST['addSalespersonData'])) {
-    $empname =$_REQUEST['empname'];
-    $username =$_REQUEST['username'];
-    $emppass =$_REQUEST['emppass'];
-    $empemail =$_REQUEST['empemail'];
-    $empcontact =$_REQUEST['empcontact'];
-    $empdob =$_REQUEST['empdob'];
-    $empgender =$_REQUEST['empgender'];
-    $empjoin =$_REQUEST['empjoin'];
-    $empsalary =$_REQUEST['empsalary'];
-    $empaddress =$_REQUEST['empaddress'];
-    
-    if (empty($empname)||empty($username)||empty($emppass)||empty($empemail)||empty($empcontact)||empty($empdob)||empty($empgender)||empty($empjoin)||empty($empsalary)||empty($empaddress)) {
+    $empname = $_REQUEST['empname'];
+    $username = $_REQUEST['username'];
+    $emppass = $_REQUEST['emppass'];
+    $empemail = $_REQUEST['empemail'];
+    $empcontact = $_REQUEST['empcontact'];
+    $empdob = $_REQUEST['empdob'];
+    $empgender = $_REQUEST['empgender'];
+    $empjoin = $_REQUEST['empjoin'];
+    $empsalary = $_REQUEST['empsalary'];
+    $empaddress = $_REQUEST['empaddress'];
+
+    if (empty($empname) || empty($username) || empty($emppass) || empty($empemail) || empty($empcontact) || empty($empdob) || empty($empgender) || empty($empjoin) || empty($empsalary) || empty($empaddress)) {
         echo "Please fill up all correctly";
     } else {
         $dbObj = new database();
         $conObj = $dbObj->OpenConn();
         $result1 = $dbObj->InsertUser($conObj, $empname, $username, $emppass, "salesperson");
-        $result2 = $dbObj->InsertEmployee($conObj,$username,$empemail,$empcontact,$empdob,$empgender,$empjoin,$empsalary,$empaddress);
-        echo $result1."<br>".$result2;
+        $result2 = $dbObj->InsertEmployee($conObj, $username, $empemail, $empcontact, $empdob, $empgender, $empjoin, $empsalary, $empaddress);
+        echo $result1 . "<br>" . $result2;
         $dbObj->CloseConn($conObj);
     }
 }
+if (isset($_POST['updateSalespersonData'])) {
+    $empname = $_REQUEST['empname'];
+    $username = $_REQUEST['username'];
+    $emppass = $_REQUEST['emppass'];
+    $empemail = $_REQUEST['empemail'];
+    $empcontact = $_REQUEST['empcontact'];
+    $empdob = $_REQUEST['empdob'];
+    $empgender = $_REQUEST['empgender'];
+    $empjoin = $_REQUEST['empjoin'];
+    $empsalary = $_REQUEST['empsalary'];
+    $empaddress = $_REQUEST['empaddress'];
+    $empid = $_REQUEST['empid'];
+    $empfuid = $_REQUEST['empfuid'];
+
+    if (empty($empname) || empty($username) || empty($emppass) || empty($empemail) || empty($empcontact) || empty($empdob) || empty($empgender) || empty($empjoin) || empty($empsalary) || empty($empaddress)) {
+        echo "Please fill up all correctly";
+    } else {
+        $dbObj = new database();
+        $conObj = $dbObj->OpenConn();
+        $result1 = $dbObj->UpdateUser($conObj, $empfuid, $empname, $username, $emppass, "salesperson");
+        $result2 = $dbObj->UpdateEmployee($conObj, $empid, $empemail, $empcontact, $empdob, $empgender, $empjoin, $empsalary, $empaddress);
+        echo $result1 . "<br>" . $result2;
+        $dbObj->CloseConn($conObj);
+    }
+}
+
+/////////////////////For Delete Employee////////////
+
+if (isset($_POST['deleteSalespersonData'])) {
+    $empid = $_REQUEST['eid'];
+    $empfuid = $_REQUEST['fuid'];
+
+    $dbObj = new database();
+    $conObj = $dbObj->OpenConn();
+    $result2 = $dbObj->DeleteEmployee($conObj,$empid);
+    $result1 = $dbObj->DeleteUser($conObj, $empfuid);
+    echo $result1 . "<br>" . $result2;
+    $dbObj->CloseConn($conObj);
+}
+
+//////////////////____For Genereating Employee Table______///////////
 
 if (isset($_POST['viewEmp'])) {
     $tableData = '<table class="emp-table">
@@ -177,7 +218,7 @@ if (isset($_POST['viewEmp'])) {
                     </thead>';
     $dbTry = new database();
     $conObj = $dbTry->OpenConn();
-    $employees = $dbTry->RetrieveEmployees($conObj,"salesperson");
+    $employees = $dbTry->RetrieveEmployees($conObj, "salesperson");
 
     while ($row = $employees->fetch_assoc()) {
         $eId = $row["eid"];
@@ -192,14 +233,15 @@ if (isset($_POST['viewEmp'])) {
         $salary = $row["salary"];
         $address = $row["address"];
         $type = $row["type"];
+        $fUid = $row['f_uid'];
 
         $tableData .= '<tbody>
                 <tr>
                     <td>' . $eName . '</td>
                     <td>' . $username . '</td> 
                     <td>' . $Contact . '</td>
-                    <td><a class="edit" onclick="FillData(' . $eId . ',`' . $eName . '`,`' . $username . '`,`' . $password . '`,`' . $email . '`,`' . $Contact . '`,`' . $dob . '`,`' . $gender . '`,`' . $joinDate . '`,`' . $salary . '`,`' . $address . '`)">View/Edit</a></td>
-                    <td><a class="delete" onclick="DeleteData(' . $eId . ')">Delete</a></td>
+                    <td><a class="edit" onclick="FillData(' . $eId . ',`' . $eName . '`,`' . $username . '`,`' . $password . '`,`' . $email . '`,`' . $Contact . '`,`' . $dob . '`,`' . $gender . '`,`' . $joinDate . '`,`' . $salary . '`,`' . $address . '`,`' . $fUid . '`)">View/Edit</a></td>
+                    <td><a class="delete" onclick="DeleteData(' . $eId . ',' . $fUid . ')">Delete</a></td>
                 </tr>';
     }
     $tableData .= '</tbody>

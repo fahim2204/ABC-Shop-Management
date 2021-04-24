@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABC Shop - Product</title>
+    <title>ABC Shop - Search Product</title>
     <link rel="icon" href="/images/icon/shoplogo.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="/css/global.css">
     <link rel="stylesheet" type="text/css" href="/css/category-page.css">
@@ -27,7 +27,7 @@
                     <?php
                     $dbTry = new database();
                     $conObj = $dbTry->OpenConn();
-                    $products = $dbTry->RetrieveProductsByCat($conObj, $_REQUEST['category-id']);
+                    $products = $dbTry->RetrieveProductsBySrcName($conObj, $_REQUEST['query']);
                     if ($products->num_rows == 0) {
                         echo '
                         <div class="empty-product">

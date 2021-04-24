@@ -3,10 +3,17 @@
 class database{
 
     function OpenConn(){
-        $serverName = "localhost";
-        $userName = "root";
-        $password = "";
-        $dbName = "shop";
+        if($_SERVER['SERVER_NAME']== "localhost"){
+            $serverName = "localhost";
+            $userName = "root";
+            $password = "";
+            $dbName = "shop";
+        }else{
+            $serverName = "sql312.epizy.com";
+            $userName = "epiz_28010772";
+            $password = "K7rJEzxmb6CwIYi";
+            $dbName = "epiz_28010772_shop";
+        }
 
         $conn = new mysqli($serverName,$userName,$password,$dbName);
             if ($conn->connect_error) {
@@ -22,11 +29,30 @@ class database{
     function CloseConn($connObj){
         $connObj->close();
     }
+
+//////////_____User Section_______///////
+
     function InsertUser($connObj, $name, $userName, $password, $type){
         $result = $connObj->query("INSERT INTO `user` (`name`, `username`, `pass`, `type`) 
                                 VALUES ('$name', '$userName', '$password', '$type')");
         if($result==TRUE){
             return "Data Inserted Sucessfully.";
+        }else{
+            return "Error: <br>" . $connObj->error;
+        }
+    }
+    function UpdateUser($connObj, $uid, $name, $userName, $password, $type){
+        $result = $connObj->query(" UPDATE `user` SET `name`='$name',`username`='$userName',`pass`='$password',`type`='$type' WHERE `uid`='$uid'");
+        if($result==TRUE){
+            return "Data Updated Sucessfully.";
+        }else{
+            return "Error: <br>" . $connObj->error;
+        }
+    }
+    function DeleteUser($connObj, $uid){
+        $result = $connObj->query("DELETE FROM `user` WHERE `uid`=$uid");
+        if($result==TRUE){
+            return "Data Deleted Sucessfully.";
         }else{
             return "Error: <br>" . $connObj->error;
         }
@@ -50,7 +76,11 @@ class database{
         return $result;
     }
     function RetrieveProductsByCat($connObj,$cid){
-        $result = $connObj->query("SELECT * FROM `product` whereff ORDER BY RAND()");
+        $result = $connObj->query("SELECT * FROM `product` WHERE `pcategory`=(SELECT `cname` FROM `category` WHERE `cid`=$cid )");
+        return $result;
+    }
+    function RetrieveProductsBySrcName($connObj,$txt){
+        $result = $connObj->query("SELECT * FROM `product` WHERE `pname` LIKE '%$txt%'");
         return $result;
     }
     function RetrieveSingleProduct($connObj,$pid){
@@ -172,6 +202,22 @@ class database{
         $result = $conObj->query("INSERT INTO `employee` (`email`, `contact`, `dob`, `gender`, `joindate`, `salary`, `address`, `f_uid`) VALUES ('$empemail', '$empcontact', '$empdob', '$empgender', '$empjoin', '$empsalary', '$empaddress', (SELECT `uid` FROM `user` WHERE `username` = '$username'))");
         if($result==TRUE){
             return "Data Inserted Sucessfully.";
+        }else{
+            return "Error: <br>" . $conObj->error;
+        }
+    }
+    function UpdateEmployee($conObj,$eid,$empemail,$empcontact,$empdob,$empgender,$empjoin,$empsalary,$empaddress){
+        $result = $conObj->query("UPDATE `employee` SET `email`='$empemail',`contact`='$empcontact',`dob`='$empdob',`gender`='$empgender',`joindate`='$empjoin',`salary`='$empsalary',`address`='$empaddress' WHERE `eid`='$eid'");
+        if($result==TRUE){
+            return "Data Updated Sucessfully.";
+        }else{
+            return "Error: <br>" . $conObj->error;
+        }
+    }
+    function DeleteEmployee($conObj,$eid){
+        $result = $conObj->query("DELETE FROM `employee` WHERE `eid`= $eid");
+        if($result==TRUE){
+            return "Data Deleted Sucessfully.";
         }else{
             return "Error: <br>" . $conObj->error;
         }

@@ -193,7 +193,7 @@ input[type="reset"]:focus {
 }
 
 #fileToUpload::before {
-    content: 'Select Category Image';
+    content: 'Select Product Image';
     visibility: visible;
     display: flex;
     justify-content: center;

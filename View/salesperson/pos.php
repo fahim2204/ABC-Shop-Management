@@ -51,36 +51,36 @@ if (!empty($_SESSION["usertype"])) {
                     <input type="date" id="pos-date">
                 </div>
                 <div class="product-cart">
-                <table class="product-table">
-                    <thead>
-                        <tr>
-                            <th>Product Name</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                            <th>Total</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                <tr>
-                    <td>' . $pName . '</td>
-                    <td>' . $pCat . '</td>
-                    <td>' . $pBrand . '</td>
-                    <td><button>-</button><span>1</span><button>+</button></td>
-                    <td><a class="delete" onclick="DeleteData(' . $pId . ')">Delete</a></td>
-                </tr>
-                </tbody>
-                </table>
+                    <table class="product-table">
+                        <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Total</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>' . $pName . '</td>
+                                <td>' . $pCat . '</td>
+                                <td>' . $pBrand . '</td>
+                                <td><button>-</button><span>1</span><button>+</button></td>
+                                <td><a class="delete" onclick="DeleteData(' . $pId . ')">Delete</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                
+
             </div>
             <div id="product-section">
                 <div class="sec-title">
                     <input type="text" id="pos-search" placeholder="Search">
-                    <button onclick="SearchOnPos()">Search</button>
+                    <button id="btn-pos-search" onclick="return SearchOnPos()">Search</button>
                 </div>
                 <!-- Sec-Body will populate with ajax -->
-                <div id="sec-body"></div> 
+                <div id="sec-body"></div>
             </div>
 
             <footer>
@@ -90,35 +90,48 @@ if (!empty($_SESSION["usertype"])) {
     </div>
 
     <script>
-         $(document).ready(function() {
+        $(document).ready(function() {
             ReadRecords();
         });
+
         function ReadRecords() {
             var salespos = "record";
+            var query = $('#pos-search').val();
             $.ajax({
                 url: "/control/salesperson-page-data-connector.php",
                 type: 'POST',
                 data: {
-                    salespos: salespos
+                    salespos: salespos,
+                    query: query
                 },
                 success: function(data, status) {
                     $('#sec-body').html(data);
                 }
             });
         }
-        function SearchOnPos(){
+
+        function SearchOnPos() {
             ReadRecords();
         }
-        function AddSelected(pid,pname,uprice){
+        $('#pos-search').keypress(function(e) {
+            var key = e.which;
+            if (key == 13) // the enter key code
+            {
+                $('#btn-pos-search').click();
+                return false;
+            }
+        });
+
+        function AddSelected(pid, pname, uprice) {
             var data = "record";
             $.ajax({
                 url: "/control/salesperson-page-data-connector.php",
                 type: 'POST',
                 data: {
                     tempCart: data,
-                    pid:pid,
-                    pname:pname,
-                    uprice:uprice
+                    pid: pid,
+                    pname: pname,
+                    uprice: uprice
                 },
                 success: function(data, status) {
                     var jsdata = JSON.parse(data);
