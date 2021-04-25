@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2021 at 05:01 PM
+-- Generation Time: Apr 25, 2021 at 02:19 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -52,6 +52,56 @@ INSERT INTO `brand` (`bid`, `bname`) VALUES
 (16, 'Rupchanda'),
 (2, 'Walton'),
 (8, 'Zinix');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `productid` int(5) NOT NULL,
+  `fr_uname` varchar(20) NOT NULL,
+  `ammount` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`productid`, `fr_uname`, `ammount`) VALUES
+(1, 'manager', 2),
+(2, 'pias', 2),
+(2, 'salesperson', 2),
+(3, 'fahim', 3),
+(3, 'manager', 2),
+(4, 'customer', 7),
+(4, 'manager', 2),
+(5, 'manager', 2),
+(5, 'pias', 2),
+(36, 'manager', 2),
+(36, 'salesperson', 2),
+(37, 'manager', 2),
+(38, 'manager', 2),
+(38, 'pias', 2),
+(39, 'admin', 2),
+(39, 'customer', 8),
+(39, 'manager', 2),
+(40, 'admin', 2),
+(40, 'customer', 5),
+(40, 'manager', 2),
+(41, 'manager', 2),
+(42, 'manager', 2),
+(43, 'customer', 5),
+(43, 'manager', 2),
+(44, 'manager', 2),
+(45, 'manager', 2),
+(46, 'customer', 6),
+(46, 'pias', 2),
+(47, 'manager', 2),
+(47, 'pias', 2),
+(48, 'admin', 2),
+(48, 'manager', 2);
 
 -- --------------------------------------------------------
 
@@ -109,27 +159,8 @@ CREATE TABLE `customer` (
 --
 -- Table structure for table `employee`
 --
-
-CREATE TABLE `employee` (
-  `eid` int(5) NOT NULL,
-  `email` varchar(40) NOT NULL,
-  `contact` varchar(15) NOT NULL,
-  `dob` varchar(15) NOT NULL,
-  `gender` varchar(10) NOT NULL,
-  `joindate` varchar(15) NOT NULL,
-  `salary` varchar(8) NOT NULL,
-  `address` varchar(100) NOT NULL,
-  `f_uid` int(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `employee`
---
-
-INSERT INTO `employee` (`eid`, `email`, `contact`, `dob`, `gender`, `joindate`, `salary`, `address`, `f_uid`) VALUES
-(2, 'pias@gmail.com', '019565', '0198-04-12', 'male', '2021-04-14', '50000', 'haluaghat', 9),
-(3, 'arpon@gmail.com', '0195059923', '2020-12-28', 'male', '2021-04-21', '60000', 'Mymensingh ', 10),
-(4, 'jesmin@gmail.com', '019565496', '0198-04-11', 'female', '2021-04-28', '500000', 'Dhaka', 11);
+-- Error reading structure for table shop.employee: #1932 - Table 'shop.employee' doesn't exist in engine
+-- Error reading data for table shop.employee: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `shop`.`employee`' at line 1
 
 -- --------------------------------------------------------
 
@@ -171,7 +202,9 @@ INSERT INTO `product` (`pid`, `pname`, `pcategory`, `pbrand`, `pquantity`, `upri
 (43, 'Green Grapes', 'Fruits', 'Local', '1 Kg', 280, 220, 20, 'Green Grapes_608430a881c76.jpg', '', 'Green Grapes (Angur Sobuj) Kg* 1 Kg\r\nBe the first to write the review | Write Review\r\nBrand : Other\r\nper kg'),
 (44, 'Pineapple(Ananrosh)', 'Fruits', 'Local', '800gm (Promo)', 60, 48, 20, 'Pineapple(Ananrosh)_608430d5c101b.jpg', '', 'Pineapple(Ananrosh) 800gm (Promo)*\r\nBe the first to write the review | Write Review\r\nBrand : Other\r\nper piece (800 gm approx)\r\n\r\n৳ 60\r\n'),
 (45, 'Apple Golden Delicious', 'Fruits', 'Local', '1 Kg', 225, 205, 20, 'Apple Golden Delicious_6084310dc6810.jpg', '', 'Apple Golden Delicious (Green Apple)Kg(E-Com) 1 Kg\r\nBe the first to write the review | Write Review\r\nBrand : Other\r\nper kg (final cost based on weight)'),
-(46, 'Nutrilife Apple Fruit', 'Juice', 'Fresh', '1 Ltr.', 250, 210, 50, 'Nutrilife Apple Fruit_608431bfcfe57.jpg', '', 'Nutrilife Apple Fruit Magic 1 Ltr.*\r\nBe the first to write the review | Write Review\r\nBrand : n/a\r\n1 Ltr');
+(46, 'Nutrilife Apple Fruit', 'Juice', 'Fresh', '1 Ltr.', 250, 210, 50, 'Nutrilife Apple Fruit_608431bfcfe57.jpg', '', 'Nutrilife Apple Fruit Magic 1 Ltr.*\r\nBe the first to write the review | Write Review\r\nBrand : n/a\r\n1 Ltr'),
+(47, 'Egg Loose White (Duck)', 'Egg', 'Local', '1 piece', 16, 12, 1500, 'Egg Loose White (Duck)_6084423027283.jpg', '', 'An egg is the organic vessel containing the zygote in which an embryo develops until it can survive on its own, at which point the animal hatches. An egg is the organic vessel containing the zygote in which an embryo develops until it can survive on its own, at which point the animal hatches. An egg is the organic vessel containing the zygote in which an embryo develops until it can survive on its own, at which point the animal hatches. An egg is the organic vessel containing the zygote in which an embryo develops until it can survive on its own, at which point the animal hatches. An egg is the organic vessel containing the zygote in which an embryo develops until it can survive on its own, at which point the animal hatches. An egg is the organic vessel containing the zygote in which an embryo develops until it can survive on its own, at which point the animal hatches. An egg is the organic vessel containing the zygote in which an embryo develops until it can survive on its own, at which point the animal hatches. An egg is the organic vessel containing the zygote in which an embryo develops until it can survive on its own, at which point the animal hatches. An egg is the organic vessel containing the zygote in which an embryo develops until it can survive on its own, at which point the animal hatches. An egg is the organic vessel containing the zygote in which an embryo develops until it can survive on its own, at which point the animal hatches. An egg is the organic vessel containing the zygote in which an embryo develops until it can survive on its own, at which point the animal hatches. An egg is the organic vessel containing the zygote in which an embryo develops until it can survive on its own, at which point the animal hatches. '),
+(48, 'Egg Loose', 'Egg', 'Local', '1 piece', 8, 6, 2000, 'Egg Loose_608442a94089e.jpg', '', 'An egg is the organic vessel containing the zygote in which an embryo develops until it can survive on its own, at which point the animal hatches. ');
 
 -- --------------------------------------------------------
 
@@ -195,13 +228,39 @@ INSERT INTO `user` (`uid`, `name`, `username`, `pass`, `type`) VALUES
 (1, 'fahim', 'fahimfaisal1998@gmail.com', 'fahim123', 'admin'),
 (2, 'Shuvo', 'shuvo@gmail.com', '123456', 'customer'),
 (4, 'Faisal', 'customer', '123456', 'customer'),
-(5, 'Jhon', 'salesperson', '123456', 'salesperson'),
 (6, 'Broen', 'admin', '123456', 'admin'),
 (7, 'Armstrong', 'manager', '123456', 'manager'),
 (8, 'Jhalak Sarker', 'jahala', '123456', 'salesperson'),
 (9, 'Pias Sarker', 'pias', '123456', 'salesperson'),
 (10, 'Arpan Sarker', 'arpan', '123456', 'salesperson'),
-(11, 'Jesmin jesi', 'jesmin', '123456', 'salesperson');
+(11, 'Jesmin jesu', 'jesmin', '123456', 'salesperson'),
+(13, 'Jhon Brown', 'salesperson', '123456', 'salesperson'),
+(17, 'Jasim Uddin', 'jasim', '123456', 'salesperson'),
+(18, 'Hafiz Uddin', 'hafiz', '123456', 'manager'),
+(19, 'Nabil Hasan', 'nabil', '123456', 'customer');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `usercart`
+-- (See below for the actual view)
+--
+CREATE TABLE `usercart` (
+`fr_uname` varchar(20)
+,`pname` varchar(50)
+,`uprice` int(10)
+,`pquantity` varchar(15)
+,`ammount` int(3)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `usercart`
+--
+DROP TABLE IF EXISTS `usercart`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `usercart`  AS SELECT `cart`.`fr_uname` AS `fr_uname`, `product`.`pname` AS `pname`, `product`.`uprice` AS `uprice`, `product`.`pquantity` AS `pquantity`, `cart`.`ammount` AS `ammount` FROM (`cart` join `product` on(`cart`.`productid` = `product`.`pid`)) ;
 
 --
 -- Indexes for dumped tables
@@ -213,6 +272,12 @@ INSERT INTO `user` (`uid`, `name`, `username`, `pass`, `type`) VALUES
 ALTER TABLE `brand`
   ADD PRIMARY KEY (`bid`),
   ADD UNIQUE KEY `bname` (`bname`);
+
+--
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`productid`,`fr_uname`);
 
 --
 -- Indexes for table `category`
@@ -227,13 +292,6 @@ ALTER TABLE `category`
 ALTER TABLE `customer`
   ADD PRIMARY KEY (`cu_id`),
   ADD KEY `profile_info_uid` (`fr_uid`);
-
---
--- Indexes for table `employee`
---
-ALTER TABLE `employee`
-  ADD PRIMARY KEY (`eid`),
-  ADD KEY `user_f` (`f_uid`);
 
 --
 -- Indexes for table `product`
@@ -272,22 +330,16 @@ ALTER TABLE `customer`
   MODIFY `cu_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT for table `employee`
---
-ALTER TABLE `employee`
-  MODIFY `eid` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `pid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `pid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `uid` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `uid` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Constraints for dumped tables
@@ -298,12 +350,6 @@ ALTER TABLE `user`
 --
 ALTER TABLE `customer`
   ADD CONSTRAINT `profile_info_uid` FOREIGN KEY (`fr_uid`) REFERENCES `user` (`uid`);
-
---
--- Constraints for table `employee`
---
-ALTER TABLE `employee`
-  ADD CONSTRAINT `user_f` FOREIGN KEY (`f_uid`) REFERENCES `user` (`uid`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
