@@ -41,66 +41,81 @@ if (!empty($_SESSION["usertype"])) {
                 <?php include($_SERVER['DOCUMENT_ROOT'] . '/view/customer/menu-bar.php'); ?>
             </nav>
             <main>
-                <div class="customer-profile-container">
-                    <div class="personal-info">
-                        <div class="items">
-                            <label for="name">Full Name:</label>
-                            <input type="text" id="name" name="name">
-                        </div>
-                        <div class="items">
-                            <label class="required">Gender:</label>
-                            <input type="radio" id="male" name="gender" value="male">
-                            <label for="male">Male</label>
-                            <input type="radio" id="female" name="gender" value="female">
-                            <label for="female">Female</label>
-                            <input type="radio" id="other" name="gender" value="other">
-                            <label for="other">Other</label>
-                        </div>
-                        <div class="items">
-                            <label for="dob">Date of Birth:</label>
-                            <input type="date" id="dob" name="dob">
-                        </div>
-                        <div class="items">
-                            <label for="phone">Phone:</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        <div class="items">
-                            <label for="email">Email:</label>
-                            <input type="text" id="email" name="email">
-                        </div>
-                        <div class="items">
-                            <label for="address">Address:</label>
-                            <textarea name="address" id="address"></textarea>
-                        </div>
-                        <div class="items">
-                            <label>Phone:</label>
-                            <input type="text" id="email" name="email">
-                        </div>
-                        <div class="items">
-                            <label for="pName" class="required">Product Name:</label>
+                <div id="body-container">
+                    <div id="add-content">
+                        <div>
                             <span class="tooltip">
-                                <input type="text" id="pName" name="pName" placeholder="Product Name">
-                                <span id="lb-pName">Write valid Product Name!!</span>
+                                <label class="normal" for="emp-name">Full Name:</label>
+                                <input type="text" id="emp-name" placeholder="Manager Name" disabled>
+                                <input type="hidden" id="emp-id">
+                                <input type="hidden" id="emp-fuid">
+                                <span id="lb-name">Enter a valid name!!</span>
                             </span>
                         </div>
+                        <div>
+                            <span class="tooltip">
+                                <label class="normal" for="username">User Name:</label>
+                                <input type="text" id="username" placeholder="User Name" disabled>
+                                <span id="lb-username">Enter a valid username!!</span>
+                            </span>
+                        </div>
+                        <div>
+                            <span class="tooltip">
+                                <label class="normal" for="emp-pass">Password:</label>
+                                <input type="password" id="emp-pass" placeholder="Password" disabled>
+                                <span id="lb-pass">Enter a valid password!!</span>
+                            </span>
+                        </div>
+                        <div>
+                            <span class="tooltip">
+                                <label class="normal" for="emp-email">Email:</label>
+                                <input type="text" id="emp-email" placeholder="Email" disabled>
+                                <span id="lb-email">Enter a valid Email!!</span>
+                            </span>
+                        </div>
+                        <div><span class="tooltip">
+                                <label class="normal" for="emp-contact">Contact:</label>
+                                <input type="tel" id="emp-contact" placeholder="Contact" disabled>
+                                <span id="lb-contact">Enter a valid Contact!!</span>
+                            </span>
+                        </div>
+                        <div><span class="tooltip">
+                                <label class="normal" for="emp-dob">Birth Date:</label>
+                                <input type="date" id="emp-dob" disabled>
+                                <span id="lb-dob">Select a Date!!</span>
+                            </span>
+                        </div>
+                        <div><span class="tooltip">
+                                <label class="normal">Gender:</label>
+                                <div class="radio-child">
+                                    <input type="radio" id="male" name="gender" value="male" disabled>
+                                    <label class="radio" for="male">Male</label>
+                                    <input type="radio" id="female" name="gender" value="female" disabled>
+                                    <label class="radio" for="female">Female</label>
+                                    <input type="radio" id="other" name="gender" value="other" disabled>
+                                    <label class="radio" for="other">Other</label>
+                                </div>
+                                <span id="lb-gender">Select a Value!!</span>
+                            </span>
+                        </div>
+
+                        <div><span class="tooltip">
+                                <label class="normal" for="emp-address">Address:</label>
+                                <textarea id="emp-address" placeholder="Address" disabled></textarea>
+                                <span id="lb-address">Enter a valid address!!</span>
+                            </span>
+                        </div>
+                        <div id="butt-add">
+                            <p id="error-txt"></p>
+                            <button id="emp-add" onclick="return AddData()">Edit</button>
+                            <button style="display:none" id="clear-data" onclick="return ClearData()">Cancel</button>
+                            <button style="display:none" id="update-data" onclick="return UpdateData()">Update</button>
+                        </div>
+
+
                     </div>
-                    <div class="personal-image">
-                        <label for="fileToUpload" class="required">Profile Image:</label>
-                        <div class="image">
-                            <span class="tooltip">
-                                <img id="profileImage" src="https://img.icons8.com/wired/64/000000/no-image.png" height="180px" width="180px" alt="product-Image" />
-                                <span id="lb-pimage">Select an Image!!</span>
-                            </span>
-                        </div>
-                        <div class="upload-btn">
-                            <input type="file" onchange="readURL(this);" name="fileToUpload" id="fileToUpload">
-                            <!-- Hidden container is used for changing with JS and recognized by PHP -->
-                            <input type="hidden" id="hiddencontainer" name="hiddencontainer" value="10" />
-                        </div>
-                        <div class="items" id="itemButton">
-                            <input type="reset" name="reset" id="reset" value="Reset" />
-                            <input onclick="return AddProductFormValidation()" type="submit" name="submit" id="submit" value="Add" />
-                        </div>
+                    <div id="view-content">
+
                     </div>
                 </div>
 
@@ -111,22 +126,28 @@ if (!empty($_SESSION["usertype"])) {
         </div>
     </div>
     <script>
-        function readURL(input) {
-            var myhidden = document.getElementById("hiddencontainer");
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
+        $(document).ready(function() {
+            var record = "record";
+            $.ajax({
+                url: "/control/admin-page-data-connector.php",
+                type: 'POST',
+                data: {
+                    viewCustomer: record
+                },
+                success: function(data, status) {
+                    var result = JSON.parse(data);
+                    $('#emp-name').val(result.name);
+                    $('#username').val(result.uname);
+                    $('#emp-pass').val(result.pass);
+                    $('#emp-email').val(result.email);
+                    $('#emp-contact').val(result.contact);
+                    $('#emp-dob').val(result.dob);
+                    $("input[name='gender'][value=" + result.gender + "]").prop('checked', true);
+                    $('#emp-address').val(result.address);
+                }
+            });
 
-                reader.onload = function(e) {
-                    $('#profileImage')
-                        .attr('src', e.target.result)
-                        .width(180)
-                        .height(180);
-                    myhidden.value = 20;
-                };
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
+        });
     </script>
 </body>
 

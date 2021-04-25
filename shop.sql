@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 25, 2021 at 02:19 PM
+-- Generation Time: Apr 26, 2021 at 12:07 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -75,7 +75,6 @@ INSERT INTO `cart` (`productid`, `fr_uname`, `ammount`) VALUES
 (2, 'salesperson', 2),
 (3, 'fahim', 3),
 (3, 'manager', 2),
-(4, 'customer', 7),
 (4, 'manager', 2),
 (5, 'manager', 2),
 (5, 'pias', 2),
@@ -85,18 +84,15 @@ INSERT INTO `cart` (`productid`, `fr_uname`, `ammount`) VALUES
 (38, 'manager', 2),
 (38, 'pias', 2),
 (39, 'admin', 2),
-(39, 'customer', 8),
 (39, 'manager', 2),
 (40, 'admin', 2),
-(40, 'customer', 5),
+(40, 'customer', 7),
 (40, 'manager', 2),
 (41, 'manager', 2),
 (42, 'manager', 2),
-(43, 'customer', 5),
 (43, 'manager', 2),
 (44, 'manager', 2),
 (45, 'manager', 2),
-(46, 'customer', 6),
 (46, 'pias', 2),
 (47, 'manager', 2),
 (47, 'pias', 2),
@@ -154,13 +150,42 @@ CREATE TABLE `customer` (
   `fr_uid` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`cu_id`, `gender`, `dob`, `phone`, `email`, `address`, `fr_uid`) VALUES
+(15, 'male', '2021-04-23', '0195826105', 'customer@gmail.com', 'Badda, Dhaka, Bangladesh', 4),
+(16, 'male', '2011-04-14', '0185962185', 'nabil@ymail.com', 'Dhara, Haluagaht', 19);
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `employee`
 --
--- Error reading structure for table shop.employee: #1932 - Table 'shop.employee' doesn't exist in engine
--- Error reading data for table shop.employee: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `shop`.`employee`' at line 1
+
+CREATE TABLE `employee` (
+  `eid` int(5) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `contact` varchar(15) NOT NULL,
+  `dob` varchar(15) NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `joindate` varchar(15) NOT NULL,
+  `salary` varchar(8) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `f_uid` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` (`eid`, `email`, `contact`, `dob`, `gender`, `joindate`, `salary`, `address`, `f_uid`) VALUES
+(2, 'pias@gmail.com', '019565', '0198-04-12', 'male', '2021-04-14', '50000', 'haluaghat', 9),
+(3, 'arpon@gmail.com', '0195059923', '2020-12-28', 'male', '2021-04-21', '60000', 'Mymensingh ', 10),
+(4, 'jesmin@gmail.com', '019565496', '0198-04-11', 'female', '2021-04-28', '500000', 'Dhaka', 11),
+(0, 'jasim@gmai.com', '0195385522', '2021-04-13', 'male', '2021-04-15', '15000', 'Sylhet', 17),
+(0, 'hafiz@ymail.com', '01953822001', '2021-04-07', 'male', '2021-04-07', '60000', 'Haluaghat,\nMymensingh', 21);
 
 -- --------------------------------------------------------
 
@@ -225,19 +250,21 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`uid`, `name`, `username`, `pass`, `type`) VALUES
-(1, 'fahim', 'fahimfaisal1998@gmail.com', 'fahim123', 'admin'),
 (2, 'Shuvo', 'shuvo@gmail.com', '123456', 'customer'),
 (4, 'Faisal', 'customer', '123456', 'customer'),
 (6, 'Broen', 'admin', '123456', 'admin'),
 (7, 'Armstrong', 'manager', '123456', 'manager'),
-(8, 'Jhalak Sarker', 'jahala', '123456', 'salesperson'),
 (9, 'Pias Sarker', 'pias', '123456', 'salesperson'),
 (10, 'Arpan Sarker', 'arpan', '123456', 'salesperson'),
 (11, 'Jesmin jesu', 'jesmin', '123456', 'salesperson'),
 (13, 'Jhon Brown', 'salesperson', '123456', 'salesperson'),
 (17, 'Jasim Uddin', 'jasim', '123456', 'salesperson'),
-(18, 'Hafiz Uddin', 'hafiz', '123456', 'manager'),
-(19, 'Nabil Hasan', 'nabil', '123456', 'customer');
+(19, 'Nabil Hasan', 'nabil', '123456', 'customer'),
+(21, 'Hafiz Uddin', 'hafiz', '123456', 'manager'),
+(24, 'Afroz Sibli', 'afroz@gmail.com', '123456', 'customer'),
+(27, 'dfgsdfg', 'dfgsdg@sdfg.sdfg', '123456', 'customer'),
+(28, 'fghth', 'ghfghfg@srgs.dfg', '123456', 'customer'),
+(29, 'asd', '01960839343', '123456', 'customer');
 
 -- --------------------------------------------------------
 
@@ -327,7 +354,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `cu_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `cu_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -339,7 +366,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `uid` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `uid` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- Constraints for dumped tables

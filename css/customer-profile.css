@@ -1,84 +1,28 @@
-.customer-profile-container {
+/* ///////____Manage Salesperson Form____////// */
+
+#body-container {
     display: grid;
     width: 905px;
-    grid-template-columns: 2.5fr 1fr;
+    grid-template-columns: 1fr 1.2fr;
     grid-template-rows: auto;
-    grid-template-areas: "pinfo pimage";
+    grid-template-areas: "add view";
     grid-gap: 0.5rem;
     border-radius: 10px;
-    box-shadow: 2px 2px 10px rgb(134, 187, 233);
-    
 }
-
-.personal-info {
-    grid-area: pinfo;
-    padding: 10px;
-    box-shadow: 2px 2px 10px rgb(134, 187, 233);
+#add-content{
+    grid-area: add;
     display: flex;
     flex-direction: column;
-    padding-left: 50px;
-    padding-right: 50px;
+    align-items: flex-start;
 }
-
-.personal-image {
-    grid-area: pimage;
-    padding: 10px;
-    box-shadow: 2px 2px 10px rgb(134, 187, 233);
-
+#view-content{
+    grid-area:view;
+    /* max-width: 450px; */
+} 
+#add-content>div{
+    margin-top: 12px;
 }
-
-
-/* ///////________Image Upload And Button______////// */
-
-#fileToUpload {
-    visibility: hidden;
-}
-
-#fileToUpload::before {
-    content: 'Select Image';
-    visibility: visible;
-    display: flex;
-    justify-content: center;
-    background-color: rgb(54, 159, 200);
-    border: 1px solid #999;
-    border-radius: 10px;
-    padding: 5px 2px;
-    cursor: pointer;
-    font-size: 12pt;
-    color: #fff;
-}
-#fileToUpload:hover {
-    transform: scale(1.02);
-    background-color: rgb(255, 255, 255);
-}
-.personal-image  {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-}
-.personal-image label {
-    align-self: start;
-}
-.personal-image .image {
-    padding: 0px;
-    margin: 5px;
-    margin-bottom: 10px;
-    height: 200px;
-    width: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid rgba(0, 0, 0, 0.363);
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgb(134, 187, 233);
-}
-
-
-
-/* /////////Label and Input///////////// */
-
-.customer-profile-container>.personal-info>label {
+#add-content label.normal{
     float: left;
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
@@ -86,35 +30,158 @@
     margin-left: 8px;
     width: 160px;
 }
-.personal-info .required::after,.personal-image .required::after{
-    content: '*';
-    color: red;
-    
+#add-content label.radio{
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
 }
-.tooltip{
+#add-content .radio-child{
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-top: 6px;
+    align-self: center;
+}
+#add-content .radio-child input{
+    text-align: center;
+    margin-left: 8px;
+    padding: 5px;
+}
+#add-content .radio-child label{
+    padding-left: 5px;
+}
+
+#add-content input[type="text"], input[type="email"], input[type="password"], input[type="date"], input[type="tel"],textarea{
+    float: right;
+    font-size: 15px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 15px;
+    padding: 5px 12px;
+    border: 2px solid DodgerBlue;
+    width: 220px;
+    height: 30px;
+}
+#add-content input:focus,textarea:focus{
+    box-shadow: 2px 2px 10px rgb(134, 187, 233);
+
+}
+#add-content input[type="text"]#emp-salary{
+    width: 100px;
+}
+#add-content textarea{
+    height: 60px;
+    max-height: 100px;
+    max-width: 400px;
+    padding: 5px;
+}
+#add-content input[type="date"]{
+    width: 190px;
+}
+#add-content input[type="date"]{
+    width: 190px;
+}
+
+
+#add-content div#butt-add {
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+}
+#add-content div#butt-add p {
+    color: red;
+    padding: 5px;
+}
+#add-content div>button {
+    height: 40px;
+    width: 80px;
+    font-size: 1.2em;
+    border-radius: 30px;
+    border: none;
+    margin: 2px;
+    padding: 2px;
+    color: white;
+    right: 100px;
+    background-color: green;
+}
+
+#add-content div>button:hover {
+    background-color: rgb(101, 198, 236);
+    transform: scale(1.02);
+    cursor: pointer;
+}
+.tooltip {
     position: relative;
 }
-.tooltip > span{
-    visibility: visible;
+.tooltip>span {
+    visibility: hidden;
     width: 200px;
     color: rgb(243, 10, 10);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 0.7em;
     text-align: right;
-    text-decoration: underline;
     position: absolute;
     z-index: 10;
-    left: 0;
+    bottom: 2px;
 }
 
-.customer-profile-container input[type="text"],input[type="tel"], input[type="email"], input[type="password"] {
-    float: right;
-    font-size: 15px;
-    border-radius: 30px;
-    padding: 8px 10px;
-    border: 2px solid DodgerBlue;
+
+/* ___________________Table View________________ */
+
+#view-content .emp-table {
+    box-shadow: 2px 2px 10px rgb(134, 187, 233);
+    background-color: white;
+    max-width: 450px;
 }
-.customer-profile-container textarea,input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
-    border-color: rgb(10, 92, 175);
-    transform: scale(1.02);
+
+#view-content th, td {
+    padding: 5px;
+    text-align: left;
 }
+#view-content th {
+    background-color: #33c5b8;
+    font-family:Arial, Helvetica, sans-serif;
+}
+#view-content th#action {
+    text-align: center;
+}
+#view-content tbody{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+#view-content tbody:nth-child(odd){
+    background-color: #dcd9d8;
+}
+#view-content tbody:hover {
+    background-color: #b2c1c7;
+}
+tbody a{
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Ubuntu';
+    font-size: 12px;
+}
+tbody a.edit{
+    background-color:rgba(0, 204, 255, 0.685);
+}
+tbody a.delete{
+    background-color:rgba(245, 53, 53, 0.685);
+}
+tbody a.edit:hover{
+    background-color:rgb(0, 204, 255);
+    cursor:pointer;
+}
+tbody a.delete:hover{
+    background-color:rgb(245, 53, 53);
+    cursor:pointer;
+}
+
+
+
+
+
+

@@ -281,6 +281,10 @@ function DeleteItem($connObj, $pname,$uname){
 
 
 
+function ViewCustomer($connObj,$uname){
+    $result = $connObj->query("SELECT * FROM `customer` JOIN `user` ON customer.fr_uid = user.uid WHERE user.username ='$uname'");
+    return $result;
+}
 
 
 

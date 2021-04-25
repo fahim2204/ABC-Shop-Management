@@ -1,5 +1,8 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'] . '/model/db-connect.php');
+if (!isset($_SESSION)) {
+    session_start();
+}
 
 // __________For Manage Manager__________//////______
 
@@ -60,7 +63,7 @@ if (isset($_POST['deleteSalespersonData'])) {
 
     $dbObj = new database();
     $conObj = $dbObj->OpenConn();
-    $result2 = $dbObj->DeleteEmployee($conObj,$empid);
+    $result2 = $dbObj->DeleteEmployee($conObj, $empid);
     $result1 = $dbObj->DeleteUser($conObj, $empfuid);
     echo $result1 . "<br>" . $result2;
     $dbObj->CloseConn($conObj);
@@ -111,3 +114,25 @@ if (isset($_POST['viewEmp'])) {
     echo $tableData;
 }
 // <td><a class="edit" onclick="ShowPopUp(' . $pId . ',`' . $pName . '`,`' . $pCat . '`,`' . $pBrand . '`,`' . $pQuantity . '`,`' . $uprice . '`,`' . $ucost . '`,`' . $pstock . '`,`' . $pdetails . '`)">Edit</a></td>
+
+if (isset($_POST['viewCustomer'])) {
+    $cuname = $_SESSION['username'];
+
+    $dbObj = new database();
+    $conObj = $dbObj->OpenConn();
+    $result = $dbObj->ViewCustomer($conObj, $cuname);
+    $row = $result->fetch_assoc();
+    $list = array();
+
+        $list["name"] = $row["name"];
+        $list["uname"] = $row["username"];
+        $list["pass"] = $row["pass"];
+        $list["email"] = $row["email"];
+        $list["contact"] = $row["phone"];
+        $list["dob"] = $row["dob"];
+        $list["gender"] = $row["gender"];
+        $list["address"] = $row["address"];
+        echo json_encode( $list );
+
+    $dbObj->CloseConn($conObj);
+}
