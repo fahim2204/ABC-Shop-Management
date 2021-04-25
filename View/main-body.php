@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/global.css">
     <link rel="stylesheet" type="text/css" href="/css/product-section.css">
+    <script src="/js/cart-add.js"></script>
+
 </head>
 
 <body>
@@ -46,7 +48,7 @@
                     <?php echo $row['prate'] ?>
                 </div>
                 <div class="product-buttons">
-                    <button><a href="/view/product.php?product-id=<?php echo $row['pid'] ?>">Add to Cart</a></button>
+                <button onclick="AddToCart(<?php echo $row['pid'] ?>)">Add to Cart</button>
                 </div>
             </div>
 

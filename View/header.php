@@ -1,3 +1,8 @@
+<?php
+if (!isset($_SESSION)) {
+    session_start();
+} ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,13 +31,15 @@
                     <!-- <a href="/view/customer/favourite.php"><img class="header-link" src="https://img.icons8.com/ios-glyphs/40/000000/hearts.png" alt="favourite" /></a> -->
                 </div>
                 <div class="child-item-3">
-                    <a href="/view/customer/cart.php"><img class="header-link" src="https://img.icons8.com/ios-glyphs/40/000000/shopping-cart.png" alt="cart" /></a>
+                    <?php
+                    //////////_________Redirect User to their Own Page_________///////
+
+                    if (empty($_SESSION['username']) || $_SESSION['usertype'] == "customer") {
+                        echo '<a href="/view/customer/cart.php"><img class="header-link" src="https://img.icons8.com/ios-glyphs/40/000000/shopping-cart.png" alt="cart" /></a>';
+                    } ?>
                 </div>
                 <div id="profile-link">
                     <?php
-                    if (!isset($_SESSION)) {
-                        session_start();
-                    }
                     //////////_________Redirect User to their Own Page_________///////
                     if (isset($_SESSION['username'])) {
                         if ($_SESSION['usertype'] == "manager") {
@@ -78,7 +85,7 @@
             var key = e.which;
             if (key == 13) // the enter key code
             {
-                location.replace("/view/search.php?query="+qu);
+                location.replace("/view/search.php?query=" + qu);
             }
         });
     </script>

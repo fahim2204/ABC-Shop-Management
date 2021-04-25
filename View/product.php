@@ -85,7 +85,7 @@ if (empty($_SESSION["username"])) {
                                     <span>৳</span><?php echo $row['uprice'] ?>
                                 </div>
                                 <div class="product-buttons">
-                                    <button onclick="AddToCart(<?php echo $row['pid'].','.$_se ?>)">Add to Cart</button>
+                                    <button onclick="AddToCart(<?php echo $row['pid'] ?>)">Add to Cart</button>
                                     <img src="https://img.icons8.com/carbon-copy/100/000000/filled-like.png" />
                                     <!-- <img src="https://img.icons8.com/plasticine/100/000000/filled-like.png"/> -->
 

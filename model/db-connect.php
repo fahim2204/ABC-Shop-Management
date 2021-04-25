@@ -240,13 +240,52 @@ class database{
 ///////////////////////////________________CART Section______////////////
 
 function InsertToCart($connObj, $pid,$uid,$ammount){
-    $result = $connObj->query("INSERT INTO `cart`(`productid`, `userid`, `ammount`) VALUES ('$pid','$uid','$ammount')");
+    $result = $connObj->query("INSERT INTO `cart`(`productid`, `fr_uname`, `ammount`) VALUES ('$pid','$uid','$ammount')");
     if($result==TRUE){
-        return "Data Inserted Sucessfully.";
+        return "Product Added to Cart Sucessfully.";
     }else{
         return "Error: <br>" . $connObj->error;
     }
 }
+
+function RetrieveCartItems($connObj,$uname){
+    $result = $connObj->query("SELECT * FROM `usercart` WHERE `fr_uname`='$uname'");
+    return $result;
+}
+function MinusToCart($connObj, $pname,$uname){
+    $result = $connObj->query("UPDATE `usercart` SET `ammount`=`ammount`-1 WHERE `fr_uname`='$uname' AND `pname`='$pname'");
+    if($result==TRUE){
+        return "Product Minused.";
+    }else{
+        return "Error: <br>" . $connObj->error;
+    }
+}
+function PlusToCart($connObj, $pname,$uname){
+    $result = $connObj->query("UPDATE `usercart` SET `ammount`=`ammount`+1 WHERE `fr_uname`='$uname' AND `pname`='$pname'");
+    if($result==TRUE){
+        return "Product Pluss.";
+    }else{
+        return "Error: <br>" . $connObj->error;
+    }
+}
+function DeleteItem($connObj, $pname,$uname){
+    $result = $connObj->query("DELETE FROM `cart` WHERE `fr_uname`='$uname' AND `cart`.`productid`=(SELECT `product`.`pid` FROM `product` WHERE `product`.`pname`='$pname')");
+    if($result==TRUE){
+        return "Product Added to Cart Sucessfully.";
+    }else{
+        return "Error: <br>" . $connObj->error;
+    }
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

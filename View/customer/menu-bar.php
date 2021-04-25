@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/home-user-menu.css">
     <script src="/js/menu-expander.js"></script>
+    <script src="https://kit.fontawesome.com/0b6de5c2ec.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -31,7 +32,7 @@
         <ul>
             <li><a href='/view/customer/index.php'><span class="fa fa-home"></span>My Profile</a></li>
             <li><a href='#message'><span class="fa fa-gear"></span>My Order</a></li>
-            <li><a href='#message'><span class="fas fa-diagnoses"></span>My Cart</a></li>
+            <li><a href='/view/customer/cart.php'><span class="fas fa-diagnoses"></span>My Cart</a></li>
             <li><a href='#message'><span class="fas fa-angry"></span>My Wishlist</a></li>
             <li><a href='#message'><span class="far fa-copyright"></span>My Reviews</a></li>
             <li><a href='#message'><span class="fas fa-print"></span>Raise Complaint</a></li>
