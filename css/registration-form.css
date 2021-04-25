@@ -119,11 +119,14 @@ footer {
     border-color: rgb(10, 92, 175);
     transform: scale(1.02);
 }
-
+#errmsg{
+    font-size: 16px;
+    color: #d60909;
+}
 
 /* ////////_______Reset and Submit Button_____///// */
 
-#form-body-main input[type="submit"], input[type="reset"] {
+#form-body-main button#submit, button#reset {
     height: 50px;
     width: 100px;
     font-size: 1.2em;
@@ -133,26 +136,26 @@ footer {
     padding: auto;
     color: white;
 }
-#form-body-main input[type="submit"] {
+#form-body-main button#submit {
     background-color: green;
 }
-#form-body-main  input[type="reset"] {
+#form-body-main  button#reset {
     background-color: skyblue;
 }
-#form-body-main input[type="submit"]:hover {
+#form-body-main button#submit:hover {
     background-color: rgb(9, 185, 9);
     transform: scale(1.02);
 }
-#form-body-main input[type="reset"]:hover {
+#form-body-main button#reset:hover {
     background-color: rgb(101, 198, 236);
     transform: scale(1.02);
 }
-#form-body-main input[type="submit"]:focus {
+#form-body-main button#submit:focus {
     background-color: rgb(9, 185, 9);
     border: 2px solid rgb(10, 92, 175);
     transform: scale(1.02);
 }
-#form-body-main input[type="reset"]:focus {
+#form-body-main button#reset:focus {
     background-color: rgb(101, 198, 236);
     border: 2px solid rgb(10, 92, 175);
     transform: scale(1.02);

@@ -32,7 +32,7 @@ function ReadCartItems() {
 }
 function CartMinus(uname,pname,ammount) {
     var record = "record";
-    if(ammount>=1){
+    if(ammount>1){
         $.ajax({
             url: "/control/cart-data-controller.php",
             type: 'POST',

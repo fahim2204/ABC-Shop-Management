@@ -6,11 +6,11 @@
     } 
 
     if(empty($_SESSION["username"])){
-        header("location:login.php");
+        header("location:/view/login.php");
     }
     if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['logout'])){
         session_destroy();
-        header("location:login.php");
+        header("location:/view/login.php");
     }
 ?>
 <br><br>

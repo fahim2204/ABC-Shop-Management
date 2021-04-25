@@ -1,37 +1,23 @@
 [
     {
-        "pid": "1",
-        "pname": "Orange (Malta)",
-        "quantity": 22,
-        "uprice": "150",
-        "Total": "150"
-    },
-    {
-        "pid": "3",
-        "pname": "Pran Lassi",
-        "quantity": 9,
-        "uprice": "20",
-        "Total": "20"
-    },
-    {
-        "pid": "4",
-        "pname": "Pran Mango Fruit Drink",
-        "quantity": 6,
-        "uprice": "20",
-        "Total": "20"
-    },
-    {
         "pid": "2",
         "pname": "Kinder Joy",
-        "quantity": 12,
+        "quantity": 3,
         "uprice": "65",
         "Total": "65"
     },
     {
-        "pid": "5",
-        "pname": "Zinix Check Correct Calculator",
+        "pid": "3",
+        "pname": "Pran Lassi",
+        "quantity": 2,
+        "uprice": "20",
+        "Total": "20"
+    },
+    {
+        "pid": "1",
+        "pname": "Orange (Malta)",
         "quantity": 1,
-        "uprice": "300",
-        "Total": "300"
+        "uprice": "150",
+        "Total": "150"
     }
 ]

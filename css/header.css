@@ -22,10 +22,12 @@
     z-index: 100;
     border-radius: 0px 0px 20px 20px;
     background: #9CECFB;
-    background: #00d2ff;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #3a7bd5, #00d2ff);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #3a7bd5, #00d2ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    background: #00d2ff;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3a7bd5, #00d2ff);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #3a7bd5, #00d2ff);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
 
   #header-item-1 {
@@ -41,6 +43,7 @@ background: linear-gradient(to right, #3a7bd5, #00d2ff); /* W3C, IE 10+/ Edge, F
   }
 
   #header-item-3 {
+    position: relative;
     display: flex;
     justify-content: space-evenly;
     flex-basis: 15%;
@@ -53,6 +56,36 @@ background: linear-gradient(to right, #3a7bd5, #00d2ff); /* W3C, IE 10+/ Edge, F
   }
 
   /* //////______Search Bar CSS___________///// */
+
+
+  #product-list {
+    list-style: none;
+  }
+  #product-list li {
+    padding: 5px;
+    background: #068dc2e0;
+    border-bottom: #b9babb 1px solid;
+    color: #fff;
+    font-family: arial;
+    font-size: 15px;
+  }
+
+  #product-list li:hover {
+    background: #396fb6 ;
+    cursor: pointer;
+  }
+
+  #suggesstion-box {
+    position: absolute;
+    right: 550px;
+    list-style: none;
+    display: none;
+    padding: 0;
+    width: 250px;
+    max-height: 300px;
+    overflow-y: hidden;
+    height: 253px;
+  }
 
   #header-item-2 #searchtxt {
     width: 70%;
@@ -100,11 +133,13 @@ background: linear-gradient(to right, #3a7bd5, #00d2ff); /* W3C, IE 10+/ Edge, F
     justify-content: start;
     align-items: flex-start;
   }
+
   #child-item-b {
     display: flex;
     justify-content: center;
     align-items: center;
   }
+
   #child-item-b:hover {
     transform: scale(1.12);
   }
@@ -121,15 +156,13 @@ background: linear-gradient(to right, #3a7bd5, #00d2ff); /* W3C, IE 10+/ Edge, F
     transform: scale(1.12);
   }
 
-
-  
-@media only screen and (max-width: 700px) {
-  #header-container {
+  @media only screen and (max-width: 700px) {
+    #header-container {
       flex-direction: column;
       flex-wrap: wrap;
       height: 100px;
     }
-    #shoplogo{
+    #shoplogo {
       display: block;
       width: 20px;
       height: auto;
@@ -137,4 +170,4 @@ background: linear-gradient(to right, #3a7bd5, #00d2ff); /* W3C, IE 10+/ Edge, F
     /* #searchtxt{
       display: none;
     } */
-}
+  }

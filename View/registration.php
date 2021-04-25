@@ -1,5 +1,3 @@
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/control/registration-validation.php'); ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,8 +9,10 @@
     <link rel="icon" href="/images/icon/shoplogo.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="/css/global.css">
     <link rel="stylesheet" type="text/css" href="/css/registration-form.css">
+    <script src="/js/registration-validation.js"></script>
+    <script src="/js/jquery.min.js"></script>
+
 </head>
-<script src="/js/registrationValidation.js"></script>
 
 
 <body>
@@ -27,48 +27,53 @@
                         <h1>Registration</h1>
                     </div>
                     <div id="form-body">
-                        <form id="registration" method="POST" action="<?php echo $_SERVER["PHP_SELF"] ?>" onsubmit="return RegistrationFieldValidation()" class="registration">
-                            <div id="form-body-main">
-                                <div class="items" id="item1">
-                                    <label class="required">Name:</label>
-                                    <span class="tooltip">
-                                        <input type="text" id="name" name="name" placeholder="Name">
-                                        <span id="lb-name">Enter a Valid Name!!</span>
-                                    </span>
-                                </div>
-                                <div class="items" id="item2">
-                                    <label class="required">Email or Phone No:</label>
-                                    <span class="tooltip">
-                                        <span id="lb-email">Enter a Valid E-mail or Phone No!!</span>
-                                        <input type="text" id="username" name="username" placeholder="Username">
-                                    </span>
-                                </div>
-                                <div class="items" id="item3">
-                                    <label class="required">Password:</label>
-                                    <span class="tooltip">
-                                        <span id="lb-pass">Enter a Valid Password!!</span>
-                                        <input type="password" id="password" name="password" placeholder="Password">
-                                    </span>
-                                </div>
-                                <div class="items" id="item4">
-                                    <label class="required">Cofirm Password:</label>
-                                    <span class="tooltip">
-                                        <span id="lb-cpass">Password Not Matched!!</span>
-                                        <input type="password" id="cpassword" name="cpassword" placeholder="Confirm Password">
-                                    </span>
-                                </div>
-                                <div class="items" id="item5">
-                                    <input type="reset" name="reset" id="reset" value="Reset">
-                                    <input type="submit" name="submit" id="submit" value="Submit">
-                                    <span class="goto-login-link">
-                                        <a href="login.php">Already Registered?</a>
-                                    </span>
-                                    <!-- Future implement for validation -->
-                                    <!-- <button type="button" onclick="document.getElementById('lb-pass').style.visibility = 'visible'">
-                                        Click Me!</button> -->
-                                </div>
+                        <div id="form-body-main">
+                            <div class="items" id="item1">
+                                <label class="required">Name:</label>
+                                <span class="tooltip">
+                                    <input type="text" id="name" name="name" placeholder="Name">
+                                    <span id="lb-name">Enter a Valid Name!!</span>
+                                </span>
                             </div>
-                        </form>
+                            <div class="items" id="item2">
+                                <label class="required">Email or Phone No:</label>
+                                <span class="tooltip">
+                                    <span id="lb-email">Enter a Valid E-mail or Phone No!!</span>
+                                    <input type="text" id="username" name="username" placeholder="Username">
+                                </span>
+                            </div>
+                            <div class="items" id="item3">
+                                <label class="required">Password:</label>
+                                <span class="tooltip">
+                                    <span id="lb-pass">Enter a Valid Password!!</span>
+                                    <input type="password" id="password" name="password" placeholder="Password">
+                                </span>
+                            </div>
+                            <div class="items" id="item4">
+                                <label class="required">Cofirm Password:</label>
+                                <span class="tooltip">
+                                    <span id="lb-cpass">Password Not Matched!!</span>
+                                    <input type="password" id="cpassword" name="cpassword" placeholder="Confirm Password">
+                                </span>
+                            </div>
+                            <div class="items" id="item5">
+                                <div class="error">
+                                    <p id="errmsg"></p>
+                                </div>
+                                <button id="reset" onclick="Clear()">Reset</button>
+                                <button id="submit" onclick="RegistrationFieldValidation()">Submit</button>
+
+                                <!-- <input type="reset" name="reset" id="reset" value="Reset">
+                                    <input type="submit" name="submit" id="submit" value="Submit"> -->
+                                <span class="goto-login-link">
+                                    <a href="login.php">Already Registered?</a>
+                                </span>
+                                <!-- Future implement for validation -->
+                                <!-- <button type="button" onclick="document.getElementById('lb-pass').style.visibility = 'visible'">
+                                        Click Me!</button> -->
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>

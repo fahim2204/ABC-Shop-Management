@@ -36,7 +36,7 @@ class database{
         $result = $connObj->query("INSERT INTO `user` (`name`, `username`, `pass`, `type`) 
                                 VALUES ('$name', '$userName', '$password', '$type')");
         if($result==TRUE){
-            return "Data Inserted Sucessfully.";
+            return "Registration Succesfull.";
         }else{
             return "Error: <br>" . $connObj->error;
         }

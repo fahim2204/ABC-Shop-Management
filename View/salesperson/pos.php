@@ -4,7 +4,7 @@ if (!isset($_SESSION)) {
 }
 
 if (empty($_SESSION["username"])) {
-    header("location:login.php");
+    header("location:/view/login.php");
 }
 if (!empty($_SESSION["usertype"])) {
     if ($_SESSION["usertype"] != "salesperson") {
@@ -12,10 +12,6 @@ if (!empty($_SESSION["usertype"])) {
     }
 }
 
-// if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['logout'])){
-//     session_destroy();
-//     header("location:login.php");
-// }
 ?>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/control/product-add-validator.php'); ?>
 
@@ -48,30 +44,12 @@ if (!empty($_SESSION["usertype"])) {
                 <div class="customer-n-sale-section">
                     <input type="text" id="cus-name" placeholder="Customer Name">
                     <input type="text" id="contact-no" placeholder="Contact No">
+                    <div>
                     <input type="date" id="pos-date">
+                    <button id="add-customer">Add</button>
+                    </div>
                 </div>
-                <div class="product-cart">
-                    <table class="product-table">
-                        <thead>
-                            <tr>
-                                <th>Product Name</th>
-                                <th>Quantity</th>
-                                <th>Price</th>
-                                <th>Total</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>' . $pName . '</td>
-                                <td>' . $pCat . '</td>
-                                <td>' . $pBrand . '</td>
-                                <td><button>-</button><span>1</span><button>+</button></td>
-                                <td><a class="delete" onclick="DeleteData(' . $pId . ')">Delete</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <div id="product-cart"></div>
 
             </div>
             <div id="product-section">
@@ -92,6 +70,7 @@ if (!empty($_SESSION["usertype"])) {
     <script>
         $(document).ready(function() {
             ReadRecords();
+            ViewCart();
         });
 
         function ReadRecords() {
@@ -134,12 +113,70 @@ if (!empty($_SESSION["usertype"])) {
                     uprice: uprice
                 },
                 success: function(data, status) {
-                    var jsdata = JSON.parse(data);
-                    alert("jsdata");
-                    //alert(jsdata[1].quantity)
+                   ViewCart();
                 }
             });
         }
+        function ViewCart() {
+            var data = "record";
+            $.ajax({
+                url: "/control/salesperson-page-data-connector.php",
+                type: 'POST',
+                data: {
+                    viewTempCart: data,
+                },
+                success: function(data, status) {
+                    $('#product-cart').html(data);
+                }
+            });
+        }
+        function CartMinus(pid,ammount) {
+    var record = "record";
+    if(ammount>1){
+        $.ajax({
+            url: "/control/salesperson-page-data-connector.php",
+            type: 'POST',
+            data: {
+                cartMinus: record,
+                pid:pid
+            },
+            success: function(data, status) {
+                ViewCart();
+            }
+        });
+    }
+}
+function CartPlus(pid,ammount) {
+    var record = "record";
+    if(ammount<10){
+    $.ajax({
+        url: "/control/salesperson-page-data-connector.php",
+        type: 'POST',
+        data: {
+            cartPlus: record,
+            pid:pid
+        },
+        success: function(data, status) {
+            ViewCart();
+        }
+    });
+}
+}
+function DeleteItem(pid) {
+    var record = "record";
+  
+    $.ajax({
+        url: "/control/salesperson-page-data-connector.php",
+        type: 'POST',
+        data: {
+            DeleteItem: record,
+            pid:pid
+        },
+        success: function(data, status) {
+            ViewCart();
+        }
+    });
+}
     </script>
 </body>
 

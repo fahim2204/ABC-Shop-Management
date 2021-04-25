@@ -4,7 +4,7 @@ if (!isset($_SESSION)) {
 }
 
 if (empty($_SESSION["username"])) {
-    header("location:login.php");
+    header("location:/view/login.php");
 }
 if (!empty($_SESSION["usertype"])) {
     if ($_SESSION["usertype"] != "customer") {
@@ -29,8 +29,6 @@ if (!empty($_SESSION["usertype"])) {
     <!-- same css is used for all type of user. -->
     <link rel="stylesheet" type="text/css" href="/css/customer-profile.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-
 </head>
 
 <body>

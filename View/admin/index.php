@@ -4,7 +4,7 @@ if (!isset($_SESSION)) {
 }
 
 if (empty($_SESSION["username"])) {
-    header("location:login.php");
+    header("location:/view/login.php");
 }
 if (!empty($_SESSION["usertype"])) {
     if ($_SESSION["usertype"] != "admin") {
