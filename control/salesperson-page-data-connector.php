@@ -178,18 +178,29 @@ if (isset($_POST['viewTempCart'])) {
 
     $data = file_get_contents('../data/temp-pos-cart.json');
     $mydata = json_decode($data);
-    foreach ($mydata as $myobject) {
-        $tabledata .= '<tbody>
-            <tr>
-                <td>' . $myobject->pname . '</td>
-                <td class="center"><button id="minus" onclick="CartMinus(`' . $myobject->pid . '`,' . $myobject->quantity . ')">-</button>' . $myobject->quantity . '<button id="plus" onclick="CartPlus(`' . $myobject->pid . '`,' . $myobject->quantity . ')">+</button></td>
-                <td >' . $myobject->uprice . '</td>
-                <td >' . $myobject->uprice * $myobject->quantity . '</td>
-                <td class="center"><button id="delete" onclick="DeleteItem(`' . $myobject->pid . '`)">X</button></td>
-            </tr>';
+    if ($mydata == "") {
+    } else {
+
+        foreach ($mydata as $myobject) {
+            if (empty($myobject->pid)) {
+                continue;
+            } else {
+                $tabledata .= '<tbody>
+                <tr>
+                    <td>' . $myobject->pname . '</td>
+                    <td class="center"><button id="minus" onclick="CartMinus(`' . $myobject->pid . '`,' . $myobject->quantity . ')">-</button>' . $myobject->quantity . '<button id="plus" onclick="CartPlus(`' . $myobject->pid . '`,' . $myobject->quantity . ')">+</button></td>
+                    <td >' . $myobject->uprice . '</td>
+                    <td >' . $myobject->uprice * $myobject->quantity . '</td>
+                    <td class="center"><button id="delete" onclick="DeleteItem(`' . $myobject->pid . '`)">X</button></td>
+                </tr>';
+            }
+        }
     }
     $tabledata .= '</tbody>
                     </table>';
+    if ($mydata == "") {
+        $tabledata = "";
+    }
     echo $tabledata;
 }
 
@@ -231,13 +242,15 @@ if (isset($_POST['DeleteItem'])) {
     $data = file_get_contents('../data/temp-pos-cart.json');
     $mydata = json_decode($data);
     foreach ($mydata as $myobject) {
-        foreach ($myobject as $key => $value) {
-            if ($myobject->pid == $pid) {
-                unset($mydata[$myobject]);
-                $jsonData = json_encode($mydata, JSON_PRETTY_PRINT);
-                file_put_contents('../data/temp-pos-cart.json', $jsonData);
-                break;
-            }
+        if ($myobject->pid == $pid) {
+            unset($myobject->pid);
+            unset($myobject->pname);
+            unset($myobject->quantity);
+            unset($myobject->uprice);
+            unset($myobject->Total);
+            $jsonData = json_encode($mydata, JSON_PRETTY_PRINT);
+            file_put_contents('../data/temp-pos-cart.json', $jsonData);
+            break;
         }
     }
 }
