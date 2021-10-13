@@ -3,6 +3,7 @@
   ABC-Shop-Management
   <br>
 </h1>
+
 ### Web Technology Course Project
 #### Website URL: https://abcshop.fahimfaisal.net
 ### Some GUI:-
@@ -12,4 +13,3 @@
 > **Fig:** ***Salesman POS**
 # ![Solid](https://github.com/fahim2204/ABC-Shop-Management/blob/main/Images/gui/ABC-Shop-Registration.png?raw=true)
 > **Fig:** ***Registration Page***
-
